@@ -81,7 +81,10 @@ VERIFIER_BUILT=""
 verifier() {
   # Build once per script so a phase run on its own never uses stale verifier code.
   if [[ -z "$VERIFIER_BUILT" ]]; then dc --profile tools build -q verifier >/dev/null; VERIFIER_BUILT=1; fi
-  dc --profile tools run --rm -T -e RUN_DIR="/evidence/$RUN_ID${RUN_SUBDIR:-}" -e TOPIC -e PARTITIONS -e SCALE -e SEED \
+  # Run as the calling user: on Linux, files a root container writes into the bind-mounted
+  # evidence directory would otherwise be unwritable for the phase scripts on the host.
+  dc --profile tools run --rm -T --user "$(id -u):$(id -g)" -e HOME=/tmp \
+    -e RUN_DIR="/evidence/$RUN_ID${RUN_SUBDIR:-}" -e TOPIC -e PARTITIONS -e SCALE -e SEED \
     -e LATE_MAX_HOURS -e ACK_CONSUMER_IMPACT -e RETENTION_AFTER_PRUNE_MS verifier "$@"
 }
 
