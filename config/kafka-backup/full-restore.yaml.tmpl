@@ -1,0 +1,39 @@
+# Full restore of the whole backup into a new topic, with consumer group offsets carried
+# across through the x-original-offset headers (Phase 3).
+mode: restore
+backup_id: "${BACKUP_ID}"
+
+target:
+  bootstrap_servers:
+    - target-kafka:29092
+  topics:
+    include:
+      - "${TOPIC}"
+
+storage:
+  backend: s3
+  bucket: "${BACKUP_BUCKET}"
+  region: us-east-1
+  endpoint: "http://minio:9000"
+  path_style: true
+  allow_http: true
+  prefix: "${S3_PREFIX}"
+
+restore:
+  topic_mapping:
+    "${TOPIC}": "${TARGET_TOPIC}"
+  create_topics: true
+  default_replication_factor: 1
+  restore_topic_configs: true
+  existing_topic_config_policy: fail
+  topic_config_overrides:
+    "${TARGET_TOPIC}":
+      retention.ms: "-1"
+      retention.bytes: "-1"
+  consumer_group_strategy: header-based
+  # Reads consumer-groups-snapshot.json from the backup and resets those groups on the
+  # target after the data is restored. The header preflight is a second full read.
+  auto_consumer_groups: true
+  produce_batch_size: 250
+  produce_acks: -1
+  max_concurrent_partitions: 6

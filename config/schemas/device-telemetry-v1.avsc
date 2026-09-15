@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "DeviceTelemetry",
+  "namespace": "demo.telemetry",
+  "doc": "Synthetic energy device telemetry for the offload demo. The shape follows device telemetry; every value is generated.",
+  "fields": [
+    {"name": "deviceId", "type": "string"},
+    {"name": "siteId", "type": "string"},
+    {"name": "eventTime", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "seq", "type": "long"},
+    {"name": "activePowerW", "type": "double"},
+    {"name": "reactivePowerVar", "type": "double"},
+    {"name": "voltageV", "type": "double"},
+    {"name": "frequencyHz", "type": "double"},
+    {"name": "stateOfChargePct", "type": ["null", "double"], "default": null},
+    {"name": "exportLimitW", "type": ["null", "double"], "default": null},
+    {"name": "status", "type": {"type": "enum", "name": "DeviceStatus", "symbols": ["ONLINE", "CURTAILED", "FAULT", "OFFLINE"]}},
+    {"name": "firmwareVersion", "type": "string"},
+    {"name": "rawPayload", "type": "bytes", "doc": "Opaque source frame, standing in for the original device payload"}
+  ]
+}

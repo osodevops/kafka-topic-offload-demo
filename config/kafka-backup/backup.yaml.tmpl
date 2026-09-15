@@ -1,0 +1,42 @@
+# Snapshot backup of one topic: reads from the log start to the high watermark seen at
+# start-up, then exits. Credentials come from AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY.
+mode: backup
+backup_id: "${BACKUP_ID}"
+
+source:
+  bootstrap_servers:
+    - source-kafka:29092
+  topics:
+    include:
+      - "${TOPIC}"
+
+storage:
+  backend: s3
+  bucket: "${BACKUP_BUCKET}"
+  region: us-east-1
+  endpoint: "http://minio:9000"
+  path_style: true
+  allow_http: true
+  prefix: "${S3_PREFIX}"
+
+backup:
+  compression: zstd
+  compression_level: 3
+  segment_max_bytes: ${SEGMENT_MAX_BYTES}
+  # The interval roll is wall clock time (default 60s). A snapshot of historical data
+  # should roll on size only, so object count and cost follow segment_max_bytes.
+  segment_max_interval_ms: 86400000
+  stop_at_current_offsets: true
+  on_missing_topic: fail
+  include_offset_headers: true
+  source_cluster_id: "local-cp-server"
+  consumer_group_snapshot: true
+  capture_topic_configs: true
+  # Fail rather than write a backup that cannot restore the topic's configuration.
+  require_topic_configs: true
+  max_concurrent_partitions: 8
+${BACKUP_EXTRA}
+
+offset_storage:
+  backend: sqlite
+  db_path: "/tmp/${BACKUP_ID}-offsets.db"

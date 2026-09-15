@@ -1,0 +1,8 @@
+.env
+evidence/*
+!evidence/.gitkeep
+!evidence/reference-*/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store

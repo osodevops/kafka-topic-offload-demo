@@ -1,0 +1,40 @@
+name: smoke
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      SCALE: smoke
+      # amd64 runner: the published image is native here.
+      KAFKA_BACKUP_IMAGE: osodevops/kafka-backup:v0.22.0
+      # 4 vCPU and 16 GB: smaller broker heaps than the 4 GB default.
+      KAFKA_HEAP_OPTS: "-Xms1g -Xmx2g"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Free runner disk
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          df -h /
+
+      - name: All phases at smoke scale
+        run: make all
+
+      - name: Negative tests
+        run: make negative-tests
+
+      - name: Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidence-smoke
+          path: evidence/
+          include-hidden-files: true
+          retention-days: 30

@@ -1,0 +1,214 @@
+name: offload
+
+# Source: Confluent Server (stands in for Confluent Cloud prod).
+# Target: community cp-kafka, a different distribution, so the restore proves
+# the backup is not tied to the cluster or vendor it came from.
+
+x-kafka-common: &kafka-common
+  KAFKA_PROCESS_ROLES: broker,controller
+  KAFKA_NODE_ID: 1
+  KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+  KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+  KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+  KAFKA_LOG_DIRS: /var/lib/kafka/data
+  KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+  KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+  KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+  KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+  KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+  KAFKA_NUM_NETWORK_THREADS: 8
+  KAFKA_NUM_IO_THREADS: 16
+  KAFKA_HEAP_OPTS: ${KAFKA_HEAP_OPTS:--Xms4g -Xmx4g}
+
+x-tcp-healthcheck: &tcp-healthcheck
+  interval: 5s
+  timeout: 5s
+  retries: 60
+
+services:
+  source-kafka:
+    image: ${CP_SERVER_IMAGE}
+    hostname: source-kafka
+    environment:
+      <<: *kafka-common
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@source-kafka:29093
+      KAFKA_LISTENERS: PLAINTEXT://source-kafka:29092,CONTROLLER://source-kafka:29093,PLAINTEXT_HOST://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://source-kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_CONFLUENT_BALANCER_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_CONFLUENT_BALANCER_ENABLE: "false"
+      KAFKA_CONFLUENT_CLUSTER_LINK_ENABLE: "false"
+      KAFKA_CONFLUENT_TELEMETRY_ENABLED: "false"
+      KAFKA_CONFLUENT_REPORTERS_TELEMETRY_AUTO_ENABLE: "false"
+      CONFLUENT_METRICS_ENABLE: "false"
+      CONFLUENT_SUPPORT_CUSTOMER_ID: anonymous
+      # Demo tuning so retention acts within seconds rather than minutes.
+      KAFKA_LOG_RETENTION_CHECK_INTERVAL_MS: 30000
+      KAFKA_LOG_SEGMENT_DELETE_DELAY_MS: 1000
+    ports: ["9092:9092"]
+    volumes: [source-kafka-data:/var/lib/kafka/data]
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-broker-api-versions --bootstrap-server source-kafka:29092 >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 30s
+      retries: 30
+
+  source-schema-registry:
+    image: ${CP_SCHEMA_REGISTRY_IMAGE}
+    hostname: source-schema-registry
+    depends_on:
+      source-kafka: { condition: service_healthy }
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: source-schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://source-kafka:29092
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+    ports: ["8081:8081"]
+    healthcheck:
+      <<: *tcp-healthcheck
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8081'"]
+
+  target-kafka:
+    image: ${CP_KAFKA_IMAGE}
+    hostname: target-kafka
+    environment:
+      <<: *kafka-common
+      CLUSTER_ID: VGFyZ2V0Q2x1c3RlcjAwMQ
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@target-kafka:29093
+      KAFKA_LISTENERS: PLAINTEXT://target-kafka:29092,CONTROLLER://target-kafka:29093,PLAINTEXT_HOST://0.0.0.0:9094
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://target-kafka:29092,PLAINTEXT_HOST://localhost:9094
+      # Restored data must never age out on the target, whatever the backup captured.
+      KAFKA_LOG_RETENTION_MS: -1
+    ports: ["9094:9094"]
+    volumes: [target-kafka-data:/var/lib/kafka/data]
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-broker-api-versions --bootstrap-server target-kafka:29092 >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 30s
+      retries: 30
+
+  target-schema-registry:
+    image: ${CP_SCHEMA_REGISTRY_IMAGE}
+    hostname: target-schema-registry
+    depends_on:
+      target-kafka: { condition: service_healthy }
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: target-schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://target-kafka:29092
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+      SCHEMA_REGISTRY_SCHEMA_REGISTRY_GROUP_ID: target-schema-registry
+      # Required to switch the registry into IMPORT mode and preserve schema IDs.
+      SCHEMA_REGISTRY_MODE_MUTABILITY: "true"
+    ports: ["8082:8081"]
+    healthcheck:
+      <<: *tcp-healthcheck
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8081'"]
+
+  minio:
+    image: ${MINIO_IMAGE}
+    hostname: minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+      MINIO_PROMETHEUS_AUTH_TYPE: public
+    ports: ["9000:9000", "9001:9001"]
+    volumes: [minio-data:/data]
+
+  minio-setup:
+    image: ${MC_IMAGE}
+    depends_on: [minio]
+    restart: "no"
+    environment:
+      MC_HOST_local: http://${MINIO_ROOT_USER}:${MINIO_ROOT_PASSWORD}@minio:9000
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        until mc ready local >/dev/null 2>&1; do sleep 1; done
+        mc mb --ignore-existing local/${S3_BUCKET}
+        mc mb --ignore-existing --with-lock local/${S3_SEALED_BUCKET}
+        echo "buckets ready"
+
+  azurite:
+    image: ${AZURITE_IMAGE}
+    profiles: [azurite]
+    hostname: azurite
+    command: azurite-blob --blobHost 0.0.0.0 --blobPort 10000 --location /data --loose --skipApiVersionCheck
+    ports: ["10000:10000"]
+    volumes: [azurite-data:/data]
+
+  # ---- run-once tools (docker compose --profile tools run --rm <service> ...) ----
+
+  kafka-backup:
+    image: ${KAFKA_BACKUP_IMAGE}
+    profiles: [tools]
+    mem_limit: 8g
+    environment:
+      AWS_ACCESS_KEY_ID: ${MINIO_ROOT_USER}
+      AWS_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD}
+      AWS_REGION: us-east-1
+      AZURITE_BLOB_STORAGE_URL: http://azurite:10000
+    volumes:
+      - ../evidence:/evidence
+
+  tools:
+    image: ${CP_KAFKA_IMAGE}
+    profiles: [tools]
+    entrypoint: ["bash", "-c"]
+    volumes:
+      - ../evidence:/evidence
+
+  mc:
+    image: ${MC_IMAGE}
+    profiles: [tools]
+    environment:
+      MC_HOST_local: http://${MINIO_ROOT_USER}:${MINIO_ROOT_PASSWORD}@minio:9000
+    entrypoint: ["/bin/sh", "-c"]
+    volumes:
+      - ../evidence:/evidence
+
+  verifier:
+    build: ../tools/verifier
+    image: offload-verifier:local
+    profiles: [tools]
+    environment:
+      SOURCE_BOOTSTRAP: source-kafka:29092
+      TARGET_BOOTSTRAP: target-kafka:29092
+      SOURCE_SR: http://source-schema-registry:8081
+      TARGET_SR: http://target-schema-registry:8081
+      NEGATIVE_SR: http://negative-schema-registry:8081
+      S3_ENDPOINT: http://minio:9000
+      S3_BUCKET: ${S3_BUCKET}
+      S3_SEALED_BUCKET: ${S3_SEALED_BUCKET}
+      AWS_ACCESS_KEY_ID: ${MINIO_ROOT_USER}
+      AWS_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD}
+      AWS_REGION: us-east-1
+    volumes:
+      - ../evidence:/evidence
+      - ../config:/config:ro
+      # Read-only view of the source broker's log directory, for the segment inventory.
+      # Only possible locally; see docs/runbook-confluent-cloud.md for the Cloud equivalent.
+      - source-kafka-data:/kafka-data/source:ro
+
+  negative-schema-registry:
+    image: ${CP_SCHEMA_REGISTRY_IMAGE}
+    profiles: [negative]
+    hostname: negative-schema-registry
+    depends_on:
+      target-kafka: { condition: service_healthy }
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: negative-schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://target-kafka:29092
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+      SCHEMA_REGISTRY_KAFKASTORE_TOPIC: _schemas_neg
+      SCHEMA_REGISTRY_SCHEMA_REGISTRY_GROUP_ID: negative-schema-registry
+    ports: ["8083:8081"]
+    healthcheck:
+      <<: *tcp-healthcheck
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8081'"]
+
+volumes:
+  source-kafka-data:
+  target-kafka-data:
+  minio-data:
+  azurite-data:
