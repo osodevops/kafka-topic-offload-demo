@@ -1,0 +1,11 @@
+{
+  "backup_id": "device-telemetry",
+  "bucket": "kafka-backups",
+  "compressed_bytes": 43265711390,
+  "compression_ratio": 2.58,
+  "mb_per_s_uncompressed": 1535.5,
+  "records": 53687091,
+  "seconds": 72.695,
+  "segments": 834,
+  "uncompressed_bytes": 111619776038
+}

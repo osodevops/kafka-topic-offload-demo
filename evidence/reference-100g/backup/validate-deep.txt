@@ -1,0 +1,22 @@
+ Container offload-kafka-backup-run-9103eda630f2 Creating 
+ Container offload-kafka-backup-run-9103eda630f2 Created 
+[2m2026-09-15T16:50:34.166109Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups, prefix: Some("backups")
+[2m2026-09-15T16:50:34.166142Z[0m [32m INFO[0m [2mkafka_backup::commands::validate[0m[2m:[0m Validating backup: device-telemetry (deep=true)
+Validating backup: device-telemetry
+Created: 2026-09-15 16:47:29.215 UTC
+
+Checking topic: device-telemetry
+  6 partitions, 834 segments checked
+
+=== Validation Report ===
+
+Segments Checked:   834
+Segments Valid:     834
+Segments Missing:   0
+Segments Corrupted: 0
+Records Validated:  53687091
+Data Gaps:          0
+Pruned Ranges:      0
+Missing Topics:     0
+
+Result: VALID

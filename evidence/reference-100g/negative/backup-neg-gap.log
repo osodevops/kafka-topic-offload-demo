@@ -1,0 +1,68 @@
+ Container offload-kafka-backup-run-e6862dc20442 Creating 
+ Container offload-kafka-backup-run-e6862dc20442 Created 
+[2m2026-09-15T17:55:04.561847Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Loading configuration from: /evidence/100g-20260915T164407Z/negative/configs/backup-neg-gap.yaml
+[2m2026-09-15T17:55:04.563525Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Starting backup: neg-gap
+[2m2026-09-15T17:55:04.563687Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
+[2m2026-09-15T17:55:04.566227Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 65 partition leaders
+[2m2026-09-15T17:55:04.590304Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups, prefix: Some("negative")
+[2m2026-09-15T17:55:04.590360Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
+[2m2026-09-15T17:55:04.590412Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
+[2m2026-09-15T17:55:04.594568Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Connected to Kafka cluster via partition leader router
+[2m2026-09-15T17:55:04.601604Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Synced offset database to storage: neg-gap/offsets.db
+[2m2026-09-15T17:55:04.601622Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Backup engine starting with max_concurrent_partitions=8, poll_interval_ms=100
+[2m2026-09-15T17:55:04.601626Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m include_offset_headers=true (default): every archived record gets x-original-offset and x-original-timestamp and x-source-cluster=local-cp-server headers for header-based consumer offset recovery; set backup.include_offset_headers: false for a header-for-header identical archive, or restore.strip_offset_headers: true to drop them at restore time
+[2m2026-09-15T17:55:04.602306Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Backing up 1 topics
+[2m2026-09-15T17:55:04.604329Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Snapshot mode: capturing offsets for 1 topics
+[2m2026-09-15T17:55:04.607526Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m snapshot_capture_complete: 6 partitions in 3ms (60000 records to back up this run, 21372 in the captured offset range, 0 partitions resuming from a checkpoint)
+[2m2026-09-15T17:55:04.610901Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Spawned 6 backup tasks (max 8 concurrent)
+[2m2026-09-15T17:55:04.612382Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:2: offset 0 out of range (likely deleted by retention), refetching earliest and resuming
+[2m2026-09-15T17:55:04.612409Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:0: offset 0 out of range (likely deleted by retention), refetching earliest and resuming
+[2m2026-09-15T17:55:04.612396Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:3: offset 0 out of range (likely deleted by retention), refetching earliest and resuming
+[2m2026-09-15T17:55:04.612448Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:1: offset 0 out of range (likely deleted by retention), refetching earliest and resuming
+[2m2026-09-15T17:55:04.613743Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:5: offset 0 out of range (likely deleted by retention), refetching earliest and resuming
+[2m2026-09-15T17:55:04.613783Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:4: offset 0 out of range (likely deleted by retention), refetching earliest and resuming
+[2m2026-09-15T17:55:04.614660Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:1: recording data gap [0, 6438) — 6438 offsets permanently missing from backup neg-gap (deleted from the source before they could be fetched)
+[2m2026-09-15T17:55:04.614827Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:0: recording data gap [0, 6438) — 6438 offsets permanently missing from backup neg-gap (deleted from the source before they could be fetched)
+[2m2026-09-15T17:55:04.614862Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:3: recording data gap [0, 6438) — 6438 offsets permanently missing from backup neg-gap (deleted from the source before they could be fetched)
+[2m2026-09-15T17:55:04.615370Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:4: recording data gap [0, 6438) — 6438 offsets permanently missing from backup neg-gap (deleted from the source before they could be fetched)
+[2m2026-09-15T17:55:04.615719Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:2: recording data gap [0, 6440) — 6440 offsets permanently missing from backup neg-gap (deleted from the source before they could be fetched)
+[2m2026-09-15T17:55:04.616333Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m neg-gap:5: recording data gap [0, 6436) — 6436 offsets permanently missing from backup neg-gap (deleted from the source before they could be fetched)
+[2m2026-09-15T17:55:04.652841Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=1/segment-00000000000000006438.bin.zst with 2016 records (4195825 -> 1620460 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.657295Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=0/segment-00000000000000006438.bin.zst with 2016 records (4195355 -> 1620250 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.663904Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=3/segment-00000000000000006438.bin.zst with 2016 records (4195425 -> 1620083 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.664161Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=4/segment-00000000000000006438.bin.zst with 2016 records (4195928 -> 1620643 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.664367Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=2/segment-00000000000000006440.bin.zst with 2016 records (4195689 -> 1620426 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.666646Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=5/segment-00000000000000006436.bin.zst with 2016 records (4195514 -> 1620247 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.673958Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=0/segment-00000000000000008454.bin.zst with 1546 records (3222805 -> 1244399 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.673978Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-gap:0 - 2 segments (reached target offset 10000)
+[2m2026-09-15T17:55:04.678218Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=1/segment-00000000000000008454.bin.zst with 1546 records (3222800 -> 1244687 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.678236Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-gap:1 - 2 segments (reached target offset 10000)
+[2m2026-09-15T17:55:04.681467Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=3/segment-00000000000000008454.bin.zst with 1546 records (3222475 -> 1244310 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.681488Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=5/segment-00000000000000008452.bin.zst with 1548 records (3226557 -> 1245847 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.681467Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=4/segment-00000000000000008454.bin.zst with 1546 records (3222571 -> 1244100 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.681518Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-gap:5 - 2 segments (reached target offset 10000)
+[2m2026-09-15T17:55:04.681552Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-gap:4 - 2 segments (reached target offset 10000)
+[2m2026-09-15T17:55:04.681490Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-gap:3 - 2 segments (reached target offset 10000)
+[2m2026-09-15T17:55:04.681589Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-gap/topics/neg-gap/partition=2/segment-00000000000000008456.bin.zst with 1544 records (3218352 -> 1242640 bytes, 2.6x compression)
+[2m2026-09-15T17:55:04.681668Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-gap:2 - 2 segments (reached target offset 10000)
+[2m2026-09-15T17:55:04.686887Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Synced offset database to storage: neg-gap/offsets.db
+[2m2026-09-15T17:55:04.694161Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Consumer groups snapshot saved (0 groups) to neg-gap/consumer-groups-snapshot.json
+[2m2026-09-15T17:55:04.698909Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Synced offset database to storage: neg-gap/offsets.db
+[2m2026-09-15T17:55:04.701980Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m === Performance Metrics ===
+Duration: 0.11s
+Records processed: 21372
+Records/sec: 191444
+Bytes written: 16 MB
+Throughput: 146.83 MB/s
+Compression ratio: 2.59x
+Segments written: 12
+Errors: 0
+
+Checkpoint latency (ms):
+  avg=4.64 p50=4.64 p95=4.64 p99=4.64 max=4.64
+Segment write latency (ms):
+  avg=20.14 p50=20.75 p95=26.83 p99=26.83 max=26.83
+
+[2m2026-09-15T17:55:04.701995Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Snapshot backup completed successfully - all partitions reached their target offsets
+[2m2026-09-15T17:55:04.702048Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
+[2m2026-09-15T17:55:04.702112Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Backup completed successfully

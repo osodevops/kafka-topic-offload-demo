@@ -1,0 +1,262 @@
+
+==> 95-negative-tests  (run 100g-20260915T164407Z, scale 100g)
+
+==> 1. Gap: retention removed data before the first backup
+ Image offload-verifier:local Building 
+ Image offload-verifier:local Built 
+ Container offload-verifier-run-c22f497f8937 Creating 
+ Container offload-verifier-run-c22f497f8937 Created 
+[17:54:44] murmur2 self test: {'21': {'expected': -973932308, 'actual': -973932308, 'ok': True}, 'foobar': {'expected': -790332482, 'actual': -790332482, 'ok': True}, 'abc': {'expected': 479470107, 'actual': 479470107, 'ok': True}}
+[17:54:44] schema ids: decoys {'demo-decoy-meter-read-value': 1, 'demo-decoy-tariff-value': 2}, neg-gap-value {'v1': 3, 'v2': 4}
+[17:54:44] created neg-gap: 6 partitions, {'cleanup.policy': 'delete', 'retention.ms': '-1', 'retention.bytes': '-1', 'segment.bytes': '1048576', 'segment.ms': '315360000000', 'message.timestamp.type': 'CreateTime', 'message.timestamp.before.max.ms': '9223372036854775807'}
+[17:54:44] seeding 60,000 records into neg-gap across 6 partitions, segment.bytes=1,048,576
+[17:54:44] seed p2: 1,000/10,000 records (95,008 rec/s)
+[17:54:44] seed p0: 1,000/10,000 records (91,466 rec/s)
+[17:54:44] seed p5: 1,000/10,000 records (92,501 rec/s)
+[17:54:44] seed p1: 1,000/10,000 records (87,105 rec/s)
+[17:54:44] seed p4: 1,000/10,000 records (92,131 rec/s)
+[17:54:44] seed p3: 1,000/10,000 records (80,238 rec/s)
+[17:54:44] seed p2: 2,000/10,000 records (97,013 rec/s)
+[17:54:44] seed p0: 2,000/10,000 records (95,189 rec/s)
+[17:54:44] seed p5: 2,000/10,000 records (95,631 rec/s)
+[17:54:44] seed p1: 2,000/10,000 records (92,243 rec/s)
+[17:54:44] seed p4: 2,000/10,000 records (95,805 rec/s)
+[17:54:44] seed p3: 2,000/10,000 records (87,847 rec/s)
+[17:54:44] seed p2: 3,000/10,000 records (96,911 rec/s)
+[17:54:44] seed p0: 3,000/10,000 records (95,727 rec/s)
+[17:54:44] seed p5: 3,000/10,000 records (95,107 rec/s)
+[17:54:44] seed p1: 3,000/10,000 records (94,404 rec/s)
+[17:54:44] seed p4: 3,000/10,000 records (96,562 rec/s)
+[17:54:44] seed p3: 3,000/10,000 records (89,638 rec/s)
+[17:54:44] seed p2: 4,000/10,000 records (97,379 rec/s)
+[17:54:44] seed p0: 4,000/10,000 records (95,951 rec/s)
+[17:54:44] seed p5: 4,000/10,000 records (96,603 rec/s)
+[17:54:44] seed p1: 4,000/10,000 records (94,103 rec/s)
+[17:54:44] seed p4: 4,000/10,000 records (96,355 rec/s)
+[17:54:44] seed p3: 4,000/10,000 records (91,658 rec/s)
+[17:54:44] seed p0: 5,000/10,000 records (96,388 rec/s)
+[17:54:44] seed p2: 5,000/10,000 records (95,507 rec/s)
+[17:54:44] seed p5: 5,000/10,000 records (95,997 rec/s)
+[17:54:44] seed p1: 5,000/10,000 records (94,647 rec/s)
+[17:54:44] seed p4: 5,000/10,000 records (97,249 rec/s)
+[17:54:44] seed p3: 5,000/10,000 records (92,260 rec/s)
+[17:54:44] seed p0: 6,000/10,000 records (96,480 rec/s)
+[17:54:44] seed p2: 6,000/10,000 records (96,285 rec/s)
+[17:54:44] seed p5: 6,000/10,000 records (96,617 rec/s)
+[17:54:44] seed p1: 6,000/10,000 records (95,013 rec/s)
+[17:54:44] seed p4: 6,000/10,000 records (98,353 rec/s)
+[17:54:44] seed p3: 6,000/10,000 records (93,518 rec/s)
+[17:54:44] seed p0: 7,000/10,000 records (96,143 rec/s)
+[17:54:44] seed p2: 7,000/10,000 records (96,124 rec/s)
+[17:54:44] seed p5: 7,000/10,000 records (96,713 rec/s)
+[17:54:44] seed p4: 7,000/10,000 records (98,620 rec/s)
+[17:54:44] seed p1: 7,000/10,000 records (94,427 rec/s)
+[17:54:44] seed p3: 7,000/10,000 records (94,202 rec/s)
+[17:54:44] seed p0: 8,000/10,000 records (95,870 rec/s)
+[17:54:44] seed p5: 8,000/10,000 records (96,152 rec/s)
+[17:54:44] seed p2: 8,000/10,000 records (95,159 rec/s)
+[17:54:44] seed p1: 8,000/10,000 records (94,434 rec/s)
+[17:54:44] seed p4: 8,000/10,000 records (96,653 rec/s)
+[17:54:44] seed p3: 8,000/10,000 records (94,267 rec/s)
+[17:54:44] seed p0: 9,000/10,000 records (95,352 rec/s)
+[17:54:44] seed p2: 9,000/10,000 records (95,379 rec/s)
+[17:54:44] seed p5: 9,000/10,000 records (95,612 rec/s)
+[17:54:44] seed p1: 9,000/10,000 records (94,001 rec/s)
+[17:54:44] seed p4: 9,000/10,000 records (96,085 rec/s)
+[17:54:44] seed p3: 9,000/10,000 records (93,092 rec/s)
+[17:54:44] seed p0: 10,000/10,000 records (95,536 rec/s)
+[17:54:44] seed p5: 10,000/10,000 records (95,656 rec/s)
+[17:54:44] seed p2: 10,000/10,000 records (95,110 rec/s)
+[17:54:44] seed p1: 10,000/10,000 records (93,918 rec/s)
+[17:54:44] seed p4: 10,000/10,000 records (95,647 rec/s)
+[17:54:44] seed p3: 10,000/10,000 records (93,335 rec/s)
+[17:54:45] seeded 0.12 GB of values in 1s (103.1 MB/s)
+GATE seed.murmur2_matches_java_partitioner: PASS - {"21": {"expected": -973932308, "actual": -973932308, "ok": true}, "foobar": {"expected": -790332482, "actual": -790332482, "ok": true}, "abc": {"expected": 479470107, "actual": 479470107, "ok": true}}
+GATE seed.watermarks: PASS - 60,000 records, low 0 and high == produced on every partition
+GATE seed.no_future_timestamps: PASS - max ts 1789487222400 <= SEED_END_TS 1789488000000
+ Container offload-verifier-run-f45b8fc50b22 Creating 
+ Container offload-verifier-run-f45b8fc50b22 Created 
+[17:54:48] baseline p4: 10,000 records in 2s
+[17:54:48] baseline p1: 10,000 records in 2s
+[17:54:48] baseline p3: 10,000 records in 2s
+[17:54:48] baseline p5: 10,000 records in 2s
+[17:54:48] baseline p2: 10,000 records in 2s
+[17:54:48] baseline p0: 10,000 records in 2s
+[17:54:48] baseline complete in 2s, schema ids [3, 4]
+GATE baseline.stable_watermarks: PASS - no writes or deletions while the baseline was read
+GATE baseline.count_equals_offsets: PASS - 60,000 records read
+GATE baseline.contiguous_offsets: PASS
+GATE baseline.create_time_and_wire_format: PASS
+GATE baseline.segment_max_ts_matches_timeindex: PASS - 132 segments; broker time index agrees with record scan
+GATE baseline.segment_counts: PASS
+GATE baseline.only_late_cohort_goes_backwards: PASS - 0 late records, every other timestamp non-decreasing
+GATE baseline.nothing_after_seed_end: PASS
+Completed updating config for topic neg-gap.
+GATE negative.gap.kafka_backup_validate_exits_zero_with_gaps: PASS - exit 0: Result: VALID (with 6 recorded data gaps — backup is intact but incomplete)
+    | GATE backup.validate_result_exactly_valid: FAIL - Result: VALID (with 6 recorded data gaps — backup is intact but incomplete)
+GATE negative.gap: PASS - GATE backup.validate_result_exactly_valid failed as designed
+    | GATE backup.manifest_covers_log_start_to_high_watermark: FAIL - 21,372 records in 12 segments
+    | GATE backup.manifest_no_gaps_or_pruned: FAIL
+    | GATE backup.topic_config_captured: FAIL - retention.ms=2592000000 partitions=6
+    | GATE backup.object_sha256_matches_manifest: PASS - 12 objects, 0.02 GB hashed
+    | GATE backup.segments_decode_independently: PASS - CRC, header, record count and offsets agree for every segment
+    | GATE backup.offset_headers_little_endian: PASS - x-original-offset and x-original-timestamp decode as i64 LE and equal the record
+    | GATE backup.content_matches_source_baseline: FAIL - 198 partition-day buckets: count, min/max ts and SHA-256 identical; mismatches [{'partition': 1, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}, {'partition': 0, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}, {'partition': 3, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}, {'partition': 4, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}, {'partition': 2, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}, {'partition': 5, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}]
+    | FINDING manifest segment timestamps are first/last record, not min/max: 0 of 12 segments; 0 records lie outside their segment's bounds
+    | GATE backup.consumer_group_snapshot_matches_committed: PASS - groups []
+GATE negative.gap: PASS - GATE backup.manifest_covers_log_start_to_high_watermark failed as designed
+
+==> 2. Corruption: one byte flipped in one stored segment
+ Container offload-verifier-run-7f1a426ac852 Creating 
+ Container offload-verifier-run-7f1a426ac852 Created 
+[17:55:08] murmur2 self test: {'21': {'expected': -973932308, 'actual': -973932308, 'ok': True}, 'foobar': {'expected': -790332482, 'actual': -790332482, 'ok': True}, 'abc': {'expected': 479470107, 'actual': 479470107, 'ok': True}}
+[17:55:08] schema ids: decoys {'demo-decoy-meter-read-value': 1, 'demo-decoy-tariff-value': 2}, neg-corrupt-value {'v1': 3, 'v2': 4}
+[17:55:08] created neg-corrupt: 6 partitions, {'cleanup.policy': 'delete', 'retention.ms': '-1', 'retention.bytes': '-1', 'segment.bytes': '1048576', 'segment.ms': '315360000000', 'message.timestamp.type': 'CreateTime', 'message.timestamp.before.max.ms': '9223372036854775807'}
+[17:55:08] seeding 30,000 records into neg-corrupt across 6 partitions, segment.bytes=1,048,576
+[17:55:08] seed p2: 500/5,000 records (100,201 rec/s)
+[17:55:08] seed p0: 500/5,000 records (94,575 rec/s)
+[17:55:08] seed p1: 500/5,000 records (91,246 rec/s)
+[17:55:08] seed p5: 500/5,000 records (95,808 rec/s)
+[17:55:08] seed p4: 500/5,000 records (93,914 rec/s)
+[17:55:08] seed p3: 500/5,000 records (88,145 rec/s)
+[17:55:08] seed p2: 1,000/5,000 records (106,622 rec/s)
+[17:55:08] seed p0: 1,000/5,000 records (101,083 rec/s)
+[17:55:08] seed p1: 1,000/5,000 records (99,071 rec/s)
+[17:55:08] seed p5: 1,000/5,000 records (101,664 rec/s)
+[17:55:08] seed p4: 1,000/5,000 records (100,125 rec/s)
+[17:55:08] seed p3: 1,000/5,000 records (94,550 rec/s)
+[17:55:08] seed p2: 1,500/5,000 records (106,805 rec/s)
+[17:55:08] seed p1: 1,500/5,000 records (102,223 rec/s)
+[17:55:08] seed p0: 1,500/5,000 records (101,936 rec/s)
+[17:55:08] seed p5: 1,500/5,000 records (102,472 rec/s)
+[17:55:08] seed p4: 1,500/5,000 records (100,951 rec/s)
+[17:55:08] seed p3: 1,500/5,000 records (96,307 rec/s)
+[17:55:08] seed p2: 2,000/5,000 records (106,687 rec/s)
+[17:55:08] seed p0: 2,000/5,000 records (103,230 rec/s)
+[17:55:08] seed p1: 2,000/5,000 records (102,372 rec/s)
+[17:55:08] seed p5: 2,000/5,000 records (103,016 rec/s)
+[17:55:08] seed p4: 2,000/5,000 records (102,170 rec/s)
+[17:55:08] seed p3: 2,000/5,000 records (97,904 rec/s)
+[17:55:08] seed p2: 2,500/5,000 records (106,699 rec/s)
+[17:55:08] seed p0: 2,500/5,000 records (104,168 rec/s)
+[17:55:08] seed p1: 2,500/5,000 records (103,510 rec/s)
+[17:55:08] seed p5: 2,500/5,000 records (103,377 rec/s)
+[17:55:08] seed p4: 2,500/5,000 records (102,376 rec/s)
+[17:55:08] seed p3: 2,500/5,000 records (98,404 rec/s)
+[17:55:08] seed p2: 3,000/5,000 records (106,555 rec/s)
+[17:55:08] seed p0: 3,000/5,000 records (104,805 rec/s)
+[17:55:08] seed p1: 3,000/5,000 records (104,205 rec/s)
+[17:55:08] seed p5: 3,000/5,000 records (103,990 rec/s)
+[17:55:08] seed p4: 3,000/5,000 records (103,046 rec/s)
+[17:55:08] seed p3: 3,000/5,000 records (99,382 rec/s)
+[17:55:08] seed p2: 3,500/5,000 records (106,776 rec/s)
+[17:55:08] seed p0: 3,500/5,000 records (105,345 rec/s)
+[17:55:08] seed p1: 3,500/5,000 records (104,796 rec/s)
+[17:55:08] seed p5: 3,500/5,000 records (104,232 rec/s)
+[17:55:08] seed p4: 3,500/5,000 records (103,643 rec/s)
+[17:55:08] seed p3: 3,500/5,000 records (100,152 rec/s)
+[17:55:08] seed p2: 4,000/5,000 records (106,149 rec/s)
+[17:55:08] seed p0: 4,000/5,000 records (104,969 rec/s)
+[17:55:08] seed p1: 4,000/5,000 records (103,577 rec/s)
+[17:55:08] seed p5: 4,000/5,000 records (103,597 rec/s)
+[17:55:08] seed p4: 4,000/5,000 records (103,344 rec/s)
+[17:55:08] seed p3: 4,000/5,000 records (100,026 rec/s)
+[17:55:08] seed p2: 4,500/5,000 records (105,498 rec/s)
+[17:55:08] seed p0: 4,500/5,000 records (104,543 rec/s)
+[17:55:08] seed p1: 4,500/5,000 records (103,229 rec/s)
+[17:55:08] seed p5: 4,500/5,000 records (102,796 rec/s)
+[17:55:08] seed p4: 4,500/5,000 records (102,741 rec/s)
+[17:55:08] seed p3: 4,500/5,000 records (98,788 rec/s)
+[17:55:08] seed p2: 5,000/5,000 records (105,423 rec/s)
+[17:55:08] seed p0: 5,000/5,000 records (103,899 rec/s)
+[17:55:08] seed p1: 5,000/5,000 records (102,716 rec/s)
+[17:55:08] seed p5: 5,000/5,000 records (102,396 rec/s)
+[17:55:08] seed p4: 5,000/5,000 records (102,293 rec/s)
+[17:55:08] seed p3: 5,000/5,000 records (98,121 rec/s)
+GATE seed.murmur2_matches_java_partitioner: PASS - {"21": {"expected": -973932308, "actual": -973932308, "ok": true}, "foobar": {"expected": -790332482, "actual": -790332482, "ok": true}, "abc": {"expected": 479470107, "actual": 479470107, "ok": true}}
+GATE seed.watermarks: PASS - 30,000 records, low 0 and high == produced on every partition
+GATE seed.no_future_timestamps: PASS - max ts 1789487481600 <= SEED_END_TS 1789488000000
+[17:55:08] seeded 0.06 GB of values in 1s (84.6 MB/s)
+ Container offload-verifier-run-762216178390 Creating 
+ Container offload-verifier-run-762216178390 Created 
+[17:55:11] baseline p1: 5,000 records in 2s
+[17:55:11] baseline p0: 5,000 records in 2s
+[17:55:11] baseline p3: 5,000 records in 2s
+[17:55:11] baseline p4: 5,000 records in 2s
+[17:55:11] baseline p2: 5,000 records in 2s
+[17:55:11] baseline p5: 5,000 records in 2s
+GATE baseline.stable_watermarks: PASS - no writes or deletions while the baseline was read
+GATE baseline.count_equals_offsets: PASS - 30,000 records read
+GATE baseline.contiguous_offsets: PASS
+GATE baseline.create_time_and_wire_format: PASS
+GATE baseline.segment_max_ts_matches_timeindex: PASS - 66 segments; broker time index agrees with record scan
+GATE baseline.segment_counts: PASS
+GATE baseline.only_late_cohort_goes_backwards: PASS - 0 late records, every other timestamp non-decreasing
+GATE baseline.nothing_after_seed_end: PASS
+[17:55:11] baseline complete in 2s, schema ids [3, 4]
+ Container offload-verifier-run-b36d0ac5db5f Creating 
+ Container offload-verifier-run-b36d0ac5db5f Created 
+GATE backup.manifest_covers_log_start_to_high_watermark.before-corruption: PASS - 30,000 records in 18 segments
+GATE backup.manifest_no_gaps_or_pruned.before-corruption: PASS
+GATE backup.topic_config_captured.before-corruption: PASS - retention.ms=-1 partitions=6
+[17:55:13] verify-backup p0: 3 objects, 0 records
+[17:55:13] verify-backup p2: 3 objects, 0 records
+[17:55:13] verify-backup p1: 3 objects, 0 records
+[17:55:13] verify-backup p4: 3 objects, 0 records
+[17:55:13] verify-backup p3: 3 objects, 0 records
+[17:55:13] verify-backup p5: 3 objects, 0 records
+GATE backup.object_sha256_matches_manifest.before-corruption: PASS - 18 objects, 0.02 GB hashed
+ Container offload-verifier-run-1f78fa8bbd1e Creating 
+ Container offload-verifier-run-1f78fa8bbd1e Created 
+[17:55:13] {"key": "negative/neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000002023.bin.zst", "flipped_byte": 809719, "sha256_before": "9195dc436955db723ecff8a7f2673d5df77949889eab290d0c09a2dd6ca62549", "sha256_after": "17a421b3b7cd8e2e38ac180b9cb090b2ea49ff979a517c8f038e22fb4056b358"}
+    | GATE backup.validate_result_exactly_valid: FAIL - Result: INVALID
+GATE negative.corruption: PASS - GATE backup.validate_result_exactly_valid failed as designed
+    | GATE backup.manifest_covers_log_start_to_high_watermark: PASS - 30,000 records in 18 segments
+    | GATE backup.manifest_no_gaps_or_pruned: PASS
+    | GATE backup.topic_config_captured: PASS - retention.ms=-1 partitions=6
+    | GATE backup.object_sha256_matches_manifest: FAIL - 18 objects, 0.02 GB hashed
+GATE negative.corruption: PASS - GATE backup.object_sha256_matches_manifest failed as designed
+
+==> 3. Schema ID mismatch: restored data read through a registry that assigned its own IDs
+ Container offload-target-kafka-1 Running 
+ Container offload-negative-schema-registry-1 Creating 
+ Container offload-negative-schema-registry-1 Created 
+ Container offload-target-kafka-1 Waiting 
+ Container offload-target-kafka-1 Healthy 
+ Container offload-negative-schema-registry-1 Starting 
+ Container offload-negative-schema-registry-1 Started 
+ Container offload-target-kafka-1 Waiting 
+ Container offload-negative-schema-registry-1 Waiting 
+ Container offload-target-kafka-1 Healthy 
+ Container offload-negative-schema-registry-1 Healthy 
+ Container offload-verifier-run-109acd0bc6c3 Creating 
+ Container offload-verifier-run-109acd0bc6c3 Created 
+[17:55:22] registered schemas without IMPORT mode
+    | GATE schemas.ids_resolve_identically.negative: FAIL - {"3": {"source": 200, "target": 200, "identical": false}}
+GATE negative.schema-id: PASS - GATE schemas.ids_resolve_identically.negative failed as designed
+    | GATE restore.negative-schema.original_offsets_strictly_increasing: PASS - every record carries x-original-offset; per partition strictly increasing, no duplicates
+    | GATE restore.negative-schema.create_time_preserved: PASS
+    | GATE restore.negative-schema.no_records_outside_window: PASS - window 1765843200000..1768953599999
+    | GATE restore.negative-schema.buckets_match_baseline: PASS - 5,294,966 records; 30 days x 6 partitions compared exactly
+    | GATE restore.negative-schema.every_difference_explained_by_segment_bounds: PASS - 182 records missing across 9 buckets, 182 predicted by manifest bounds
+    | GATE restore.negative-schema.avro_decodes_with_registry: FAIL - 3000 sampled records decoded via http://negative-schema-registry:8081; eventTime equals CreateTime; 3000 failures, e.g. ["id 3: KeyError: 'eventTime'", "id 3: KeyError: 'eventTime'"]
+    | FINDING 88 records in 2025-12-19..2026-01-17 would be missed by an unpadded window because their backup segment's first/last timestamps fall outside it
+GATE negative.schema-id: PASS - GATE restore.negative-schema.avro_decodes_with_registry failed as designed
+
+==> 4. Unacknowledged consumer impact blocks the prune gate
+    | GATE prune_gate.consumer_impact_acknowledged: FAIL - behind cut ['telemetry-analytics'], acknowledged [], NOT acknowledged ['telemetry-analytics']
+GATE negative.unacked-consumer: PASS - GATE prune_gate.consumer_impact_acknowledged failed as designed
+
+==> 5. Unpadded time window misses late records (kafka-backup 0.22.0 segment timestamp bounds)
+    day starting 1780185600000: 671 late records sit in segments whose first record is on a later day
+    | GATE restore.negative-window.original_offsets_strictly_increasing: PASS - every record carries x-original-offset; per partition strictly increasing, no duplicates
+    | GATE restore.negative-window.create_time_preserved: PASS
+    | GATE restore.negative-window.no_records_outside_window: PASS - window 1780185600000..1780271999999
+    | GATE restore.negative-window.buckets_match_baseline: FAIL - 146,483 records; 1 days x 6 partitions compared exactly; 6 buckets differ, first [{'partition': 0, 'day': '2026-05-31', 'baseline_count': 24516, 'restored_count': 24420, 'predicted_missing': 96}, {'partition': 1, 'day': '2026-05-31', 'baseline_count': 24515, 'restored_count': 24404, 'predicted_missing': 111}, {'partition': 2, 'day': '2026-05-31', 'baseline_count': 24534, 'restored_count': 24411, 'predicted_missing': 123}]
+    | GATE restore.negative-window.every_difference_explained_by_segment_bounds: PASS - 671 records missing across 6 buckets, 671 predicted by manifest bounds
+    | GATE restore.negative-window.avro_decodes_with_registry: PASS - 3000 sampled records decoded via http://target-schema-registry:8081; eventTime equals CreateTime
+    | FINDING 671 records in 2026-05-31..2026-05-31 would be missed by an unpadded window because their backup segment's first/last timestamps fall outside it
+GATE negative.unpadded-window: PASS - GATE restore.negative-window.buckets_match_baseline failed as designed
+GATE negative.unpadded-window.loss_explained_by_segment_bounds: PASS - every missing record is one the manifest bounds predict
+
+PHASE 95-negative-tests: PASS (59s)

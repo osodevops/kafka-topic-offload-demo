@@ -1,0 +1,15 @@
+{
+  "imported": [
+    {
+      "id": 3,
+      "subject": "device-telemetry-value",
+      "version": 1
+    },
+    {
+      "id": 4,
+      "subject": "device-telemetry-value",
+      "version": 2
+    }
+  ],
+  "skipped": []
+}

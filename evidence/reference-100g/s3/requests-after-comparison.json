@@ -1,0 +1,8 @@
+{
+  "getbucketlocation": 2.0,
+  "getobject": 15.0,
+  "headobject": 2.0,
+  "listobjectsv2": 2.0,
+  "putbucket": 2.0,
+  "putobject": 1071.0
+}

@@ -1,0 +1,30 @@
+ Container offload-kafka-backup-run-f6da7af98c29 Creating 
+ Container offload-kafka-backup-run-f6da7af98c29 Created 
+[2m2026-09-15T17:55:05.097306Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups, prefix: Some("negative")
+[2m2026-09-15T17:55:05.097334Z[0m [32m INFO[0m [2mkafka_backup::commands::validate[0m[2m:[0m Validating backup: neg-gap (deep=true)
+Validating backup: neg-gap
+Created: 2026-09-15 17:55:04.590 UTC
+
+Checking topic: neg-gap
+  6 partitions, 12 segments checked
+
+=== Validation Report ===
+
+Segments Checked:   12
+Segments Valid:     12
+Segments Missing:   0
+Segments Corrupted: 0
+Records Validated:  21372
+Data Gaps:          6
+Pruned Ranges:      0
+Missing Topics:     0
+
+Data Gaps (recorded during backup — 38628 source offsets could not be captured because the broker no longer had them):
+  - neg-gap:1 offsets 0..6438 (6438 offsets, offset_out_of_range, detected 2026-09-15T17:55:04.614+00:00)
+  - neg-gap:0 offsets 0..6438 (6438 offsets, offset_out_of_range, detected 2026-09-15T17:55:04.614+00:00)
+  - neg-gap:3 offsets 0..6438 (6438 offsets, offset_out_of_range, detected 2026-09-15T17:55:04.614+00:00)
+  - neg-gap:4 offsets 0..6438 (6438 offsets, offset_out_of_range, detected 2026-09-15T17:55:04.615+00:00)
+  - neg-gap:2 offsets 0..6440 (6440 offsets, offset_out_of_range, detected 2026-09-15T17:55:04.615+00:00)
+  - neg-gap:5 offsets 0..6436 (6436 offsets, offset_out_of_range, detected 2026-09-15T17:55:04.616+00:00)
+
+Result: VALID (with 6 recorded data gaps — backup is intact but incomplete)

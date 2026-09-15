@@ -1,0 +1,5 @@
+ Container offload-verifier-run-6c6a12804065 Creating 
+ Container offload-verifier-run-6c6a12804065 Created 
+[17:55:33] groups with offsets on device-telemetry: ['telemetry-analytics']; behind the cut: ['telemetry-analytics']
+GATE prune_gate.consumer_impact_acknowledged: FAIL - behind cut ['telemetry-analytics'], acknowledged [], NOT acknowledged ['telemetry-analytics']
+

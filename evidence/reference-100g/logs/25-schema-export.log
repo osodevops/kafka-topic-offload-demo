@@ -1,0 +1,12 @@
+
+==> 25-schema-export  (run 100g-20260915T164407Z, scale 100g)
+
+==> Export schemas by ID from the source registry
+ Image offload-verifier:local Building 
+ Image offload-verifier:local Built 
+ Container offload-verifier-run-c4a9d139cfd2 Creating 
+ Container offload-verifier-run-c4a9d139cfd2 Created 
+GATE schemas.exported: PASS - ids [3, 4]
+    ids [3, 4] -> s3://kafka-backups/schema-exports/device-telemetry/schemas-export.json sha256 2e91594443c4e964
+
+PHASE 25-schema-export: PASS (1s)

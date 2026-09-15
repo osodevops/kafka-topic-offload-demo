@@ -1,0 +1,10 @@
+{
+  "fields": [
+    "partition",
+    "offset",
+    "timestamp",
+    "segment_start_timestamp",
+    "segment_end_timestamp"
+  ],
+  "hazards": []
+}

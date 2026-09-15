@@ -7,7 +7,7 @@
 
 **Move years of Apache Kafka topic history into cheap object storage, cut `retention.ms` on the live topic, and restore any time window later, with checksum level evidence at every step.**
 
-Large Kafka topics that hold compliance data, IoT telemetry or audit trails often dominate the storage bill on Confluent Cloud and self managed clusters. Nobody wants to lower retention on regulated data on trust alone. This repository runs the whole offload on a local Confluent stack, at 1 GB in minutes or 100 GB in under an hour. It proves each step with gates that fail loudly:
+Large Kafka topics that hold compliance data, IoT telemetry or audit trails often dominate the storage bill on Confluent Cloud and self managed clusters. Nobody wants to lower retention on regulated data on trust alone. This repository runs the whole offload on a local Confluent stack, at 1 GB in minutes or 100 GB in under an hour on a large workstation. It proves each step with gates that fail loudly:
 
 ```
 seed -> baseline -> export schemas -> back up -> verify -> seal -> gate -> lower retention -> restore -> verify
@@ -56,11 +56,11 @@ Full report: [`evidence/reference-100g/report.md`](evidence/reference-100g/repor
 
 | Step | Result |
 |---|---|
-| Topic | 53,687,091 Avro records, 105 GB on the broker, one year of timestamps including 265,890 late arriving records |
+| Topic | 53,687,091 Avro records, 105 GB on the broker, one year of timestamps including 266,156 late arriving records |
 | Backup | 834 objects, 43.3 GB stored (2.58x zstd), 73 seconds; every object checksum and every record verified against the baseline |
-| Retention lowered to 30 days | 95.96 GB reclaimed, exactly as predicted to the byte; 48,991,226 records removed from the live topic, every one in the sealed backup |
-| Audit restore | A month from nine months ago, 5,294,974 records in 31 seconds, identical to the source for every day |
-| Full restore | 53,687,091 records in under 8 minutes, identical to the source, consumer group offsets mapped exactly |
+| Retention lowered to 30 days | 95.96 GB reclaimed, exactly as predicted to the byte; 48,990,007 records removed from the live topic, every one in the sealed backup |
+| Audit restore | A month from nine months ago, 5,294,966 records in 41 seconds, identical to the source for every day; 88 of them recovered only because the window was padded |
+| Full restore | 53,687,091 records in under 9 minutes, identical to the source, consumer group offsets mapped exactly |
 | Negative tests | 5 of 5 failed their named gate as designed |
 
 These are local, single node rates on a 32 core Mac. The [extrapolation](evidence/reference-100g/restore/extrapolation.json) caps them at Confluent Cloud's per CKU throughput guidance.
@@ -76,7 +76,7 @@ Requirements:
 |---|---|---|---|---|
 | `smoke` | 1 GB | 12 GiB | 6 GiB | about 5 minutes |
 | `10g` | 10 GB | 16 GiB | 35 GiB | not measured |
-| `100g` | 100 GB | 24 GiB | 280 GiB | about 45 minutes |
+| `100g` | 100 GB | 24 GiB | 280 GiB | about 25 minutes, plus up to 30 if the prune gate has to wait |
 
 ```bash
 git clone https://github.com/osodevops/kafka-topic-offload-demo.git

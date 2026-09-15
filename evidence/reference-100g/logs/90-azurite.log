@@ -1,0 +1,97 @@
+
+==> 90-azurite  (run 100g-20260915T164407Z, scale 100g)
+
+==> Start Azurite and seed a small topic
+ Volume offload_azurite-data Creating 
+ Volume offload_azurite-data Creating 
+ Volume offload_azurite-data Created 
+ Volume offload_azurite-data Created 
+ Container offload-azurite-1 Creating 
+ Container offload-azurite-1 Created 
+ Container offload-azurite-1 Starting 
+ Container offload-azurite-1 Started 
+ Image offload-verifier:local Building 
+ Image offload-verifier:local Built 
+ Container offload-verifier-run-79085dc22374 Creating 
+ Container offload-verifier-run-79085dc22374 Created 
+[17:55:43] murmur2 self test: {'21': {'expected': -973932308, 'actual': -973932308, 'ok': True}, 'foobar': {'expected': -790332482, 'actual': -790332482, 'ok': True}, 'abc': {'expected': 479470107, 'actual': 479470107, 'ok': True}}
+[17:55:43] schema ids: decoys {'demo-decoy-meter-read-value': 1, 'demo-decoy-tariff-value': 2}, azurite-smoke-value {'v1': 3, 'v2': 4}
+[17:55:43] created azurite-smoke: 6 partitions, {'cleanup.policy': 'delete', 'retention.ms': '-1', 'retention.bytes': '-1', 'segment.bytes': '1048576', 'segment.ms': '315360000000', 'message.timestamp.type': 'CreateTime', 'message.timestamp.before.max.ms': '9223372036854775807'}
+[17:55:43] seeding 30,000 records into azurite-smoke across 6 partitions, segment.bytes=1,048,576
+[17:55:43] seed p1: 500/5,000 records (89,467 rec/s)
+[17:55:43] seed p2: 500/5,000 records (91,312 rec/s)
+[17:55:43] seed p4: 500/5,000 records (81,984 rec/s)
+[17:55:43] seed p0: 500/5,000 records (83,207 rec/s)
+[17:55:43] seed p3: 500/5,000 records (88,109 rec/s)
+[17:55:43] seed p5: 500/5,000 records (92,008 rec/s)
+[17:55:43] seed p1: 1,000/5,000 records (94,504 rec/s)
+[17:55:43] seed p2: 1,000/5,000 records (95,449 rec/s)
+[17:55:43] seed p4: 1,000/5,000 records (89,516 rec/s)
+[17:55:43] seed p0: 1,000/5,000 records (90,377 rec/s)
+[17:55:43] seed p3: 1,000/5,000 records (93,980 rec/s)
+[17:55:43] seed p5: 1,000/5,000 records (98,008 rec/s)
+[17:55:43] seed p1: 1,500/5,000 records (96,270 rec/s)
+[17:55:43] seed p2: 1,500/5,000 records (95,496 rec/s)
+[17:55:43] seed p4: 1,500/5,000 records (91,340 rec/s)
+[17:55:43] seed p0: 1,500/5,000 records (91,966 rec/s)
+[17:55:43] seed p3: 1,500/5,000 records (95,579 rec/s)
+[17:55:43] seed p5: 1,500/5,000 records (99,435 rec/s)
+[17:55:43] seed p1: 2,000/5,000 records (97,121 rec/s)
+[17:55:43] seed p2: 2,000/5,000 records (96,065 rec/s)
+[17:55:43] seed p4: 2,000/5,000 records (93,555 rec/s)
+[17:55:43] seed p0: 2,000/5,000 records (93,742 rec/s)
+[17:55:43] seed p3: 2,000/5,000 records (97,945 rec/s)
+[17:55:43] seed p5: 2,000/5,000 records (100,872 rec/s)
+[17:55:43] seed p1: 2,500/5,000 records (97,872 rec/s)
+[17:55:43] seed p2: 2,500/5,000 records (96,477 rec/s)
+[17:55:43] seed p4: 2,500/5,000 records (94,153 rec/s)
+[17:55:43] seed p3: 2,500/5,000 records (99,323 rec/s)
+[17:55:43] seed p0: 2,500/5,000 records (94,830 rec/s)
+[17:55:43] seed p5: 2,500/5,000 records (101,473 rec/s)
+[17:55:43] seed p1: 3,000/5,000 records (98,457 rec/s)
+[17:55:43] seed p2: 3,000/5,000 records (97,178 rec/s)
+[17:55:43] seed p4: 3,000/5,000 records (94,931 rec/s)
+[17:55:43] seed p3: 3,000/5,000 records (99,434 rec/s)
+[17:55:43] seed p0: 3,000/5,000 records (96,133 rec/s)
+[17:55:43] seed p5: 3,000/5,000 records (101,137 rec/s)
+[17:55:43] seed p1: 3,500/5,000 records (98,140 rec/s)
+[17:55:43] seed p4: 3,500/5,000 records (96,050 rec/s)
+[17:55:43] seed p3: 3,500/5,000 records (98,613 rec/s)
+[17:55:43] seed p0: 3,500/5,000 records (95,813 rec/s)
+[17:55:43] seed p2: 3,500/5,000 records (95,233 rec/s)
+[17:55:43] seed p5: 3,500/5,000 records (99,937 rec/s)
+[17:55:43] seed p1: 4,000/5,000 records (97,016 rec/s)
+[17:55:43] seed p4: 4,000/5,000 records (95,847 rec/s)
+[17:55:43] seed p3: 4,000/5,000 records (98,151 rec/s)
+[17:55:43] seed p0: 4,000/5,000 records (95,605 rec/s)
+[17:55:43] seed p2: 4,000/5,000 records (95,219 rec/s)
+[17:55:43] seed p5: 4,000/5,000 records (98,344 rec/s)
+[17:55:43] seed p1: 4,500/5,000 records (96,740 rec/s)
+[17:55:43] seed p4: 4,500/5,000 records (95,836 rec/s)
+[17:55:43] seed p3: 4,500/5,000 records (98,201 rec/s)
+[17:55:43] seed p0: 4,500/5,000 records (95,782 rec/s)
+[17:55:43] seed p2: 4,500/5,000 records (95,487 rec/s)
+[17:55:43] seed p5: 4,500/5,000 records (98,236 rec/s)
+[17:55:43] seed p1: 5,000/5,000 records (96,554 rec/s)
+[17:55:43] seed p4: 5,000/5,000 records (94,792 rec/s)
+[17:55:43] seed p3: 5,000/5,000 records (97,306 rec/s)
+[17:55:43] seed p0: 5,000/5,000 records (95,134 rec/s)
+[17:55:43] seed p5: 5,000/5,000 records (98,057 rec/s)
+[17:55:43] seed p2: 5,000/5,000 records (94,323 rec/s)
+[17:55:44] seeded 0.06 GB of values in 1s (84.9 MB/s)
+GATE seed.murmur2_matches_java_partitioner: PASS - {"21": {"expected": -973932308, "actual": -973932308, "ok": true}, "foobar": {"expected": -790332482, "actual": -790332482, "ok": true}, "abc": {"expected": 479470107, "actual": 479470107, "ok": true}}
+GATE seed.watermarks: PASS - 30,000 records, low 0 and high == produced on every partition
+GATE seed.no_future_timestamps: PASS - max ts 1789487481600 <= SEED_END_TS 1789488000000
+ Container offload-verifier-run-89d13d0f628e Creating 
+ Container offload-verifier-run-89d13d0f628e Created 
+containers: ['kafka-backups']
+
+==> Backup to Azurite
+Error: Storage error: Backend error: Azure PUT failed: Generic MicrosoftAzure error: Error performing PUT http://azurite:10000/devstoreaccount1/kafka-backups/azurite/azurite-smoke/offsets.db in 5.083µs - HTTP error: builder error
+
+Caused by:
+    Backend error: Azure PUT failed: Generic MicrosoftAzure error: Error performing PUT http://azurite:10000/devstoreaccount1/kafka-backups/azurite/azurite-smoke/offsets.db in 5.083µs - HTTP error: builder error
+
+GATE azurite.backup: FAIL - kafka-backup 0.22.0 cannot reach the emulator; needs Azure emulator support (use_emulator / allow_http) in kafka-backup
+
+PHASE 90-azurite: FAIL (exit 1 after 5s)

@@ -1,0 +1,45 @@
+{
+  "bytes_after": 9233703236,
+  "bytes_before": 105195911169,
+  "bytes_reclaimed": 95962207933,
+  "first_seen_at": 1789494133537,
+  "note": "retention deletes whole segments: records older than the cut remain until their segment's newest record ages out",
+  "observed_at": 1789494203549,
+  "oldest_retained_ts": {
+    "0": 1786656750406,
+    "1": 1786651129932,
+    "2": 1786132543854,
+    "3": 1786649262934,
+    "4": 1786126478245,
+    "5": 1786658980601
+  },
+  "passed": true,
+  "reclaimed_pct": 91.22,
+  "records_deleted": 48990007,
+  "watermarks": {
+    "0": {
+      "high": 8947849,
+      "low": 8214611
+    },
+    "1": {
+      "high": 8947849,
+      "low": 8213552
+    },
+    "2": {
+      "high": 8947849,
+      "low": 8068095
+    },
+    "3": {
+      "high": 8947848,
+      "low": 8213514
+    },
+    "4": {
+      "high": 8947848,
+      "low": 8065654
+    },
+    "5": {
+      "high": 8947848,
+      "low": 8214581
+    }
+  }
+}

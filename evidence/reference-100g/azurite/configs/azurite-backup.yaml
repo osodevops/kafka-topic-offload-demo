@@ -1,0 +1,38 @@
+# Azure client path against Azurite at smoke scale.
+# kafka-backup 0.22.0 has no emulator switch: the Azure backend never sets use_emulator or
+# allow_http, so it cannot reach http://azurite:10000. This file is what works once kafka-backup supports
+# use_emulator and allow_http in its Azure storage config.
+# The account key is Azurite's published development key, not a secret.
+mode: backup
+backup_id: "azurite-smoke"
+
+source:
+  bootstrap_servers:
+    - source-kafka:29092
+  topics:
+    include:
+      - "azurite-smoke"
+
+storage:
+  backend: azure
+  account_name: devstoreaccount1
+  container_name: kafka-backups
+  account_key: "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="
+  endpoint: "http://azurite:10000/devstoreaccount1"
+  prefix: azurite
+  use_emulator: true
+  allow_http: true
+
+backup:
+  compression: zstd
+  compression_level: 3
+  segment_max_bytes: 134217728
+  segment_max_interval_ms: 86400000
+  stop_at_current_offsets: true
+  include_offset_headers: true
+  capture_topic_configs: true
+  require_topic_configs: true
+
+offset_storage:
+  backend: sqlite
+  db_path: "/tmp/azurite-smoke-offsets.db"

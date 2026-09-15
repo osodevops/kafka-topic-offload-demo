@@ -1,0 +1,106 @@
+
+==> 70-full-restore  (run 100g-20260915T164407Z, scale 100g)
+GATE restore.full.target_topic_is_new: PASS - device-telemetry-full does not exist on the target
+
+==> Full restore with auto_consumer_groups
+ Container offload-kafka-backup-run-f20ed7c10742 Creating 
+ Container offload-kafka-backup-run-f20ed7c10742 Created 
+[2m2026-09-15T17:44:32.317716Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Loading configuration from: /evidence/100g-20260915T164407Z/configs/restore-full.yaml
+[2m2026-09-15T17:44:32.320621Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Starting restore from backup: device-telemetry
+[2m2026-09-15T17:44:32.320768Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
+[2m2026-09-15T17:44:32.346633Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups-sealed, prefix: Some("backups")
+[2m2026-09-15T17:44:32.346670Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
+[2m2026-09-15T17:44:32.346691Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
+[2m2026-09-15T17:44:32.346864Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loading backup manifest for: device-telemetry
+[2m2026-09-15T17:44:32.351233Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loaded manifest: 1 topics, 53687091 total records
+[2m2026-09-15T17:44:32.351312Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Running Phase 1 header preflight (mode: auto, offset recovery requested: true)
+[2m2026-09-15T17:47:17.110864Z[0m [32m INFO[0m [2mkafka_backup_core::restore::preflight[0m[2m:[0m Header preflight passed: backup 'device-telemetry': 6 partition(s) [6 full], 53687091 record(s) scanned, verdict: PASS
+[2m2026-09-15T17:47:17.110878Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connecting to target Kafka cluster via partition leader router...
+[2m2026-09-15T17:47:17.112152Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 57 partition leaders
+[2m2026-09-15T17:47:17.112163Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connected to target Kafka cluster via partition leader router
+[2m2026-09-15T17:47:17.112399Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Creating 1 missing topics: ["device-telemetry-full"]
+[2m2026-09-15T17:47:17.139858Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::admin[0m[2m:[0m Created topic: device-telemetry-full
+[2m2026-09-15T17:47:17.139869Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Created topic 'device-telemetry-full' successfully
+[2m2026-09-15T17:47:17.140636Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 63 partition leaders
+[2m2026-09-15T17:47:17.140646Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Refreshed metadata after topic creation
+[2m2026-09-15T17:47:17.169688Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m auto_consumer_groups: loaded 1 groups and 6 offsets from snapshot
+[2m2026-09-15T17:47:17.169697Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring 1 topics
+[2m2026-09-15T17:47:17.169698Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Adding x-original-offset, x-original-timestamp and x-source-partition headers to every produced record (include_original_offset_header / header-based strategy)
+[2m2026-09-15T17:47:17.169703Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring topic device-telemetry -> device-telemetry-full (6 partitions)
+[2m2026-09-15T17:53:14.784993Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:0 -> device-telemetry-full:0 (8947849 records, 139 segments)
+[2m2026-09-15T17:53:15.454452Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:3 -> device-telemetry-full:3 (8947848 records, 139 segments)
+[2m2026-09-15T17:53:15.802609Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:1 -> device-telemetry-full:1 (8947849 records, 139 segments)
+[2m2026-09-15T17:53:15.956277Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:5 -> device-telemetry-full:5 (8947848 records, 139 segments)
+[2m2026-09-15T17:53:16.127435Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:2 -> device-telemetry-full:2 (8947849 records, 139 segments)
+[2m2026-09-15T17:53:16.476843Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:4 -> device-telemetry-full:4 (8947848 records, 139 segments)
+[2m2026-09-15T17:53:16.477007Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m auto_consumer_groups: imported 6 consumer group offsets from snapshot
+[2m2026-09-15T17:53:16.663822Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Offset mapping ready for 1 consumer group(s); offsets are applied in Phase 3 (not by the restore engine)
+[2m2026-09-15T17:53:16.663843Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restore completed successfully
+[2m2026-09-15T17:53:16.663896Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m === Performance Metrics ===
+Duration: 502.09s
+Records processed: 53687091
+Records/sec: 106928
+Bytes written: 0 MB
+Throughput: 0.00 MB/s
+Compression ratio: 1.00x
+Segments written: 0
+Errors: 0
+
+Checkpoint latency (ms):
+  avg=0.00 p50=0.00 p95=0.00 p99=0.00 max=0.00
+Segment write latency (ms):
+  avg=0.00 p50=0.00 p95=0.00 p99=0.00 max=0.00
+
+[2m2026-09-15T17:53:16.663986Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
+[2m2026-09-15T17:53:16.664073Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Applying consumer group offset reset (Phase 3) for 1 group(s)
+[2m2026-09-15T17:53:16.664081Z[0m [32m INFO[0m [2mkafka_backup_core::restore::three_phase[0m[2m:[0m Phase 3: Generating and applying offset reset plan...
+[2m2026-09-15T17:53:16.664640Z[0m [32m INFO[0m [2mkafka_backup_core::restore::offset_reset[0m[2m:[0m Generated offset reset plan for 1 groups with 6 total partitions
+[2m2026-09-15T17:53:16.665672Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 63 partition leaders
+[2m2026-09-15T17:53:16.677644Z[0m [32m INFO[0m [2mkafka_backup_core::restore::offset_reset[0m[2m:[0m Offset reset completed successfully: 6 partitions reset in 11ms
+
+=== Consumer Group Offset Reset (Phase 3) ===
+Groups: 1   Partitions reset: 6   Errors: 0
+  - telemetry-analytics (6 partition(s))
+Result: APPLIED
+
+[2m2026-09-15T17:53:16.677782Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Restore completed successfully
+GATE restore.full.consumer_group_reset_applied: PASS - Groups: 1 Partitions reset: 6 Errors: 0
+
+==> Verify the full restore and the telemetry-analytics offset mapping
+ Image offload-verifier:local Building 
+ Image offload-verifier:local Built 
+ Container offload-verifier-run-882f3ec3d4bf Creating 
+ Container offload-verifier-run-882f3ec3d4bf Created 
+[17:54:35] verify-restore device-telemetry-full p1: 8,947,849 records, 500 decoded samples
+[17:54:35] verify-restore device-telemetry-full p0: 8,947,849 records, 500 decoded samples
+[17:54:35] verify-restore device-telemetry-full p5: 8,947,848 records, 500 decoded samples
+[17:54:35] verify-restore device-telemetry-full p4: 8,947,848 records, 500 decoded samples
+[17:54:35] verify-restore device-telemetry-full p2: 8,947,849 records, 500 decoded samples
+[17:54:35] verify-restore device-telemetry-full p3: 8,947,848 records, 500 decoded samples
+GATE restore.full.original_offsets_strictly_increasing: PASS - every record carries x-original-offset; per partition strictly increasing, no duplicates
+GATE restore.full.create_time_preserved: PASS
+GATE restore.full.no_records_outside_window: PASS - window None..None
+GATE restore.full.buckets_match_baseline: PASS - 53,687,091 records; 366 days x 6 partitions compared exactly
+GATE restore.full.every_difference_explained_by_segment_bounds: PASS - 0 records missing across 0 buckets, 0 predicted by manifest bounds
+GATE restore.full.avro_decodes_with_registry: PASS - 3000 sampled records decoded via http://target-schema-registry:8081; eventTime equals CreateTime
+GATE restore.full.consumer_group_offset_mapped: PASS - telemetry-analytics: the target record at each committed offset carries the source committed offset
+SCHEMA_IDS 3,4
+ Container offload-verifier-run-7d39218e105a Creating 
+ Container offload-verifier-run-7d39218e105a Created 
+GATE schemas.ids_resolve_identically.full: PASS - {"3": {"source": 200, "target": 200, "identical": true}, "4": {"source": 200, "target": 200, "identical": true}}
+
+==> Extrapolation to 1,10,50 TB topics on a 2 CKU Dedicated cluster
+  1 TB                           backup at local measured rate                               1535.5 MB/s      0.2 h
+  1 TB                           backup at min(measured, 50% of 2 CKU egress)                 180.0 MB/s      1.5 h
+  1 TB                           restore at local measured rate                               212.3 MB/s      1.3 h
+  1 TB                           restore into Confluent at min(measured, 2 CKU ingress)         120 MB/s      2.3 h
+  10 TB                          backup at local measured rate                               1535.5 MB/s      1.8 h
+  10 TB                          backup at min(measured, 50% of 2 CKU egress)                 180.0 MB/s     15.4 h
+  10 TB                          restore at local measured rate                               212.3 MB/s     13.1 h
+  10 TB                          restore into Confluent at min(measured, 2 CKU ingress)         120 MB/s     23.1 h
+  50 TB                          backup at local measured rate                               1535.5 MB/s      9.0 h
+  50 TB                          backup at min(measured, 50% of 2 CKU egress)                 180.0 MB/s     77.2 h
+  50 TB                          restore at local measured rate                               212.3 MB/s     65.4 h
+  50 TB                          restore into Confluent at min(measured, 2 CKU ingress)         120 MB/s    115.7 h
+
+PHASE 70-full-restore: PASS (606s)

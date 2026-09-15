@@ -1,0 +1,13 @@
+{
+  "compression": "zstd",
+  "decoded_rows": 20,
+  "end_offset": 2327458,
+  "first_offset": 2262821,
+  "jsonl": "/evidence/100g-20260915T164407Z/archive/segment-00000000000002262821.bin.zst.jsonl",
+  "key": "backups/device-telemetry/topics/device-telemetry/partition=0/segment-00000000000002262821.bin.zst",
+  "last_offset": 2327458,
+  "object_bytes": 52065262,
+  "record_count": 64638,
+  "records_read": 64638,
+  "start_offset": 2262821
+}

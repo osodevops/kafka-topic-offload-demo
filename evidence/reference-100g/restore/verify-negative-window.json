@@ -1,0 +1,201 @@
+{
+  "differences": [
+    {
+      "baseline_count": 24516,
+      "day": "2026-05-31",
+      "partition": 0,
+      "predicted_missing": 96,
+      "restored_count": 24420
+    },
+    {
+      "baseline_count": 24515,
+      "day": "2026-05-31",
+      "partition": 1,
+      "predicted_missing": 111,
+      "restored_count": 24404
+    },
+    {
+      "baseline_count": 24534,
+      "day": "2026-05-31",
+      "partition": 2,
+      "predicted_missing": 123,
+      "restored_count": 24411
+    },
+    {
+      "baseline_count": 24526,
+      "day": "2026-05-31",
+      "partition": 3,
+      "predicted_missing": 123,
+      "restored_count": 24403
+    },
+    {
+      "baseline_count": 24571,
+      "day": "2026-05-31",
+      "partition": 4,
+      "predicted_missing": 130,
+      "restored_count": 24441
+    },
+    {
+      "baseline_count": 24492,
+      "day": "2026-05-31",
+      "partition": 5,
+      "predicted_missing": 88,
+      "restored_count": 24404
+    }
+  ],
+  "exact_days": [
+    [
+      "2026-05-31"
+    ],
+    [
+      "2026-05-31"
+    ]
+  ],
+  "expected_by_watermarks": 146483,
+  "group": null,
+  "partitions": {
+    "0": {
+      "count": 24420,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 24420,
+      "low": 0,
+      "missing_header": 0,
+      "n": 24420,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 0,
+      "prev": 6334441,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "4": 24420
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "1": {
+      "count": 24404,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 24404,
+      "low": 0,
+      "missing_header": 0,
+      "n": 24404,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 1,
+      "prev": 6333974,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "4": 24404
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "2": {
+      "count": 24411,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 24411,
+      "low": 0,
+      "missing_header": 0,
+      "n": 24411,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 2,
+      "prev": 6333974,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "4": 24411
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "3": {
+      "count": 24403,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 24403,
+      "low": 0,
+      "missing_header": 0,
+      "n": 24403,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 3,
+      "prev": 6333974,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "4": 24403
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "4": {
+      "count": 24441,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 24441,
+      "low": 0,
+      "missing_header": 0,
+      "n": 24441,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 4,
+      "prev": 6334619,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "4": 24441
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "5": {
+      "count": 24404,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 24404,
+      "low": 0,
+      "missing_header": 0,
+      "n": 24404,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 5,
+      "prev": 6334551,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "4": 24404
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    }
+  },
+  "passed": false,
+  "predicted_missing_total": 671,
+  "records": 146483,
+  "schema_ids": [
+    4
+  ],
+  "seconds": 2.3,
+  "target_topic": "device-telemetry-neg-window",
+  "unexplained": [],
+  "window_end": 1780271999999,
+  "window_start": 1780185600000
+}

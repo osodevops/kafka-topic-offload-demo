@@ -1,0 +1,201 @@
+{
+  "coverage": {
+    "0": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 8947848,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947848,
+      "pruned": [],
+      "records": 8947849
+    },
+    "1": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 8947848,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947848,
+      "pruned": [],
+      "records": 8947849
+    },
+    "2": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 8947848,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947848,
+      "pruned": [],
+      "records": 8947849
+    },
+    "3": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 8947847,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947847,
+      "pruned": [],
+      "records": 8947848
+    },
+    "4": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 8947847,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947847,
+      "pruned": [],
+      "records": 8947848
+    },
+    "5": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 8947847,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947847,
+      "pruned": [],
+      "records": 8947848
+    }
+  },
+  "group_snapshot": {
+    "live": {
+      "telemetry-analytics": {
+        "0": 7476970,
+        "1": 7476970,
+        "2": 7476970,
+        "3": 7476969,
+        "4": 7476969,
+        "5": 7476969
+      }
+    },
+    "snapshot": {
+      "telemetry-analytics": {
+        "0": 7476970,
+        "1": 7476970,
+        "2": 7476970,
+        "3": 7476969,
+        "4": 7476969,
+        "5": 7476969
+      }
+    }
+  },
+  "manifest_sha256": "77e2b8d9f7eb25e7e4578f7dfd4f34109ef04e3db96bd6acc769a029e0ecaa1c",
+  "max_record_bytes": 2050,
+  "partitions": {
+    "0": {
+      "bounds_not_min_max": 138,
+      "header_mismatch": [],
+      "max_record_bytes": 2050,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 7210844190,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 0,
+      "records": 8947849,
+      "segments": 139,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    },
+    "1": {
+      "bounds_not_min_max": 138,
+      "header_mismatch": [],
+      "max_record_bytes": 2050,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 7211145942,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 1,
+      "records": 8947849,
+      "segments": 139,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    },
+    "2": {
+      "bounds_not_min_max": 138,
+      "header_mismatch": [],
+      "max_record_bytes": 2050,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 7210972205,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 2,
+      "records": 8947849,
+      "segments": 139,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    },
+    "3": {
+      "bounds_not_min_max": 138,
+      "header_mismatch": [],
+      "max_record_bytes": 2050,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 7211353568,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 3,
+      "records": 8947848,
+      "segments": 139,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    },
+    "4": {
+      "bounds_not_min_max": 138,
+      "header_mismatch": [],
+      "max_record_bytes": 2050,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 7210672973,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 4,
+      "records": 8947848,
+      "segments": 139,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    },
+    "5": {
+      "bounds_not_min_max": 138,
+      "header_mismatch": [],
+      "max_record_bytes": 2050,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 7210722512,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 5,
+      "records": 8947848,
+      "segments": 139,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    }
+  },
+  "passed": true,
+  "segments_bounds_not_min_max": 828,
+  "summary": {
+    "backup_id": "device-telemetry",
+    "bucket": "kafka-backups",
+    "compressed_bytes": 43265711390,
+    "compression_ratio": 2.58,
+    "mb_per_s_uncompressed": 1535.5,
+    "records": 53687091,
+    "seconds": 72.695,
+    "segments": 834,
+    "uncompressed_bytes": 111619776038,
+    "verify_seconds": 48.3
+  },
+  "time_window_hazards": 241056
+}

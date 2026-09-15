@@ -1,0 +1,28 @@
+
+==> 80-report  (run 100g-20260915T164407Z, scale 100g)
+
+==> report.md
+ Image offload-verifier:local Building 
+ Image offload-verifier:local Built 
+ Container offload-verifier-run-3a493d4adb1a Creating 
+ Container offload-verifier-run-3a493d4adb1a Created 
+[17:54:40] report.md: PASS, 93 gates, 2 findings
+
+==> SHA256SUMS
+    ✔ 79 files hashed; report at evidence/100g-20260915T164407Z/report.md
+
+PHASE 80-report: PASS (2s)
+
+==> 80-report  (run 100g-20260915T164407Z, scale 100g)
+
+==> report.md
+ Image offload-verifier:local Building 
+ Image offload-verifier:local Built 
+ Container offload-verifier-run-2572b5e938f6 Creating 
+ Container offload-verifier-run-2572b5e938f6 Created 
+[17:55:47] report.md: PASS, 93 gates, 2 findings
+
+==> SHA256SUMS
+    ✔ 113 files hashed; report at evidence/100g-20260915T164407Z/report.md
+
+PHASE 80-report: PASS (1s)

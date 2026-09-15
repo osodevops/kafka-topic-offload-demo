@@ -1,0 +1,44 @@
+ Container offload-kafka-backup-run-3390fc27c14e Creating 
+ Container offload-kafka-backup-run-3390fc27c14e Created 
+[2m2026-09-15T17:55:35.633771Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Loading configuration from: /evidence/100g-20260915T164407Z/negative/configs/restore-unpadded.yaml
+[2m2026-09-15T17:55:35.635799Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Starting restore from backup: device-telemetry
+[2m2026-09-15T17:55:35.635954Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
+[2m2026-09-15T17:55:35.663707Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups-sealed, prefix: Some("backups")
+[2m2026-09-15T17:55:35.663755Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
+[2m2026-09-15T17:55:35.663782Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
+[2m2026-09-15T17:55:35.663935Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loading backup manifest for: device-telemetry
+[2m2026-09-15T17:55:35.668470Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loaded manifest: 1 topics, 53687091 total records
+[2m2026-09-15T17:55:35.668523Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connecting to target Kafka cluster via partition leader router...
+[2m2026-09-15T17:55:35.670348Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 64 partition leaders
+[2m2026-09-15T17:55:35.670364Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connected to target Kafka cluster via partition leader router
+[2m2026-09-15T17:55:35.670893Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Creating 1 missing topics: ["device-telemetry-neg-window"]
+[2m2026-09-15T17:55:35.698441Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::admin[0m[2m:[0m Created topic: device-telemetry-neg-window
+[2m2026-09-15T17:55:35.698461Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Created topic 'device-telemetry-neg-window' successfully
+[2m2026-09-15T17:55:35.700802Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 70 partition leaders
+[2m2026-09-15T17:55:35.700819Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Refreshed metadata after topic creation
+[2m2026-09-15T17:55:35.730024Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring 1 topics
+[2m2026-09-15T17:55:35.730044Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring topic device-telemetry -> device-telemetry-neg-window (6 partitions)
+[2m2026-09-15T17:55:36.757645Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:2 -> device-telemetry-neg-window:2 (24411 records, 1 segments)
+[2m2026-09-15T17:55:36.759101Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:0 -> device-telemetry-neg-window:0 (24420 records, 1 segments)
+[2m2026-09-15T17:55:36.813131Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:5 -> device-telemetry-neg-window:5 (24404 records, 1 segments)
+[2m2026-09-15T17:55:36.864709Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:4 -> device-telemetry-neg-window:4 (24441 records, 1 segments)
+[2m2026-09-15T17:55:36.882171Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:3 -> device-telemetry-neg-window:3 (24403 records, 1 segments)
+[2m2026-09-15T17:55:36.908024Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:1 -> device-telemetry-neg-window:1 (24404 records, 1 segments)
+[2m2026-09-15T17:55:36.909592Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restore completed successfully
+[2m2026-09-15T17:55:36.909653Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m === Performance Metrics ===
+Duration: 1.25s
+Records processed: 146483
+Records/sec: 117570
+Bytes written: 0 MB
+Throughput: 0.00 MB/s
+Compression ratio: 1.00x
+Segments written: 0
+Errors: 0
+
+Checkpoint latency (ms):
+  avg=0.00 p50=0.00 p95=0.00 p99=0.00 max=0.00
+Segment write latency (ms):
+  avg=0.00 p50=0.00 p95=0.00 p99=0.00 max=0.00
+
+[2m2026-09-15T17:55:36.909750Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
+[2m2026-09-15T17:55:36.909835Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Restore completed successfully

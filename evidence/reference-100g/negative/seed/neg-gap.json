@@ -1,0 +1,153 @@
+{
+  "decoy_schema_ids": {
+    "demo-decoy-meter-read-value": 1,
+    "demo-decoy-tariff-value": 2
+  },
+  "keys_per_partition": {
+    "0": 6589,
+    "1": 6687,
+    "2": 6740,
+    "3": 6594,
+    "4": 6655,
+    "5": 6735
+  },
+  "late_max_hours": 72,
+  "late_rate": 0.0,
+  "murmur2_self_test": {
+    "21": {
+      "actual": -973932308,
+      "expected": -973932308,
+      "ok": true
+    },
+    "abc": {
+      "actual": 479470107,
+      "expected": 479470107,
+      "ok": true
+    },
+    "foobar": {
+      "actual": -790332482,
+      "expected": -790332482,
+      "ok": true
+    }
+  },
+  "partitions": 6,
+  "per_partition": {
+    "0": {
+      "boundary": 180,
+      "count": 10000,
+      "late": 0,
+      "max_ts": 1789487222400,
+      "min_ts": 1781712000000,
+      "partition": 0,
+      "seconds": 1.0,
+      "v2_from_index": 7000,
+      "value_bytes": 19363466
+    },
+    "1": {
+      "boundary": 180,
+      "count": 10000,
+      "late": 0,
+      "max_ts": 1789487222400,
+      "min_ts": 1781712000000,
+      "partition": 1,
+      "seconds": 1.0,
+      "v2_from_index": 7000,
+      "value_bytes": 19363649
+    },
+    "2": {
+      "boundary": 180,
+      "count": 10000,
+      "late": 0,
+      "max_ts": 1789487222400,
+      "min_ts": 1781712000000,
+      "partition": 2,
+      "seconds": 1.0,
+      "v2_from_index": 7000,
+      "value_bytes": 19363036
+    },
+    "3": {
+      "boundary": 180,
+      "count": 10000,
+      "late": 0,
+      "max_ts": 1789487222400,
+      "min_ts": 1781712000000,
+      "partition": 3,
+      "seconds": 1.0,
+      "v2_from_index": 7000,
+      "value_bytes": 19364004
+    },
+    "4": {
+      "boundary": 180,
+      "count": 10000,
+      "late": 0,
+      "max_ts": 1789487222400,
+      "min_ts": 1781712000000,
+      "partition": 4,
+      "seconds": 1.0,
+      "v2_from_index": 7000,
+      "value_bytes": 19363981
+    },
+    "5": {
+      "boundary": 180,
+      "count": 10000,
+      "late": 0,
+      "max_ts": 1789487222400,
+      "min_ts": 1781712000000,
+      "partition": 5,
+      "seconds": 1.0,
+      "v2_from_index": 7000,
+      "value_bytes": 19363967
+    }
+  },
+  "records": 60000,
+  "scale": "100g",
+  "schema_ids": {
+    "v1": 3,
+    "v2": 4
+  },
+  "seconds": 1.1,
+  "seed": "20260915",
+  "seed_end_ts": 1789488000000,
+  "segment_bytes": 1048576,
+  "span_days": 90,
+  "start_ts": 1781712000000,
+  "subject": "neg-gap-value",
+  "throughput_mb_s": 103.1,
+  "topic": "neg-gap",
+  "topic_configs": {
+    "cleanup.policy": "delete",
+    "message.timestamp.before.max.ms": "9223372036854775807",
+    "message.timestamp.type": "CreateTime",
+    "retention.bytes": "-1",
+    "retention.ms": "-1",
+    "segment.bytes": "1048576",
+    "segment.ms": "315360000000"
+  },
+  "value_bytes": 116182103,
+  "watermarks": {
+    "0": {
+      "high": 10000,
+      "low": 0
+    },
+    "1": {
+      "high": 10000,
+      "low": 0
+    },
+    "2": {
+      "high": 10000,
+      "low": 0
+    },
+    "3": {
+      "high": 10000,
+      "low": 0
+    },
+    "4": {
+      "high": 10000,
+      "low": 0
+    },
+    "5": {
+      "high": 10000,
+      "low": 0
+    }
+  }
+}

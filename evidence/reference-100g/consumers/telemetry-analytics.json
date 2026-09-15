@@ -1,0 +1,79 @@
+{
+  "below_log_start": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "committed": {
+    "0": 7476970,
+    "1": 7476970,
+    "2": 7476970,
+    "3": 7476969,
+    "4": 7476969,
+    "5": 7476969
+  },
+  "consumed": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+  },
+  "group": "telemetry-analytics",
+  "offset_out_of_range": {
+    "0": {
+      "code": "_AUTO_OFFSET_RESET",
+      "message": "fetch failed due to requested offset not available on the broker: Broker: Offset out of range (broker 1)"
+    },
+    "1": {
+      "code": "_AUTO_OFFSET_RESET",
+      "message": "fetch failed due to requested offset not available on the broker: Broker: Offset out of range (broker 1)"
+    },
+    "2": {
+      "code": "_AUTO_OFFSET_RESET",
+      "message": "fetch failed due to requested offset not available on the broker: Broker: Offset out of range (broker 1)"
+    },
+    "3": {
+      "code": "_AUTO_OFFSET_RESET",
+      "message": "fetch failed due to requested offset not available on the broker: Broker: Offset out of range (broker 1)"
+    },
+    "4": {
+      "code": "_AUTO_OFFSET_RESET",
+      "message": "fetch failed due to requested offset not available on the broker: Broker: Offset out of range (broker 1)"
+    },
+    "5": {
+      "code": "_AUTO_OFFSET_RESET",
+      "message": "fetch failed due to requested offset not available on the broker: Broker: Offset out of range (broker 1)"
+    }
+  },
+  "watermarks": {
+    "0": {
+      "high": 8947849,
+      "low": 8214611
+    },
+    "1": {
+      "high": 8947849,
+      "low": 8213552
+    },
+    "2": {
+      "high": 8947849,
+      "low": 8068095
+    },
+    "3": {
+      "high": 8947848,
+      "low": 8213514
+    },
+    "4": {
+      "high": 8947848,
+      "low": 8065654
+    },
+    "5": {
+      "high": 8947848,
+      "low": 8214581
+    }
+  }
+}

@@ -1,0 +1,4 @@
+ Container offload-mc-run-345236286a4d Creating 
+ Container offload-mc-run-345236286a4d Created 
+mc: <ERROR> Failed to remove `local/kafka-backups-sealed/backups/device-telemetry/topics/device-telemetry/partition=0/segment-00000000000000000000.bin.zst`. Object, 'backups/device-telemetry/topics/device-telemetry/partition=0/segment-00000000000000000000.bin.zst (Version ID=267bae1f-610f-4015-8c21-730cdd470cca)' is WORM protected and cannot be overwritten
+

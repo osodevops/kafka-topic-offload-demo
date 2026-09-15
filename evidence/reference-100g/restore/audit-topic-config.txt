@@ -1,0 +1,7 @@
+Dynamic configs for topic device-telemetry-audit are:
+  cleanup.policy=delete sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:cleanup.policy=delete, DEFAULT_CONFIG:log.cleanup.policy=delete}
+  message.timestamp.type=CreateTime sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:message.timestamp.type=CreateTime, DEFAULT_CONFIG:log.message.timestamp.type=CreateTime}
+  retention.bytes=-1 sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:retention.bytes=-1, DEFAULT_CONFIG:log.retention.bytes=-1}
+  retention.ms=-1 sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:retention.ms=-1, STATIC_BROKER_CONFIG:log.retention.ms=-1, DEFAULT_CONFIG:log.retention.hours=168}
+  segment.bytes=298261616 sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:segment.bytes=298261616, DEFAULT_CONFIG:log.segment.bytes=1073741824}
+  segment.ms=315360000000 sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:segment.ms=315360000000}

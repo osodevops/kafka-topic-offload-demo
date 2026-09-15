@@ -1,0 +1,8 @@
+
+GROUP               TOPIC            PARTITION  NEW-OFFSET
+telemetry-analytics device-telemetry 4          7476969
+telemetry-analytics device-telemetry 5          7476969
+telemetry-analytics device-telemetry 2          7476970
+telemetry-analytics device-telemetry 3          7476969
+telemetry-analytics device-telemetry 0          7476970
+telemetry-analytics device-telemetry 1          7476970

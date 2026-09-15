@@ -1,0 +1,14 @@
+
+==> 75-readable-archive  (run 100g-20260915T164407Z, scale 100g)
+
+==> Decode one sealed segment from the audit month with the independent reader
+ Image offload-verifier:local Building 
+ Image offload-verifier:local Built 
+ Container offload-verifier-run-7921ab9881ad Creating 
+ Container offload-verifier-run-7921ab9881ad Created 
+[17:54:39] {"key": "backups/device-telemetry/topics/device-telemetry/partition=0/segment-00000000000002262821.bin.zst", "object_bytes": 52065262, "record_count": 64638, "start_offset": 2262821, "end_offset": 2327458, "compression": "zstd", "records_read": 64638, "first_offset": 2262821, "last_offset": 2327458, "decoded_rows": 20, "jsonl": "/evidence/100g-20260915T164407Z/archive/segment-00000000000002262821.bin.zst.jsonl"}
+GATE archive.segment_readable_without_kafka_backup: PASS - CRC ok, 64638 records 2262821..2327458, 20 Avro rows decoded
+{"offset": 2262821, "timestamp": 1765923537159, "key": "dev-36426", "x-original-offset": 2262821, "x-original-timestamp": 1765923537159, "user_headers": {}, "schema_id": 3, "value": {"deviceId": "dev-36426", "siteId": "site-0426", "eventTime": "2025-12-16 22:18:57.159000+00:00", "seq": 2262821, "activePowerW": 9933.055766324955, "reactivePowerVar": -355.4744130701879, "voltageV": 235.2572543790839
+{"offset": 2262822, "timestamp": 1765923540683, "key": "dev-03420", "x-original-offset": 2262822, "x-original-timestamp": 1765923540683, "user_headers": {}, "schema_id": 3, "value": {"deviceId": "dev-03420", "siteId": "site-1420", "eventTime": "2025-12-16 22:19:00.683000+00:00", "seq": 2262822, "activePowerW": 5491.467756962944, "reactivePowerVar": 1635.038872709661, "voltageV": 237.85183787094584
+
+PHASE 75-readable-archive: PASS (2s)

@@ -1,0 +1,153 @@
+{
+  "decoy_schema_ids": {
+    "demo-decoy-meter-read-value": 1,
+    "demo-decoy-tariff-value": 2
+  },
+  "keys_per_partition": {
+    "0": 6589,
+    "1": 6687,
+    "2": 6740,
+    "3": 6594,
+    "4": 6655,
+    "5": 6735
+  },
+  "late_max_hours": 72,
+  "late_rate": 0.0,
+  "murmur2_self_test": {
+    "21": {
+      "actual": -973932308,
+      "expected": -973932308,
+      "ok": true
+    },
+    "abc": {
+      "actual": 479470107,
+      "expected": 479470107,
+      "ok": true
+    },
+    "foobar": {
+      "actual": -790332482,
+      "expected": -790332482,
+      "ok": true
+    }
+  },
+  "partitions": 6,
+  "per_partition": {
+    "0": {
+      "boundary": 60,
+      "count": 5000,
+      "late": 0,
+      "max_ts": 1789487481600,
+      "min_ts": 1786896000000,
+      "partition": 0,
+      "seconds": 0.6,
+      "v2_from_index": 3500,
+      "value_bytes": 9680583
+    },
+    "1": {
+      "boundary": 60,
+      "count": 5000,
+      "late": 0,
+      "max_ts": 1789487481600,
+      "min_ts": 1786896000000,
+      "partition": 1,
+      "seconds": 0.6,
+      "v2_from_index": 3500,
+      "value_bytes": 9681174
+    },
+    "2": {
+      "boundary": 60,
+      "count": 5000,
+      "late": 0,
+      "max_ts": 1789487481600,
+      "min_ts": 1786896000000,
+      "partition": 2,
+      "seconds": 0.6,
+      "v2_from_index": 3500,
+      "value_bytes": 9680512
+    },
+    "3": {
+      "boundary": 60,
+      "count": 5000,
+      "late": 0,
+      "max_ts": 1789487481600,
+      "min_ts": 1786896000000,
+      "partition": 3,
+      "seconds": 0.6,
+      "v2_from_index": 3500,
+      "value_bytes": 9681310
+    },
+    "4": {
+      "boundary": 60,
+      "count": 5000,
+      "late": 0,
+      "max_ts": 1789487481600,
+      "min_ts": 1786896000000,
+      "partition": 4,
+      "seconds": 0.6,
+      "v2_from_index": 3500,
+      "value_bytes": 9680498
+    },
+    "5": {
+      "boundary": 60,
+      "count": 5000,
+      "late": 0,
+      "max_ts": 1789487481600,
+      "min_ts": 1786896000000,
+      "partition": 5,
+      "seconds": 0.6,
+      "v2_from_index": 3500,
+      "value_bytes": 9680773
+    }
+  },
+  "records": 30000,
+  "scale": "100g",
+  "schema_ids": {
+    "v1": 3,
+    "v2": 4
+  },
+  "seconds": 0.7,
+  "seed": "20260915",
+  "seed_end_ts": 1789488000000,
+  "segment_bytes": 1048576,
+  "span_days": 30,
+  "start_ts": 1786896000000,
+  "subject": "neg-corrupt-value",
+  "throughput_mb_s": 84.6,
+  "topic": "neg-corrupt",
+  "topic_configs": {
+    "cleanup.policy": "delete",
+    "message.timestamp.before.max.ms": "9223372036854775807",
+    "message.timestamp.type": "CreateTime",
+    "retention.bytes": "-1",
+    "retention.ms": "-1",
+    "segment.bytes": "1048576",
+    "segment.ms": "315360000000"
+  },
+  "value_bytes": 58084850,
+  "watermarks": {
+    "0": {
+      "high": 5000,
+      "low": 0
+    },
+    "1": {
+      "high": 5000,
+      "low": 0
+    },
+    "2": {
+      "high": 5000,
+      "low": 0
+    },
+    "3": {
+      "high": 5000,
+      "low": 0
+    },
+    "4": {
+      "high": 5000,
+      "low": 0
+    },
+    "5": {
+      "high": 5000,
+      "low": 0
+    }
+  }
+}

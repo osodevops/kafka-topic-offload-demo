@@ -310,7 +310,7 @@ FINDING 0 records in 2025-12-19..2026-01-17 would be missed by an unpadded windo
 GATE schemas.ids_resolve_identically.audit: PASS - {"3": {"source": 200, "target": 200, "identical": true}}
 ```
 
-At 100 GB, the same finding reports 90 records that only the pad recovered.
+At 100 GB, the same finding reports 88 records that only the pad recovered.
 
 **Restore a different window**
 
@@ -392,7 +392,7 @@ make clean
 make all SCALE=100g && make negative-tests && make 80-report
 ```
 
-It takes about 45 minutes on a 32 core Mac with Docker Desktop. [`evidence/reference-100g`](../evidence/reference-100g) holds a committed run.
+It takes about 25 minutes on a 32 core Mac with Docker Desktop. Allow up to 30 more if the prune gate has to wait for a segment near the cut, and keep the machine awake (`caffeinate -i` on macOS): a sleeping host pauses the Docker VM and stretches every timing. [`evidence/reference-100g`](../evidence/reference-100g) holds a committed run.
 
 ## 18. Clean up
 

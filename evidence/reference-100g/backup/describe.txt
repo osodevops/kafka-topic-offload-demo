@@ -1,0 +1,40 @@
+ Container offload-kafka-backup-run-8e2794a59c19 Creating 
+ Container offload-kafka-backup-run-8e2794a59c19 Created 
+[2m2026-09-15T16:51:33.557001Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups, prefix: Some("backups")
+[2m2026-09-15T16:51:33.557076Z[0m [32m INFO[0m [2mkafka_backup::commands::describe[0m[2m:[0m Loading backup manifest: device-telemetry
+╔══════════════════════════════════════════════════════════════════════╗
+║                         BACKUP MANIFEST                              ║
+╠══════════════════════════════════════════════════════════════════════╣
+║ Backup ID:      device-telemetry                                        ║
+║ Created:        2026-09-15 16:47:29 UTC                                 ║
+║ Compression:    zstd                                                    ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                              SUMMARY                                 ║
+╠══════════════════════════════════════════════════════════════════════╣
+║ Total Topics:                                                         1 ║
+║ Total Partitions:                                                     6 ║
+║ Total Segments:                                                     834 ║
+║ Total Records:                                                 53687091 ║
+║ Compressed Size: 40.29 GB                                               ║
+║ Uncompressed Size: 103.95 GB                                            ║
+║ Compression Ratio:                                                38.8% ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                            TIME RANGE                                ║
+╠══════════════════════════════════════════════════════════════════════╣
+║ Earliest: 2025-09-15 15:00:00 UTC                                       ║
+║ Latest:   2026-09-15 14:59:56 UTC                                       ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                              TOPICS                                  ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║ Topic: device-telemetry                                                 ║
+║   Partitions:                                                         6 ║
+║   Segments:                                                         834 ║
+║   Records:                                                     53687091 ║
+║     P0: 8947849 records, offsets 0-8947848 (139 segments) ║
+║     P5: 8947848 records, offsets 0-8947847 (139 segments) ║
+║     P4: 8947848 records, offsets 0-8947847 (139 segments) ║
+║     P1: 8947849 records, offsets 0-8947848 (139 segments) ║
+║     P3: 8947848 records, offsets 0-8947847 (139 segments) ║
+║     P2: 8947849 records, offsets 0-8947848 (139 segments) ║
+╚══════════════════════════════════════════════════════════════════════╝

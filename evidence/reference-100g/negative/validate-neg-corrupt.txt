@@ -1,0 +1,27 @@
+ Container offload-kafka-backup-run-a7f1dff3aa95 Creating 
+ Container offload-kafka-backup-run-a7f1dff3aa95 Created 
+[2m2026-09-15T17:55:14.194649Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups, prefix: Some("negative")
+[2m2026-09-15T17:55:14.194676Z[0m [32m INFO[0m [2mkafka_backup::commands::validate[0m[2m:[0m Validating backup: neg-corrupt (deep=true)
+Validating backup: neg-corrupt
+Created: 2026-09-15 17:55:12.269 UTC
+
+Checking topic: neg-corrupt
+[2m2026-09-15T17:55:14.241696Z[0m [31mERROR[0m [2mkafka_backup::commands::validate[0m[2m:[0m Failed to parse segment neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000002023.bin.zst: IO error: CRC mismatch: stored=4222402279, computed=388950791
+  6 partitions, 18 segments checked
+
+=== Validation Report ===
+
+Segments Checked:   18
+Segments Valid:     17
+Segments Missing:   0
+Segments Corrupted: 1
+Records Validated:  27980
+Data Gaps:          0
+Pruned Ranges:      0
+Missing Topics:     0
+
+Issues Found:
+  - Corrupted segment: neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000002023.bin.zst (IO error: CRC mismatch: stored=4222402279, computed=388950791)
+
+Result: INVALID
+

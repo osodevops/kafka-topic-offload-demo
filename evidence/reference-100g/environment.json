@@ -1,0 +1,83 @@
+{
+  "compose": "5.5.1",
+  "docker": "29.7.2",
+  "docker_vm": {
+    "cpus": "24",
+    "mem_bytes": "112132366336"
+  },
+  "host": {
+    "machine": "arm64",
+    "release": "25.6.0",
+    "system": "Darwin"
+  },
+  "images": {
+    "CP_KAFKA_IMAGE": {
+      "architecture": "arm64",
+      "id": "sha256:0ad069035863aa1b090f4d9af47bfd2c08dc32864f3575d7d8579e3155c2586d",
+      "ref": "confluentinc/cp-kafka:8.3.1",
+      "repo_digests": [
+        "confluentinc/cp-kafka@sha256:0ad069035863aa1b090f4d9af47bfd2c08dc32864f3575d7d8579e3155c2586d"
+      ]
+    },
+    "CP_SCHEMA_REGISTRY_IMAGE": {
+      "architecture": "arm64",
+      "id": "sha256:f0cfd047a839c1ace54d93b92e3459f0d03dc3b5c9db1192a2246fd79b4f44c4",
+      "ref": "confluentinc/cp-schema-registry:8.3.1",
+      "repo_digests": [
+        "confluentinc/cp-schema-registry@sha256:f0cfd047a839c1ace54d93b92e3459f0d03dc3b5c9db1192a2246fd79b4f44c4"
+      ]
+    },
+    "CP_SERVER_IMAGE": {
+      "architecture": "arm64",
+      "id": "sha256:62e3b04c4c88d03fbb484b9976e6145f751c2e908310f3f8b2db5ae7fcd3608f",
+      "ref": "confluentinc/cp-server:8.3.1",
+      "repo_digests": [
+        "confluentinc/cp-server@sha256:62e3b04c4c88d03fbb484b9976e6145f751c2e908310f3f8b2db5ae7fcd3608f"
+      ]
+    },
+    "KAFKA_BACKUP_IMAGE": {
+      "architecture": "arm64",
+      "id": "sha256:ba7ddc11f4dec7968e21524e7f9246f34ac1a6cab553176bb6be22e3c3ad19f7",
+      "ref": "kafka-backup:0.22.0-arm64",
+      "repo_digests": [
+        "kafka-backup@sha256:ba7ddc11f4dec7968e21524e7f9246f34ac1a6cab553176bb6be22e3c3ad19f7"
+      ]
+    },
+    "MC_IMAGE": {
+      "architecture": "arm64",
+      "id": "sha256:a7fe349ef4bd8521fb8497f55c6042871b2ae640607cf99d9bede5e9bdf11727",
+      "ref": "quay.io/minio/mc:RELEASE.2025-08-13T08-35-41Z",
+      "repo_digests": [
+        "minio/mc@sha256:a7fe349ef4bd8521fb8497f55c6042871b2ae640607cf99d9bede5e9bdf11727",
+        "quay.io/minio/mc@sha256:a7fe349ef4bd8521fb8497f55c6042871b2ae640607cf99d9bede5e9bdf11727"
+      ]
+    },
+    "MINIO_IMAGE": {
+      "architecture": "arm64",
+      "id": "sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e",
+      "ref": "quay.io/minio/minio:RELEASE.2025-09-07T16-13-09Z",
+      "repo_digests": [
+        "minio/minio@sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e",
+        "quay.io/minio/minio@sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e"
+      ]
+    },
+    "verifier": {
+      "id": "sha256:b75151a9d2178a84a7140690adae67641fa01cab27d5cd7b71f3195c1dd70b66",
+      "ref": "offload-verifier:local"
+    }
+  },
+  "kafka_backup": {
+    "revision_label": "",
+    "tag": "v0.22.0",
+    "version": "kafka-backup 0.22.0"
+  },
+  "partitions": 6,
+  "repo_dirty": false,
+  "repo_git_sha": "5dd61ddc7a0f4aabab5b46155ec2d4ce67dbefe4",
+  "retention_after_prune_ms": 2592000000,
+  "run_id": "100g-20260915T164407Z",
+  "scale": "100g",
+  "seed": "20260915",
+  "started_at": 1789490668321,
+  "topic": "device-telemetry"
+}

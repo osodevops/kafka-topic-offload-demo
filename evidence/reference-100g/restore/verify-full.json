@@ -1,0 +1,220 @@
+{
+  "differences": [],
+  "exact_days": [
+    [
+      "2025-09-15"
+    ],
+    [
+      "2026-09-15"
+    ]
+  ],
+  "expected_by_watermarks": 53687091,
+  "group": {
+    "0": {
+      "ok": true,
+      "record_x_original_offset": 7476970,
+      "source": 7476970,
+      "target": 7476970
+    },
+    "1": {
+      "ok": true,
+      "record_x_original_offset": 7476970,
+      "source": 7476970,
+      "target": 7476970
+    },
+    "2": {
+      "ok": true,
+      "record_x_original_offset": 7476970,
+      "source": 7476970,
+      "target": 7476970
+    },
+    "3": {
+      "ok": true,
+      "record_x_original_offset": 7476969,
+      "source": 7476969,
+      "target": 7476969
+    },
+    "4": {
+      "ok": true,
+      "record_x_original_offset": 7476969,
+      "source": 7476969,
+      "target": 7476969
+    },
+    "5": {
+      "ok": true,
+      "record_x_original_offset": 7476969,
+      "source": 7476969,
+      "target": 7476969
+    }
+  },
+  "partitions": {
+    "0": {
+      "count": 8947849,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 8947849,
+      "low": 0,
+      "missing_header": 0,
+      "n": 8947849,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 0,
+      "prev": 8947848,
+      "probe": {
+        "target_offset": 7476970,
+        "x_original_offset": 7476970
+      },
+      "samples": 500,
+      "schema_ids": {
+        "3": 6263494,
+        "4": 2684355
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "1": {
+      "count": 8947849,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 8947849,
+      "low": 0,
+      "missing_header": 0,
+      "n": 8947849,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 1,
+      "prev": 8947848,
+      "probe": {
+        "target_offset": 7476970,
+        "x_original_offset": 7476970
+      },
+      "samples": 500,
+      "schema_ids": {
+        "3": 6263494,
+        "4": 2684355
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "2": {
+      "count": 8947849,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 8947849,
+      "low": 0,
+      "missing_header": 0,
+      "n": 8947849,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 2,
+      "prev": 8947848,
+      "probe": {
+        "target_offset": 7476970,
+        "x_original_offset": 7476970
+      },
+      "samples": 500,
+      "schema_ids": {
+        "3": 6263494,
+        "4": 2684355
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "3": {
+      "count": 8947848,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 8947848,
+      "low": 0,
+      "missing_header": 0,
+      "n": 8947848,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 3,
+      "prev": 8947847,
+      "probe": {
+        "target_offset": 7476969,
+        "x_original_offset": 7476969
+      },
+      "samples": 500,
+      "schema_ids": {
+        "3": 6263493,
+        "4": 2684355
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "4": {
+      "count": 8947848,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 8947848,
+      "low": 0,
+      "missing_header": 0,
+      "n": 8947848,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 4,
+      "prev": 8947847,
+      "probe": {
+        "target_offset": 7476969,
+        "x_original_offset": 7476969
+      },
+      "samples": 500,
+      "schema_ids": {
+        "3": 6263493,
+        "4": 2684355
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "5": {
+      "count": 8947848,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 8947848,
+      "low": 0,
+      "missing_header": 0,
+      "n": 8947848,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 5,
+      "prev": 8947847,
+      "probe": {
+        "target_offset": 7476969,
+        "x_original_offset": 7476969
+      },
+      "samples": 500,
+      "schema_ids": {
+        "3": 6263493,
+        "4": 2684355
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    }
+  },
+  "passed": true,
+  "predicted_missing_total": 0,
+  "records": 53687091,
+  "schema_ids": [
+    3,
+    4
+  ],
+  "seconds": 76.9,
+  "target_topic": "device-telemetry-full",
+  "unexplained": [],
+  "window_end": null,
+  "window_start": null
+}

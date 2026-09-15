@@ -1,0 +1,14 @@
+{
+  "ids": [
+    3,
+    4
+  ],
+  "local": "/evidence/100g-20260915T164407Z/schemas/device-telemetry-schemas-export.json",
+  "object": {
+    "bucket": "kafka-backups",
+    "bytes": 2646,
+    "key": "schema-exports/device-telemetry/schemas-export.json",
+    "sha256": "2e91594443c4e96430f75d2986fab7670234f571fc3aa9360f2f513ee4dba5b2"
+  },
+  "sha256": "2e91594443c4e96430f75d2986fab7670234f571fc3aa9360f2f513ee4dba5b2"
+}

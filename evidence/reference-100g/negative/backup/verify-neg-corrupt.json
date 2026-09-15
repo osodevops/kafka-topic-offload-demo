@@ -1,0 +1,176 @@
+{
+  "coverage": {
+    "0": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 4999,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 4999,
+      "pruned": [],
+      "records": 5000
+    },
+    "1": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 4999,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 4999,
+      "pruned": [],
+      "records": 5000
+    },
+    "2": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 4999,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 4999,
+      "pruned": [],
+      "records": 5000
+    },
+    "3": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 4999,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 4999,
+      "pruned": [],
+      "records": 5000
+    },
+    "4": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 4999,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 4999,
+      "pruned": [],
+      "records": 5000
+    },
+    "5": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 4999,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 4999,
+      "pruned": [],
+      "records": 5000
+    }
+  },
+  "manifest_sha256": "2e0aacb4c575068e0a493e956a348b64544d8344a728e52d81359650d1485e5b",
+  "partitions": {
+    "0": {
+      "bounds_not_min_max": 0,
+      "header_mismatch": [],
+      "max_record_bytes": 0,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 4008631,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 0,
+      "records": 0,
+      "segments": 3,
+      "sha_mismatch": [
+        "negative/neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000002023.bin.zst"
+      ],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    },
+    "1": {
+      "bounds_not_min_max": 0,
+      "header_mismatch": [],
+      "max_record_bytes": 0,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 4010036,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 1,
+      "records": 0,
+      "segments": 3,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    },
+    "2": {
+      "bounds_not_min_max": 0,
+      "header_mismatch": [],
+      "max_record_bytes": 0,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 4008967,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 2,
+      "records": 0,
+      "segments": 3,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    },
+    "3": {
+      "bounds_not_min_max": 0,
+      "header_mismatch": [],
+      "max_record_bytes": 0,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 4009462,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 3,
+      "records": 0,
+      "segments": 3,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    },
+    "4": {
+      "bounds_not_min_max": 0,
+      "header_mismatch": [],
+      "max_record_bytes": 0,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 4008687,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 4,
+      "records": 0,
+      "segments": 3,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    },
+    "5": {
+      "bounds_not_min_max": 0,
+      "header_mismatch": [],
+      "max_record_bytes": 0,
+      "missing_sha": 0,
+      "non_contiguous": 0,
+      "object_bytes": 4008136,
+      "offset_header_mismatch": 0,
+      "parse_errors": [],
+      "partition": 5,
+      "records": 0,
+      "segments": 3,
+      "sha_mismatch": [],
+      "size_mismatch": [],
+      "timestamp_header_mismatch": 0
+    }
+  },
+  "passed": false,
+  "summary": {
+    "backup_id": "neg-corrupt",
+    "bucket": "kafka-backups",
+    "compressed_bytes": 24053919,
+    "compression_ratio": 2.591,
+    "records": 30000,
+    "segments": 18,
+    "uncompressed_bytes": 62314850,
+    "verify_seconds": 0.2
+  }
+}

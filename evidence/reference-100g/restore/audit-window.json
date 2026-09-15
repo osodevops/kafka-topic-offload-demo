@@ -1,0 +1,9 @@
+{
+  "audit_start": 1766102400000,
+  "audit_end_exclusive": 1768694400000,
+  "exact_from": "2025-12-19",
+  "exact_to": "2026-01-17",
+  "pad_ms": 259200000,
+  "window_start": 1765843200000,
+  "window_end": 1768953599999
+}

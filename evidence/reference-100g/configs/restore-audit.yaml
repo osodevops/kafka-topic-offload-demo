@@ -1,0 +1,47 @@
+# Time window restore of one topic into a new topic on the target cluster, read from the
+# sealed copy. Offsets on the target are new; every record keeps the x-original-offset and
+# x-original-timestamp headers written at backup time.
+mode: restore
+backup_id: "device-telemetry"
+
+target:
+  bootstrap_servers:
+    - target-kafka:29092
+  topics:
+    include:
+      - "device-telemetry"
+
+storage:
+  backend: s3
+  bucket: "kafka-backups-sealed"
+  region: us-east-1
+  endpoint: "http://minio:9000"
+  path_style: true
+  allow_http: true
+  prefix: "backups"
+
+restore:
+  # Padded by the maximum lateness on both sides. 0.22.0 selects segments by their first
+  # and last record timestamps, not min and max, so late records near the window
+  # edges are skipped without the pad.
+  time_window_start: 1765843200000
+  time_window_end: 1768953599999
+  topic_mapping:
+    "device-telemetry": "device-telemetry-audit"
+  create_topics: true
+  default_replication_factor: 1
+  restore_topic_configs: true
+  # Never append to, or silently reconfigure, a topic that already exists.
+  existing_topic_config_policy: fail
+  # The backup captured retention.ms=-1, but a scratch topic must never age data out
+  # whatever the backup carries.
+  topic_config_overrides:
+    "device-telemetry-audit":
+      retention.ms: "-1"
+      retention.bytes: "-1"
+  consumer_group_strategy: skip
+  # 0.22.0 does not split produce batches by size. 250 records of about 2 KB stay
+  # under the target's message.max.bytes; the phase checks this before restoring.
+  produce_batch_size: 250
+  produce_acks: -1
+  max_concurrent_partitions: 6

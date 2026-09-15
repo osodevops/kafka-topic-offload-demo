@@ -1,0 +1,98 @@
+
+==> 10-seed  (run 100g-20260915T164407Z, scale 100g)
+
+==> Seeding device-telemetry at scale 100g (seed 20260915)
+ Image offload-verifier:local Building 
+ Image offload-verifier:local Built 
+ Container offload-verifier-run-28430d94182c Creating 
+ Container offload-verifier-run-28430d94182c Created 
+[16:44:30] murmur2 self test: {'21': {'expected': -973932308, 'actual': -973932308, 'ok': True}, 'foobar': {'expected': -790332482, 'actual': -790332482, 'ok': True}, 'abc': {'expected': 479470107, 'actual': 479470107, 'ok': True}}
+[16:44:30] schema ids: decoys {'demo-decoy-meter-read-value': 1, 'demo-decoy-tariff-value': 2}, device-telemetry-value {'v1': 3, 'v2': 4}
+[16:44:30] created device-telemetry: 6 partitions, {'cleanup.policy': 'delete', 'retention.ms': '-1', 'retention.bytes': '-1', 'segment.bytes': '298261616', 'segment.ms': '315360000000', 'message.timestamp.type': 'CreateTime', 'message.timestamp.before.max.ms': '9223372036854775807'}
+[16:44:30] seeding 53,687,091 records into device-telemetry across 6 partitions, segment.bytes=298,261,616
+[16:44:39] seed p2: 894,784/8,947,849 records (103,052 rec/s)
+[16:44:39] seed p4: 894,784/8,947,848 records (102,758 rec/s)
+[16:44:39] seed p0: 894,784/8,947,849 records (102,634 rec/s)
+[16:44:39] seed p3: 894,784/8,947,848 records (102,009 rec/s)
+[16:44:39] seed p5: 894,784/8,947,848 records (101,896 rec/s)
+[16:44:39] seed p1: 894,784/8,947,849 records (101,786 rec/s)
+[16:44:48] seed p2: 1,789,568/8,947,849 records (103,866 rec/s)
+[16:44:48] seed p4: 1,789,568/8,947,848 records (103,559 rec/s)
+[16:44:48] seed p0: 1,789,568/8,947,849 records (103,067 rec/s)
+[16:44:48] seed p3: 1,789,568/8,947,848 records (102,790 rec/s)
+[16:44:48] seed p5: 1,789,568/8,947,848 records (102,655 rec/s)
+[16:44:48] seed p1: 1,789,568/8,947,849 records (102,376 rec/s)
+[16:44:56] seed p2: 2,684,352/8,947,849 records (103,995 rec/s)
+[16:44:56] seed p4: 2,684,352/8,947,848 records (103,700 rec/s)
+[16:44:56] seed p0: 2,684,352/8,947,849 records (103,124 rec/s)
+[16:44:56] seed p3: 2,684,352/8,947,848 records (102,882 rec/s)
+[16:44:56] seed p5: 2,684,352/8,947,848 records (102,749 rec/s)
+[16:44:57] seed p1: 2,684,352/8,947,849 records (102,537 rec/s)
+[16:45:05] seed p2: 3,579,136/8,947,849 records (103,840 rec/s)
+[16:45:05] seed p4: 3,579,136/8,947,848 records (103,552 rec/s)
+[16:45:05] seed p0: 3,579,136/8,947,849 records (102,835 rec/s)
+[16:45:05] seed p3: 3,579,136/8,947,848 records (102,690 rec/s)
+[16:45:05] seed p5: 3,579,136/8,947,848 records (102,569 rec/s)
+[16:45:05] seed p1: 3,579,136/8,947,849 records (102,289 rec/s)
+[16:45:14] seed p2: 4,473,920/8,947,849 records (102,489 rec/s)
+[16:45:14] seed p4: 4,473,920/8,947,848 records (102,162 rec/s)
+[16:45:14] seed p0: 4,473,920/8,947,849 records (101,681 rec/s)
+[16:45:15] seed p3: 4,473,920/8,947,848 records (101,328 rec/s)
+[16:45:15] seed p5: 4,473,920/8,947,848 records (101,160 rec/s)
+[16:45:15] seed p1: 4,473,920/8,947,849 records (100,869 rec/s)
+[16:45:23] seed p2: 5,368,704/8,947,849 records (101,398 rec/s)
+[16:45:23] seed p4: 5,368,704/8,947,848 records (101,134 rec/s)
+[16:45:24] seed p0: 5,368,704/8,947,849 records (100,757 rec/s)
+[16:45:24] seed p3: 5,368,704/8,947,848 records (100,301 rec/s)
+[16:45:24] seed p5: 5,368,704/8,947,848 records (100,142 rec/s)
+[16:45:24] seed p1: 5,368,704/8,947,849 records (99,925 rec/s)
+[16:45:32] seed p2: 6,263,488/8,947,849 records (101,345 rec/s)
+[16:45:32] seed p4: 6,263,488/8,947,848 records (101,087 rec/s)
+[16:45:33] seed p0: 6,263,488/8,947,849 records (100,752 rec/s)
+[16:45:33] seed p3: 6,263,488/8,947,848 records (100,210 rec/s)
+[16:45:33] seed p5: 6,263,488/8,947,848 records (100,098 rec/s)
+[16:45:33] seed p1: 6,263,488/8,947,849 records (99,909 rec/s)
+[16:45:41] seed p2: 7,158,272/8,947,849 records (100,888 rec/s)
+[16:45:41] seed p4: 7,158,272/8,947,848 records (100,726 rec/s)
+[16:45:42] seed p0: 7,158,272/8,947,849 records (100,516 rec/s)
+[16:45:42] seed p3: 7,158,272/8,947,848 records (99,757 rec/s)
+[16:45:42] seed p1: 7,158,272/8,947,849 records (99,700 rec/s)
+[16:45:42] seed p5: 7,158,272/8,947,848 records (99,642 rec/s)
+[16:45:51] seed p2: 8,053,056/8,947,849 records (100,326 rec/s)
+[16:45:51] seed p4: 8,053,056/8,947,848 records (100,237 rec/s)
+[16:45:51] seed p0: 8,053,056/8,947,849 records (100,134 rec/s)
+[16:45:51] seed p1: 8,053,056/8,947,849 records (99,330 rec/s)
+[16:45:52] seed p3: 8,053,056/8,947,848 records (99,207 rec/s)
+[16:45:52] seed p5: 8,053,056/8,947,848 records (99,079 rec/s)
+[16:46:00] seed p2: 8,947,840/8,947,849 records (100,220 rec/s)
+[16:46:00] seed p4: 8,947,840/8,947,848 records (100,211 rec/s)
+[16:46:00] seed p0: 8,947,840/8,947,849 records (100,168 rec/s)
+[16:46:00] seed p1: 8,947,840/8,947,849 records (99,493 rec/s)
+[16:46:01] seed p3: 8,947,840/8,947,848 records (99,219 rec/s)
+[16:46:01] seed p5: 8,947,840/8,947,848 records (99,075 rec/s)
+[16:46:01] seeded 104.05 GB of values in 90s (1150.6 MB/s)
+GATE seed.murmur2_matches_java_partitioner: PASS - {"21": {"expected": -973932308, "actual": -973932308, "ok": true}, "foobar": {"expected": -790332482, "actual": -790332482, "ok": true}, "abc": {"expected": 479470107, "actual": 479470107, "ok": true}}
+GATE seed.watermarks: PASS - 53,687,091 records, low 0 and high == produced on every partition
+GATE seed.no_future_timestamps: PASS - max ts 1789484396475 <= SEED_END_TS 1789484400000
+    53,687,091 records, 104.05 GB of values, 1150.6 MB/s, segment.bytes 298,261,616
+
+==> Consumer group telemetry-analytics, committed 60 days behind the newest record
+
+GROUP               TOPIC            PARTITION  NEW-OFFSET
+telemetry-analytics device-telemetry 4          7476969
+telemetry-analytics device-telemetry 5          7476969
+telemetry-analytics device-telemetry 2          7476970
+telemetry-analytics device-telemetry 3          7476969
+telemetry-analytics device-telemetry 0          7476970
+telemetry-analytics device-telemetry 1          7476970
+
+GROUP               TOPIC            PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+telemetry-analytics device-telemetry 0          7476970         8947849         1470879         -               -               -
+telemetry-analytics device-telemetry 1          7476970         8947849         1470879         -               -               -
+telemetry-analytics device-telemetry 2          7476970         8947849         1470879         -               -               -
+telemetry-analytics device-telemetry 3          7476969         8947848         1470879         -               -               -
+telemetry-analytics device-telemetry 4          7476969         8947848         1470879         -               -               -
+telemetry-analytics device-telemetry 5          7476969         8947848         1470879         -               -               -
+GATE seed.consumer_group_committed_behind: PASS - 6 of 6 partitions committed at 2026-07-17T15:00:00.000 UTC
+
+PHASE 10-seed: PASS (96s)

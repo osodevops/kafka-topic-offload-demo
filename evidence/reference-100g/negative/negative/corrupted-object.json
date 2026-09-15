@@ -1,0 +1,6 @@
+{
+  "flipped_byte": 809719,
+  "key": "negative/neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000002023.bin.zst",
+  "sha256_after": "17a421b3b7cd8e2e38ac180b9cb090b2ea49ff979a517c8f038e22fb4056b358",
+  "sha256_before": "9195dc436955db723ecff8a7f2673d5df77949889eab290d0c09a2dd6ca62549"
+}

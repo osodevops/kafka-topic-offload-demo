@@ -1,0 +1,45 @@
+
+==> 38-seal  (run 100g-20260915T164407Z, scale 100g)
+
+==> Copy the verified backup into the object lock bucket
+ Container offload-mc-run-cb5b3eab96e8 Creating 
+ Container offload-mc-run-cb5b3eab96e8 Created 
+ Container offload-mc-run-b3273d15694f Creating 
+ Container offload-mc-run-b3273d15694f Created 
+ Container offload-mc-run-a415c22240ad Creating 
+ Container offload-mc-run-a415c22240ad Created 
+ Container offload-mc-run-6f7277a0f623 Creating 
+ Container offload-mc-run-6f7277a0f623 Created 
+Object retention successfully set for `local/kafka-backups-sealed/backups/device-telemetry/topics/device-telemetry/partition=5/segment-00000000000008844637.bin.zst`.
+Object retention successfully set for `local/kafka-backups-sealed/backups/device-telemetry/topics/device-telemetry/partition=5/segment-00000000000008908996.bin.zst`.
+
+==> Record retention on every sealed object
+ Container offload-mc-run-581797cf21e8 Creating 
+ Container offload-mc-run-581797cf21e8 Created 
+GATE seal.every_object_under_retention: PASS - 837 of 837 objects in GOVERNANCE mode for 30d
+
+==> A sealed object version cannot be deleted
+ Container offload-mc-run-f4a1c628090b Creating 
+ Container offload-mc-run-f4a1c628090b Created 
+ Container offload-mc-run-44eb36369db2 Creating 
+ Container offload-mc-run-44eb36369db2 Created 
+GATE seal.worm_blocks_version_delete: PASS - delete of topics/device-telemetry/partition=0/segment-00000000000000000000.bin.zst version 267bae1f-610f-4015-8c21-730cdd470cca refused: object is WORM protected and cannot be overwritten
+
+==> Verify the sealed copy against the manifest anchor taken in phase 35
+ Image offload-verifier:local Building 
+ Image offload-verifier:local Built 
+ Container offload-verifier-run-1cc95fa22cec Creating 
+ Container offload-verifier-run-1cc95fa22cec Created 
+GATE backup.manifest_anchor_intact.sealed: PASS - kafka-backups-sealed: manifest sha256 77e2b8d9f7eb25e7... vs anchor 77e2b8d9f7eb25e7...
+GATE backup.manifest_covers_log_start_to_high_watermark.sealed: PASS - 53,687,091 records in 834 segments
+GATE backup.manifest_no_gaps_or_pruned.sealed: PASS
+GATE backup.topic_config_captured.sealed: PASS - retention.ms=-1 partitions=6
+[16:52:53] verify-backup p2: 139 objects, 0 records
+[16:52:53] verify-backup p0: 139 objects, 0 records
+[16:52:53] verify-backup p1: 139 objects, 0 records
+[16:52:53] verify-backup p3: 139 objects, 0 records
+[16:52:53] verify-backup p4: 139 objects, 0 records
+[16:52:53] verify-backup p5: 139 objects, 0 records
+GATE backup.object_sha256_matches_manifest.sealed: PASS - 834 objects, 43.27 GB hashed
+
+PHASE 38-seal: PASS (29s)
