@@ -13,6 +13,7 @@ COMMANDS = {
     "consumer-inventory": ("consumer_sim", "list groups whose committed offsets fall below a cut"),
     "verify-backup": ("backup_checks", "manifest coverage, contiguity and per object SHA-256"),
     "manifest-summary": ("backup_checks", "segment count, sizes and throughput for a backup"),
+    "archive-coverage": ("backup_checks", "offset and time range an archive holds, from its manifest"),
     "s3-requests": ("backup_checks", "MinIO request counters by API, or the difference of two"),
     "prune-predict": ("prune", "predict exactly which segments retention will delete"),
     "prune-check": ("prune", "compare the broker after the prune with the prediction"),

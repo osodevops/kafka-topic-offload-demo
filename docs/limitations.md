@@ -49,6 +49,8 @@ What this demo proves, what it does not, and the kafka-backup 0.22.0 behaviour i
 | Each backup run overwrites the captured topic configs | A backup taken after lowering retention carries the short retention into restores; negative test 1 shows `retention.ms=2592000000` captured | Take the first full backup before any retention change; restore with `topic_config_overrides` | Keep or version captured configs |
 | Azure backend has no emulator or plain HTTP switch; `azure://container@account` parses to an empty container name | No local Azure testing; the documented URL form fails | Use `--config` files only; the Azurite phase is outside the verdict | Emulator and `allow_http` support; fix URL parsing |
 | Externally tagged options such as `start_offset` need the YAML tag form (`start_offset: !specific`) | A map form fails to parse | Negative test 1 uses the tag form | Document it |
+| Backup selection has no time based bounds | An archive cannot be limited to "up to this instant"; it always runs to the high watermark | Resolve an instant to offsets with Kafka's offsets-for-times and pass them as `start_offset` | Accept a timestamp for the start, and an end bound |
+| Archive retention ages segments by upload time where recorded | `--older-than 30d` removes nothing from an archive of ten year old data written today | Use size caps, or an explicit `--before` cutoff | Make the age basis configurable, or prefer the newest record timestamp |
 | Published Docker image is amd64 only | Emulated on arm64 hosts, which distorts timing | `make build-kafka-backup` builds the release tag natively | Publish multi-arch images |
 
 ## What the negative tests do and do not cover

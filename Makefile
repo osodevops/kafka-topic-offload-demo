@@ -3,8 +3,8 @@ SCALE ?= smoke
 export SCALE
 
 PHASES := 00-preflight 10-seed 20-baseline 25-schema-export 30-backup 35-verify-backup 38-seal \
-          40-prune-gate 50-retention-prune 60-audit-restore 65-verify-restore 70-full-restore \
-          75-readable-archive 80-report
+          45-archive-options 40-prune-gate 50-retention-prune 60-audit-restore 65-verify-restore \
+          70-full-restore 75-readable-archive 80-report
 
 .DEFAULT_GOAL := help
 .PHONY: help all up down clean build-kafka-backup negative-tests azurite $(PHASES)

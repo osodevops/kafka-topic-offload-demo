@@ -50,12 +50,19 @@ Confirm Confluent Cloud limits and roles against current Confluent documentation
 - **Tiering:** apply lifecycle rules only to `*/topics/*` segment blobs, so `manifest.json` and the group snapshot stay online. Minimum storage periods before early deletion charges: Cool 30 days, Cold 90 days, Archive 180 days.
 - **Archive tier:** blobs must be rehydrated before a restore can read them, which takes hours. Include rehydration time in the restore time you promise.
 - **Never tier a backup that is still being written.** Incremental backup sets are pruned with `kafka-backup prune`, not lifecycle rules.
+- **Archive retention:** decide how long the archive itself keeps data, separately from the topic:
+  - `kafka-backup prune --older-than <duration>` or `--before <instant>`, and `--max-total-bytes`, planning first and acting with `--execute`;
+  - or `backup.retention` (`max_age`, `max_total_bytes`, `keep_segments`) applied during each run.
+
+  Pruned ranges are recorded in the manifest, so the archive stays valid and states what it no longer holds. Age is taken from each segment's upload time where recorded, so an initial bulk archive of old history ages as one cohort: use an explicit `--before` cutoff for that data rather than a relative age.
+- **Do not point both lifecycle rules and `prune` at the same objects.** Pick one owner for deletion, and keep `manifest.json` out of any lifecycle rule.
 
 ## 5. Backup
 
 Use the demo's `config/kafka-backup/backup.yaml.tmpl` as the starting point, changing only the source (bootstrap, SASL_SSL credentials from the secret store) and the storage backend:
 
-- `stop_at_current_offsets: true` for the initial snapshot.
+- `stop_at_current_offsets: true` for the initial snapshot, which fixes the archive at the high watermarks taken at start-up.
+- **Decide where the archive starts.** To archive only from a chosen instant, resolve it to offsets per partition with `kafka-get-offsets --time <epoch ms>` and pass them as `start_offset: !specific`. Record the instant and the offsets in the change record. There is no end bound; a run always reads to the high watermark.
 - `require_topic_configs: true` and `consumer_group_snapshot: true`.
 - `segment_max_bytes: 134217728`, with `segment_max_interval_ms` large for the snapshot. Larger segments mean fewer write transactions; see the request counts in the demo report and `cost-model.md`.
 - Record the start and end time, the high watermark per partition at start, and the kafka-backup version and image digest in the change record.

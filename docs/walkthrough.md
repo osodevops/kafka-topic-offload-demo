@@ -193,7 +193,7 @@ FINDING manifest segment timestamps are first/last record, not min/max: 55 of 72
 GATE backup.consumer_group_snapshot_matches_committed: PASS - groups ['telemetry-analytics']
 ```
 
-The `FINDING` line matters for restores; see step 10.
+The `FINDING` line matters for restores; see step 11.
 
 ## 7. Seal the backup
 
@@ -211,7 +211,80 @@ GATE backup.object_sha256_matches_manifest.sealed: PASS - 72 objects, 0.43 GB ha
 
 Every later restore reads from the sealed copy.
 
-## 8. The prune gate: predict exactly what Kafka will delete
+## 8. Options: what to archive, and what to bring back
+
+```bash
+make 45-archive-options
+```
+
+Three choices, each gated. The phase runs before retention is lowered, so the topic still holds the full year, and it never modifies the sealed copy.
+
+### A. Archive from a point in time
+
+Kafka resolves an instant to the first offset at or after it on each partition, and kafka-backup starts there. `ARCHIVE_SINCE_DAYS` sets how far back.
+
+```
+device-telemetry:0:67416
+offsets for time: {0: 67416, 1: 67416, 2: 67415, 3: 67415, 4: 67415, 5: 67415}
+GATE archive.since.offsets_for_time_resolved: PASS - 6 of 6 partitions have an offset at or after the instant
+GATE backup.content_matches_source_baseline.since: PASS - 540 fully covered partition-day buckets: count, min/max ts and SHA-256 identical
+device-telemetry-since: 132,378 records in 18 objects, 0.11 GB, covering 2026-06-18 03:00 to 2026-09-16 02:54 UTC
+GATE archive.since.starts_at_the_instant: PASS - earliest archived record is at 2026-06-18 03:00 UTC minus at most the 72h late window
+    132378 of 536870 records archived, the last 90 days only
+```
+
+Two things to know:
+
+- **A late record can predate the instant** while sitting after that offset, so the archive can begin slightly earlier. The gate allows for `LATE_MAX_HOURS`.
+- **There is no end bound.** A backup always runs to the high watermark taken at start-up, which is what makes it a snapshot.
+
+### B. Restore a time range, as at that instant
+
+`ASAT_RANGE_DAYS` days ending at the same instant are restored from the sealed copy into a new topic, with nothing newer than the instant.
+
+```
+GATE restore.asat.no_records_outside_window: PASS - window 1779159600000..1781751599999
+GATE restore.asat.buckets_match_baseline: PASS - 44,128 records; 25 days x 6 partitions compared exactly
+GATE restore.asat.every_difference_explained_by_segment_bounds: PASS - 0 records missing across 0 buckets, 0 predicted by manifest bounds
+GATE restore.asat.avro_decodes_with_registry: PASS - 3000 sampled records decoded; eventTime equals CreateTime
+```
+
+This window is deliberately **not** padded: padding the end would admit records newer than the instant. Padding the start is always safe, so only the interior days are required to match exactly, and any difference at the edges must be one the manifest's segment bounds predict (step 6 explains why).
+
+### C. Keep a rolling range in object storage
+
+The archive has retention of its own, separate from the topic's. The phase applies it to the comparison archive from step 5, leaving the primary and sealed copies alone.
+
+**Age is measured from upload time**, so an archive written minutes ago has nothing old in it, whatever its records say:
+
+```
+Prune plan for 'device-telemetry-comparison':
+  nothing to prune
+GATE archive.retention.age_is_upload_time: PASS - an archive written minutes ago has nothing older than 30d, even though it holds a year of records
+```
+
+A size cap behaves as expected, oldest objects first:
+
+```
+Prune plan for 'device-telemetry-comparison':
+Total: 9 segment(s), 234896895 bytes
+Pruned 9 segment(s), 234896895 bytes. Manifest rewritten first; pruned ranges recorded.
+device-telemetry-comparison: 245,865 records in 9 objects, 0.20 GB, covering 2026-01-26 00:55 to 2026-09-16 02:54 UTC, 6 pruned range(s)
+GATE archive.retention.size_cap_applied: PASS - archive went from 433661481 to 198764586 bytes, cap 216830740, 6 pruned range(s) recorded in the manifest
+```
+
+The pruned archive is still a valid archive that states what it no longer holds:
+
+```
+Data Gaps:          0
+Pruned Ranges:      6
+Result: VALID
+GATE archive.retention.pruned_archive_still_valid: PASS - deliberate retention is not corruption
+```
+
+For production, prune by an explicit cutoff (`--before <instant>`) when the archive holds imported history, since relative ages are measured from upload time. Finally the phase re-checks the sealed copy against the manifest anchor taken in step 6, proving none of this touched it.
+
+## 9. The prune gate: predict exactly what Kafka will delete
 
 ```bash
 make 40-prune-gate
@@ -239,7 +312,7 @@ GATE prune_gate.consumer_impact_acknowledged: PASS - behind cut ['telemetry-anal
 
 The prediction is in `prune/prediction.json`, per partition.
 
-## 9. Lower retention and check the broker against the prediction
+## 10. Lower retention and check the broker against the prediction
 
 ```bash
 make 50-retention-prune
@@ -263,7 +336,7 @@ GATE consumer.offset_out_of_range_surfaced: PASS - 6 partitions below log start,
 
 Check it yourself: `kafka-get-offsets --time -2` now shows the new log start offsets. Retention deletes whole segments, so the oldest record still on the broker can be a little older than 30 days; the report shows it per partition.
 
-## 10. Restore an audit window from the sealed backup
+## 11. Restore an audit window from the sealed backup
 
 ```bash
 make 60-audit-restore
@@ -287,7 +360,7 @@ GATE restore.audit.batch_fits_message_max_bytes: PASS - 250 records x (largest r
 GATE restore.audit.target_retention_infinite: PASS - retention.ms=-1 on device-telemetry-audit
 ```
 
-## 11. Prove the restored month is the source data
+## 12. Prove the restored month is the source data
 
 ```bash
 make 65-verify-restore
@@ -318,7 +391,7 @@ At 100 GB, the same finding reports 88 records that only the pad recovered.
 make clean && make all SCALE=smoke AUDIT_MONTHS_AGO=3 AUDIT_DAYS=7
 ```
 
-## 12. Full restore with consumer group offsets
+## 13. Full restore with consumer group offsets
 
 ```bash
 make 70-full-restore
@@ -338,7 +411,7 @@ GATE restore.full.consumer_group_offset_mapped: PASS - telemetry-analytics: the 
 
 The phase also writes `restore/extrapolation.json`. It projects the measured backup and restore rates onto larger topics (`EXTRAPOLATE_SIZES_TB`), capped at Confluent Cloud's per CKU throughput guidance for `CONFLUENT_CKU`.
 
-## 13. Read the archive without kafka-backup
+## 14. Read the archive without kafka-backup
 
 ```bash
 make 75-readable-archive
@@ -352,7 +425,7 @@ GATE archive.segment_readable_without_kafka_backup: PASS - CRC ok, 8084 records 
 
 Open `archive/*.jsonl` to read the records.
 
-## 14. Report
+## 15. Report
 
 ```bash
 make 80-report
@@ -361,7 +434,7 @@ cat "evidence/$(cat evidence/.current-run)/report.md"
 
 `report.md` collects every gate, the headline numbers, S3 request counts, the per partition prune table, the consumer offset mapping, the extrapolation, timings, container resource peaks and image digests. `SHA256SUMS` lists every evidence file.
 
-## 15. Show that the gates can fail
+## 16. Show that the gates can fail
 
 ```bash
 make negative-tests
@@ -377,7 +450,7 @@ Each scenario passes only if its named gate fails for the expected reason:
 | Unacknowledged consumer | A group below the cut, not acknowledged | `prune_gate.consumer_impact_acknowledged` |
 | Unpadded window | A one day time window restore without the pad | `restore.negative-window.buckets_match_baseline`, while every missing record is one the manifest bounds predict |
 
-## 16. Azure Blob Storage path (optional)
+## 17. Azure Blob Storage path (optional)
 
 ```bash
 make azurite
@@ -385,7 +458,7 @@ make azurite
 
 This phase seeds a small topic, starts Azurite and tries a backup to it. kafka-backup 0.22.0 cannot use the emulator or plain HTTP for Azure, so it currently fails with `HTTP error: builder error`. The report shows it outside the verdict. It becomes a working check once kafka-backup supports the emulator.
 
-## 17. Run at 100 GB
+## 18. Run at 100 GB
 
 ```bash
 make clean
@@ -394,7 +467,7 @@ make all SCALE=100g && make negative-tests && make 80-report
 
 It takes about 25 minutes on a 32 core Mac with Docker Desktop. Allow up to 30 more if the prune gate has to wait for a segment near the cut, and keep the machine awake (`caffeinate -i` on macOS): a sleeping host pauses the Docker VM and stretches every timing. [`evidence/reference-100g`](../evidence/reference-100g) holds a committed run.
 
-## 18. Clean up
+## 19. Clean up
 
 ```bash
 make down      # stop the stack, keep the data

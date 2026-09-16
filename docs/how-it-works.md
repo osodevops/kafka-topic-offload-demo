@@ -150,7 +150,31 @@ The demo handles it in four ways:
 | `topic_config_overrides: retention.ms "-1"` and `existing_topic_config_policy: fail` | A scratch topic never ages data out, and a restore never appends to or reconfigures an existing topic |
 | `auto_consumer_groups: true` with `consumer_group_strategy: header-based` | In the full restore, the snapshot's groups are reset on the target after the data is written. The gate reads the target record at `telemetry-analytics`'s new committed offset and requires its `x-original-offset` to equal the source committed offset |
 
-## 9. Schema IDs
+## 9. Choosing what to archive and what to bring back
+
+**A backup is a snapshot.** With `stop_at_current_offsets`, kafka-backup records each partition's high watermark at start-up and stops there. The archive is therefore "the topic as at that moment", and the manifest holds the offsets that prove it.
+
+**Starting from an instant.** Backup selection is by offset, not time: `start_offset` takes `earliest`, `latest`, or specific offsets per partition. Kafka's own offsets-for-times lookup turns an instant into those offsets:
+
+```bash
+kafka-get-offsets --bootstrap-server ... --topic <topic> --time <epoch ms>
+```
+
+It returns the first offset at or after the instant on each partition, which becomes the archive's start. Two details matter:
+
+- A late record can carry a timestamp earlier than the instant while sitting after that offset, so the archive can begin slightly before it. The demo allows for the configured maximum lateness.
+- There is no end bound in 0.22.0. A backup always runs to the high watermark, which is what makes it a snapshot.
+
+**Bringing back a range.** `time_window_start` and `time_window_end` are epoch milliseconds, inclusive at both ends. Restore selects segments whose manifest bounds overlap the window, then filters records by timestamp. Because those bounds are the first and last record rather than the minimum and maximum (section 8), a window that is not padded can miss late records at its edges. Padding the start is always safe. Padding the end is not, because it would also admit records newer than the instant, so an "as at" restore is exact except for late records that straddle the end. The demo reports how many those are.
+
+**Ageing the archive.** The archive has retention of its own, independent of the topic:
+
+- `backup.retention` with `max_age` (`30d`, `12h`), `max_total_bytes`, and `keep_segments` (never fewer than this many newest segments per partition), applied during a run;
+- `kafka-backup prune --older-than <duration> | --before <instant>` and `--max-total-bytes`, which plans by default and acts with `--execute`.
+
+Pruned ranges are written into the manifest, so `validate` reports them as deliberate rather than as loss, and `describe` shows what the archive still holds. Age is taken from each segment's upload time where recorded, falling back to its last record timestamp, so a bulk import of old history ages as one cohort.
+
+## 10. Schema IDs
 
 Confluent wire format values start with a zero byte and a 4 byte schema ID. A restored value only means the same thing if its ID resolves to the same schema on the registry it is read with.
 
@@ -159,7 +183,7 @@ Confluent wire format values start with a zero byte and a 4 byte schema ID. A re
 - **Check:** `65-verify-restore` resolves every distinct ID found in the restored data on both registries and requires identical schemas. It also decodes a sample of restored records and checks that `eventTime` equals the record's CreateTime.
 - **Negative test:** negative test 3 reads the same restored data through a registry that assigned its own IDs. Nothing errors at the Kafka level, and both schema gates must fail.
 
-## 10. Evidence layout
+## 11. Evidence layout
 
 ```
 evidence/<scale>-<UTC timestamp>/

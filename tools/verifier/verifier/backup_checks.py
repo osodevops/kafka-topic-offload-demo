@@ -8,8 +8,11 @@ verify-backup
     min and max timestamp and running SHA-256 equal the source baseline;
   * the consumer group snapshot equals the committed offsets on the source;
   * time window hazards: records outside their segment's manifest timestamp bounds.
+  With --from-offsets the archive is a partial one that starts at those offsets: the days it
+  covers in full must still match the source exactly, and the day it starts in must be a subset.
 s3-requests      MinIO request counters by API, for the transaction cost model.
 manifest-summary segment count and sizes for a backup.
+archive-coverage the offset and time range an archive holds, read from its manifest.
 """
 import argparse
 import hashlib
@@ -22,9 +25,15 @@ from collections import Counter
 
 import requests
 
+from datetime import datetime, timezone
+
 from .baseline import iso_day
 from .common import DAY_MS, BucketStats, digest_input, gate, le_i64, log, read_json, run_dir, write_json
 from .segments import SegmentError, parse_segment
+
+
+def iso(ms):
+    return "n/a" if ms is None else datetime.fromtimestamp(ms / 1000, tz=timezone.utc).strftime("%Y-%m-%d %H:%M")
 
 
 def s3_client():
@@ -145,6 +154,7 @@ def main(cmd: str, argv) -> int:
     ap.add_argument("--seconds", type=float, help="backup wall clock seconds, for throughput")
     ap.add_argument("--diff", nargs=2, metavar=("BEFORE", "AFTER"))
     ap.add_argument("--group", default="telemetry-analytics", help="group that must be in the snapshot; '' for none")
+    ap.add_argument("--from-offsets", help="JSON file of {partition: offset}: a partial archive that starts there")
     args = ap.parse_args(argv)
     rd = run_dir()
 
@@ -181,6 +191,37 @@ def main(cmd: str, argv) -> int:
         log(json.dumps(summary))
         return 0
 
+    if cmd == "archive-coverage":
+        # What time and offset range this archive holds, read from its manifest. Timestamps are
+        # the manifest's segment bounds (first and last record), so treat them as approximate.
+        per = {}
+        for part in topic["partitions"]:
+            segs = sorted(part["segments"], key=lambda s: s["start_offset"])
+            per[part["partition_id"]] = {
+                "segments": len(segs),
+                "first_offset": segs[0]["start_offset"] if segs else None,
+                "last_offset": segs[-1]["end_offset"] if segs else None,
+                "records": sum(s["record_count"] for s in segs),
+                "earliest_timestamp": min((s["start_timestamp"] for s in segs), default=None),
+                "latest_timestamp": max((s["end_timestamp"] for s in segs), default=None),
+                "compressed_bytes": sum(s["compressed_size"] for s in segs),
+                "pruned_ranges": part.get("pruned", []),
+                "gaps": part.get("gaps", []),
+            }
+        earliest = min((v["earliest_timestamp"] for v in per.values() if v["earliest_timestamp"]), default=None)
+        latest = max((v["latest_timestamp"] for v in per.values() if v["latest_timestamp"]), default=None)
+        out = {"backup_id": args.backup_id, "bucket": args.bucket, "created_at": manifest["created_at"],
+               "records": summary["records"], "segments": summary["segments"],
+               "compressed_bytes": summary["compressed_bytes"],
+               "earliest_timestamp": earliest, "latest_timestamp": latest,
+               "pruned_ranges": sum(len(v["pruned_ranges"]) for v in per.values()), "partitions": per}
+        write_json(rd / "archive" / f"coverage-{args.backup_id}{args.label}.json", out)
+        span = f"{iso(earliest)} to {iso(latest)}" if earliest else "empty"
+        log(f"{args.backup_id}: {summary['records']:,} records in {summary['segments']} objects, "
+            f"{summary['compressed_bytes'] / 1e9:.2f} GB, covering {span} UTC"
+            + (f", {out['pruned_ranges']} pruned range(s)" if out["pruned_ranges"] else ""))
+        return 0
+
     manifest_sha = hashlib.sha256(raw).hexdigest()
     anchor_path = rd / "backup" / f"manifest-anchor-{args.backup_id}.json"
     ok = True
@@ -193,6 +234,8 @@ def main(cmd: str, argv) -> int:
 
     baseline = read_json(rd / "baseline" / f"{args.topic}.json")
     base_parts = {int(p): v for p, v in baseline["partitions"].items()}
+    # A partial archive starts at given offsets instead of the topic's log start.
+    from_offsets = {int(p): int(o) for p, o in read_json(args.from_offsets).items()} if args.from_offsets else {}
 
     coverage = {}
     for part in topic["partitions"]:
@@ -206,12 +249,14 @@ def main(cmd: str, argv) -> int:
             "last_offset": segs[-1]["end_offset"] if segs else None,
             "records": sum(s["record_count"] for s in segs),
             "contiguous": contiguous and each_full, "gaps": part.get("gaps", []), "pruned": part.get("pruned", []),
-            "expected_first": bp["log_start"], "expected_last": bp["high_watermark"] - 1,
+            "expected_first": from_offsets.get(p, bp["log_start"]), "expected_last": bp["high_watermark"] - 1,
         }
     full = all(c["contiguous"] and c["first_offset"] == c["expected_first"] and c["last_offset"] == c["expected_last"]
                and c["records"] == c["expected_last"] - c["expected_first"] + 1 for c in coverage.values())
     ok &= gate(f"backup.manifest_covers_log_start_to_high_watermark{args.label}",
-               full and len(coverage) == len(base_parts), f"{summary['records']:,} records in {len(segs_all)} segments")
+               full and len(coverage) == len(base_parts),
+               f"{summary['records']:,} records in {len(segs_all)} segments"
+               + (f", starting at the requested offsets {from_offsets}" if from_offsets else ""))
     ok &= gate(f"backup.manifest_no_gaps_or_pruned{args.label}", all(not c["gaps"] and not c["pruned"] for c in coverage.values()))
     configs = topic.get("configurations", {})
     ok &= gate(f"backup.topic_config_captured{args.label}",
@@ -233,21 +278,33 @@ def main(cmd: str, argv) -> int:
               "partitions": {r["partition"]: {k: v for k, v in r.items() if k not in ("buckets", "hazards")} for r in results}}
 
     if not args.sha_only:
-        ok &= gate("backup.segments_decode_independently",
+        ok &= gate(f"backup.segments_decode_independently{args.label}",
                    all(not r["parse_errors"] and not r["header_mismatch"] and r["non_contiguous"] == 0 for r in results),
                    "CRC, header, record count and offsets agree for every segment")
-        ok &= gate("backup.offset_headers_little_endian",
+        ok &= gate(f"backup.offset_headers_little_endian{args.label}",
                    all(r["offset_header_mismatch"] == 0 and r["timestamp_header_mismatch"] == 0 for r in results),
                    "x-original-offset and x-original-timestamp decode as i64 LE and equal the record")
-        mismatched = []
+        # Days the archive covers in full must match the source exactly. With --from-offsets the
+        # day the archive starts in is partly covered, so it only has to be a subset.
+        mismatched, full_days = [], 0
         for r in results:
-            expected = base_parts[r["partition"]]["buckets"]
-            if r["buckets"] != expected:
-                days = sorted(d for d in set(expected) | set(r["buckets"]) if expected.get(d) != r["buckets"].get(d))
-                mismatched.append({"partition": r["partition"], "days": days[:10]})
-        ok &= gate("backup.content_matches_source_baseline", not mismatched,
-                   f"{sum(len(r['buckets']) for r in results)} partition-day buckets: count, min/max ts and SHA-256 identical"
-                   + (f"; mismatches {mismatched}" if mismatched else ""))
+            p = r["partition"]
+            start = from_offsets.get(p, base_parts[p]["log_start"])
+            expected, got = base_parts[p]["buckets"], r["buckets"]
+            for day, b in expected.items():
+                covered_in_full = b["first_offset"] >= start
+                g = got.get(day)
+                if covered_in_full:
+                    full_days += 1
+                    if g != b:
+                        mismatched.append({"partition": p, "day": day, "reason": "differs from the source"})
+                elif g is not None and g["count"] > b["count"]:
+                    mismatched.append({"partition": p, "day": day, "reason": "more records than the source"})
+            for day in set(got) - set(expected):
+                mismatched.append({"partition": p, "day": day, "reason": "day not present in the source"})
+        ok &= gate(f"backup.content_matches_source_baseline{args.label}", not mismatched,
+                   f"{full_days} fully covered partition-day buckets: count, min/max ts and SHA-256 identical"
+                   + (f"; mismatches {mismatched[:3]}" if mismatched else ""))
 
         hazards = [h for r in results for h in r["hazards"]]
         write_json(rd / "backup" / f"time-window-hazards-{args.backup_id}.json",
@@ -267,8 +324,8 @@ def main(cmd: str, argv) -> int:
         snap = {g: v for g, v in snap.items() if v}
         live = committed_offsets(args.topic)
         detail["group_snapshot"] = {"snapshot": snap, "live": live}
-        ok &= gate("backup.consumer_group_snapshot_matches_committed", (not args.group or args.group in snap) and snap == live,
-                   f"groups {sorted(snap)}")
+        ok &= gate(f"backup.consumer_group_snapshot_matches_committed{args.label}",
+                   (not args.group or args.group in snap) and snap == live, f"groups {sorted(snap)}")
 
     write_json(rd / "backup" / f"verify-{args.backup_id}{args.label}.json", dict(detail, passed=bool(ok)))
     return 0 if ok else 1
