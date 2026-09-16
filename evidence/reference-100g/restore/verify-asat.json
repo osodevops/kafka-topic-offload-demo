@@ -1,0 +1,208 @@
+{
+  "differences": [
+    {
+      "baseline_count": 24510,
+      "day": "2026-06-17",
+      "partition": 0,
+      "predicted_missing": 30,
+      "restored_count": 24480
+    },
+    {
+      "baseline_count": 24518,
+      "day": "2026-06-17",
+      "partition": 1,
+      "predicted_missing": 27,
+      "restored_count": 24491
+    },
+    {
+      "baseline_count": 24486,
+      "day": "2026-06-17",
+      "partition": 2,
+      "predicted_missing": 18,
+      "restored_count": 24468
+    },
+    {
+      "baseline_count": 24517,
+      "day": "2026-06-17",
+      "partition": 3,
+      "predicted_missing": 24,
+      "restored_count": 24493
+    },
+    {
+      "baseline_count": 24510,
+      "day": "2026-06-17",
+      "partition": 4,
+      "predicted_missing": 23,
+      "restored_count": 24487
+    },
+    {
+      "baseline_count": 24520,
+      "day": "2026-06-17",
+      "partition": 5,
+      "predicted_missing": 21,
+      "restored_count": 24499
+    }
+  ],
+  "exact_days": [
+    [
+      "2026-05-22"
+    ],
+    [
+      "2026-06-15"
+    ]
+  ],
+  "expected_by_watermarks": 4412442,
+  "group": null,
+  "partitions": {
+    "0": {
+      "count": 735404,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 735404,
+      "low": 0,
+      "missing_header": 0,
+      "n": 735404,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 0,
+      "prev": 6784680,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "3": 257222,
+        "4": 478182
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "1": {
+      "count": 735377,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 735377,
+      "low": 0,
+      "missing_header": 0,
+      "n": 735377,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 1,
+      "prev": 6784945,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "3": 257190,
+        "4": 478187
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "2": {
+      "count": 735419,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 735419,
+      "low": 0,
+      "missing_header": 0,
+      "n": 735419,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 2,
+      "prev": 6785147,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "3": 257232,
+        "4": 478187
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "3": {
+      "count": 735389,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 735389,
+      "low": 0,
+      "missing_header": 0,
+      "n": 735389,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 3,
+      "prev": 6784649,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "3": 257198,
+        "4": 478191
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "4": {
+      "count": 735454,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 735454,
+      "low": 0,
+      "missing_header": 0,
+      "n": 735454,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 4,
+      "prev": 6784363,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "3": 257235,
+        "4": 478219
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    },
+    "5": {
+      "count": 735399,
+      "decode_errors": [],
+      "duplicate_offset_headers": 0,
+      "event_time_mismatch": 0,
+      "high": 735399,
+      "low": 0,
+      "missing_header": 0,
+      "n": 735399,
+      "non_create": 0,
+      "not_increasing": 0,
+      "outside_window": 0,
+      "partition": 5,
+      "prev": 6785150,
+      "probe": {},
+      "samples": 500,
+      "schema_ids": {
+        "3": 257220,
+        "4": 478179
+      },
+      "source_partition_mismatch": 0,
+      "ts_header_mismatch": 0
+    }
+  },
+  "passed": true,
+  "predicted_missing_total": 189,
+  "records": 4412442,
+  "schema_ids": [
+    3,
+    4
+  ],
+  "seconds": 8.4,
+  "target_topic": "device-telemetry-asat",
+  "unexplained": [],
+  "window_end": 1781755199999,
+  "window_start": 1779163200000
+}

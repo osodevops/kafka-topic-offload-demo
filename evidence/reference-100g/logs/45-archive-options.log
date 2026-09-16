@@ -1,0 +1,116 @@
+
+==> 45-archive-options  (run 100g-20260916T051309Z, scale 100g)
+
+==> A. Archive only what arrived after 2026-06-18 04:00 UTC (90 days before the newest record)
+device-telemetry:0:6741531
+device-telemetry:1:6741531
+device-telemetry:2:6741531
+device-telemetry:3:6741530
+device-telemetry:4:6741530
+device-telemetry:5:6741530
+offsets for time: {0: 6741531, 1: 6741531, 2: 6741531, 3: 6741530, 4: 6741530, 5: 6741530}
+GATE archive.since.offsets_for_time_resolved: PASS - 6 of 6 partitions have an offset at or after the instant
+ Container offload-mc-run-ca7e206c57c6 Creating 
+ Container offload-mc-run-ca7e206c57c6 Created 
+  avg=490.63 p50=496.63 p95=531.85 p99=563.08 max=607.54
+
+[2m2026-09-16T05:22:17.779698Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Snapshot backup completed successfully - all partitions reached their target offsets
+[2m2026-09-16T05:22:17.779731Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
+[2m2026-09-16T05:22:17.779815Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Backup completed successfully
+ Image offload-verifier:local Building 
+ Image offload-verifier:local Built 
+ Container offload-verifier-run-73773c234bb2 Creating 
+ Container offload-verifier-run-73773c234bb2 Created 
+[05:22:19] {"backup_id": "device-telemetry-since", "bucket": "kafka-backups", "segments": 210, "records": 13237908, "uncompressed_bytes": 27607632409, "compressed_bytes": 10686739670, "compression_ratio": 2.583}
+ Container offload-verifier-run-deddf3746d2a Creating 
+ Container offload-verifier-run-deddf3746d2a Created 
+GATE backup.manifest_covers_log_start_to_high_watermark.since: PASS - 13,237,908 records in 210 segments, starting at the requested offsets {0: 6741531, 1: 6741531, 2: 6741531, 3: 6741530, 4: 6741530, 5: 6741530}
+GATE backup.manifest_no_gaps_or_pruned.since: PASS
+GATE backup.topic_config_captured.since: PASS - retention.ms=-1 partitions=6
+[05:22:32] verify-backup p4: 35 objects, 2,206,318 records
+[05:22:32] verify-backup p0: 35 objects, 2,206,318 records
+[05:22:32] verify-backup p2: 35 objects, 2,206,318 records
+[05:22:32] verify-backup p1: 35 objects, 2,206,318 records
+[05:22:32] verify-backup p3: 35 objects, 2,206,318 records
+[05:22:32] verify-backup p5: 35 objects, 2,206,318 records
+GATE backup.object_sha256_matches_manifest.since: PASS - 210 objects, 10.69 GB hashed
+GATE backup.segments_decode_independently.since: PASS - CRC, header, record count and offsets agree for every segment
+GATE backup.offset_headers_little_endian.since: PASS - x-original-offset and x-original-timestamp decode as i64 LE and equal the record
+GATE backup.content_matches_source_baseline.since: PASS - 540 fully covered partition-day buckets: count, min/max ts and SHA-256 identical
+FINDING manifest segment timestamps are first/last record, not min/max: 210 of 210 segments; 37,874 records lie outside their segment's bounds
+GATE backup.consumer_group_snapshot_matches_committed.since: PASS - groups ['telemetry-analytics']
+ Container offload-verifier-run-37a19d45fbf1 Creating 
+ Container offload-verifier-run-37a19d45fbf1 Created 
+[05:22:33] device-telemetry-since: 13,237,908 records in 210 objects, 10.69 GB, covering 2026-06-18 04:00 to 2026-09-16 03:59 UTC
+GATE archive.since.starts_at_the_instant: PASS - earliest archived record is at 2026-06-18 04:00 UTC minus at most the 72h late window
+    13237908 of 53687091 records archived, the last 90 days only
+
+==> B. Restore the 30 days ending at that instant, as at 2026-06-18 04:00 UTC
+ Container offload-verifier-run-0f4aceca68ad Creating 
+ Container offload-verifier-run-0f4aceca68ad Created 
+[05:22:35] imported {'imported': [{'subject': 'device-telemetry-value', 'version': 1, 'id': 3}, {'subject': 'device-telemetry-value', 'version': 2, 'id': 4}], 'skipped': []}
+GATE schemas.imported_by_id: PASS - {"3": {"source": 200, "target": 200, "identical": true}, "4": {"source": 200, "target": 200, "identical": true}}
+  avg=0.00 p50=0.00 p95=0.00 p99=0.00 max=0.00
+
+[2m2026-09-16T05:23:02.487342Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
+[2m2026-09-16T05:23:02.487474Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Restore completed successfully
+ Container offload-verifier-run-93842d7338c3 Creating 
+ Container offload-verifier-run-93842d7338c3 Created 
+[05:23:11] verify-restore device-telemetry-asat p3: 735,389 records, 500 decoded samples
+[05:23:11] verify-restore device-telemetry-asat p4: 735,454 records, 500 decoded samples
+[05:23:11] verify-restore device-telemetry-asat p1: 735,377 records, 500 decoded samples
+[05:23:11] verify-restore device-telemetry-asat p2: 735,419 records, 500 decoded samples
+[05:23:11] verify-restore device-telemetry-asat p5: 735,399 records, 500 decoded samples
+[05:23:11] verify-restore device-telemetry-asat p0: 735,404 records, 500 decoded samples
+GATE restore.asat.original_offsets_strictly_increasing: PASS - every record carries x-original-offset; per partition strictly increasing, no duplicates
+GATE restore.asat.create_time_preserved: PASS
+GATE restore.asat.no_records_outside_window: PASS - window 1779163200000..1781755199999
+GATE restore.asat.buckets_match_baseline: PASS - 4,412,442 records; 25 days x 6 partitions compared exactly
+GATE restore.asat.every_difference_explained_by_segment_bounds: PASS - 143 records missing across 6 buckets, 189 predicted by manifest bounds
+GATE restore.asat.avro_decodes_with_registry: PASS - 3000 sampled records decoded via http://target-schema-registry:8081; eventTime equals CreateTime
+FINDING 355 records in 2026-05-22..2026-06-15 would be missed by an unpadded window because their backup segment's first/last timestamps fall outside it
+SCHEMA_IDS 3,4
+
+==> C. Keep a rolling range in object storage: the archive's own retention
+ Container offload-verifier-run-8e8f9d31a1db Creating 
+ Container offload-verifier-run-8e8f9d31a1db Created 
+[05:23:13] device-telemetry-comparison: 53,687,091 records in 210 objects, 43.27 GB, covering 2025-09-16 04:00 to 2026-09-16 03:59 UTC
+    C1. Age based retention is measured from when each object was uploaded, not from record time
+Prune plan for 'device-telemetry-comparison':
+  nothing to prune
+Total: 0 segment(s), 0 bytes
+GATE archive.retention.age_is_upload_time: PASS - an archive written minutes ago has nothing older than 30d, even though it holds a year of records
+    C2. Size based retention: keep the newest objects under a cap, oldest pruned first
+Prune plan for 'device-telemetry-comparison':
+Total: 104 segment(s), 21653662917 bytes
+Pruned 104 segment(s), 21653662917 bytes. Manifest rewritten first; pruned ranges recorded.
+ Container offload-verifier-run-bed6505d4add Creating 
+ Container offload-verifier-run-bed6505d4add Created 
+[05:23:14] device-telemetry-comparison: 26,795,165 records in 106 objects, 21.61 GB, covering 2026-03-14 11:21 to 2026-09-16 03:59 UTC, 6 pruned range(s)
+GATE archive.retention.size_cap_applied: PASS - archive went from 43265098531 to 21611435614 bytes, cap 21632549265, 6 pruned range(s) recorded in the manifest
+Segments Checked:   106
+Segments Valid:     106
+Segments Missing:   0
+Segments Corrupted: 0
+Data Gaps:          0
+Pruned Ranges:      6
+Pruned Ranges (deliberately deleted by retention — not data loss):
+Result: VALID
+GATE archive.retention.pruned_archive_still_valid: PASS - deliberate retention is not corruption
+
+==> The sealed archive is untouched by all of this
+ Container offload-verifier-run-4df008bbbb7f Creating 
+ Container offload-verifier-run-4df008bbbb7f Created 
+GATE backup.manifest_anchor_intact.after-archive-options: PASS - kafka-backups-sealed: manifest sha256 9ddf630a719fb866... vs anchor 9ddf630a719fb866...
+GATE backup.manifest_covers_log_start_to_high_watermark.after-archive-options: PASS - 53,687,091 records in 834 segments
+GATE backup.manifest_no_gaps_or_pruned.after-archive-options: PASS
+GATE backup.topic_config_captured.after-archive-options: PASS - retention.ms=-1 partitions=6
+[05:24:00] verify-backup p0: 139 objects, 0 records
+[05:24:00] verify-backup p1: 139 objects, 0 records
+[05:24:00] verify-backup p5: 139 objects, 0 records
+[05:24:00] verify-backup p4: 139 objects, 0 records
+[05:24:00] verify-backup p2: 139 objects, 0 records
+[05:24:01] verify-backup p3: 139 objects, 0 records
+GATE backup.object_sha256_matches_manifest.after-archive-options: PASS - 834 objects, 43.27 GB hashed
+
+PHASE 45-archive-options: PASS (124s)

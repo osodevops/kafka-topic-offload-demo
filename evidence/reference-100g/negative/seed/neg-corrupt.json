@@ -36,67 +36,67 @@
       "boundary": 60,
       "count": 5000,
       "late": 0,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 0,
       "seconds": 0.6,
       "v2_from_index": 3500,
-      "value_bytes": 9680583
+      "value_bytes": 9680784
     },
     "1": {
       "boundary": 60,
       "count": 5000,
       "late": 0,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 1,
       "seconds": 0.6,
       "v2_from_index": 3500,
-      "value_bytes": 9681174
+      "value_bytes": 9681446
     },
     "2": {
       "boundary": 60,
       "count": 5000,
       "late": 0,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 2,
       "seconds": 0.6,
       "v2_from_index": 3500,
-      "value_bytes": 9680512
+      "value_bytes": 9680527
     },
     "3": {
       "boundary": 60,
       "count": 5000,
       "late": 0,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 3,
       "seconds": 0.6,
       "v2_from_index": 3500,
-      "value_bytes": 9681310
+      "value_bytes": 9681638
     },
     "4": {
       "boundary": 60,
       "count": 5000,
       "late": 0,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 4,
       "seconds": 0.6,
       "v2_from_index": 3500,
-      "value_bytes": 9680498
+      "value_bytes": 9680426
     },
     "5": {
       "boundary": 60,
       "count": 5000,
       "late": 0,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 5,
       "seconds": 0.6,
       "v2_from_index": 3500,
-      "value_bytes": 9680773
+      "value_bytes": 9680940
     }
   },
   "records": 30000,
@@ -105,14 +105,14 @@
     "v1": 3,
     "v2": 4
   },
-  "seconds": 0.7,
+  "seconds": 0.8,
   "seed": "20260915",
-  "seed_end_ts": 1789488000000,
+  "seed_end_ts": 1789531200000,
   "segment_bytes": 1048576,
   "span_days": 30,
-  "start_ts": 1786896000000,
+  "start_ts": 1786939200000,
   "subject": "neg-corrupt-value",
-  "throughput_mb_s": 84.6,
+  "throughput_mb_s": 77.1,
   "topic": "neg-corrupt",
   "topic_configs": {
     "cleanup.policy": "delete",
@@ -123,7 +123,7 @@
     "segment.bytes": "1048576",
     "segment.ms": "315360000000"
   },
-  "value_bytes": 58084850,
+  "value_bytes": 58085761,
   "watermarks": {
     "0": {
       "high": 5000,

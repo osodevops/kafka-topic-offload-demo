@@ -1,35 +1,35 @@
 
-==> 20-baseline  (run 100g-20260915T164407Z, scale 100g)
+==> 20-baseline  (run 100g-20260916T051309Z, scale 100g)
 
 ==> Baseline digest of device-telemetry: per partition, per UTC day, per broker segment
  Image offload-verifier:local Building 
  Image offload-verifier:local Built 
- Container offload-verifier-run-7971c84118ca Creating 
- Container offload-verifier-run-7971c84118ca Created 
-[16:47:08] baseline p0: 8,947,849 records in 62s
-[16:47:08] baseline p4: 8,947,848 records in 62s
-[16:47:08] baseline p2: 8,947,849 records in 62s
-[16:47:10] baseline p5: 8,947,848 records in 63s
-[16:47:11] baseline p1: 8,947,849 records in 64s
-[16:47:11] baseline p3: 8,947,848 records in 64s
+ Container offload-verifier-run-075cf04f0494 Creating 
+ Container offload-verifier-run-075cf04f0494 Created 
+[05:16:08] baseline p1: 8,947,849 records in 63s
+[05:16:08] baseline p5: 8,947,848 records in 63s
+[05:16:09] baseline p0: 8,947,849 records in 64s
+[05:16:09] baseline p4: 8,947,848 records in 64s
+[05:16:09] baseline p3: 8,947,848 records in 64s
+[05:16:10] baseline p2: 8,947,849 records in 65s
 GATE baseline.stable_watermarks: PASS - no writes or deletions while the baseline was read
 GATE baseline.count_equals_offsets: PASS - 53,687,091 records read
 GATE baseline.contiguous_offsets: PASS
 GATE baseline.create_time_and_wire_format: PASS
 GATE baseline.segment_max_ts_matches_timeindex: PASS - 354 segments; broker time index agrees with record scan
 GATE baseline.segment_counts: PASS
-GATE baseline.only_late_cohort_goes_backwards: PASS - 266,156 late records, every other timestamp non-decreasing
+GATE baseline.only_late_cohort_goes_backwards: PASS - 266,068 late records, every other timestamp non-decreasing
 GATE baseline.nothing_after_seed_end: PASS
-[16:47:11] baseline complete in 64s, schema ids [3, 4]
+[05:16:10] baseline complete in 65s, schema ids [3, 4]
 
 ==> Broker reported size
-0 17532537487
-1 17532984203
-2 17532073355
-3 17533346955
-4 17532394588
-5 17532574581
-GATE baseline.broker_size_equals_segment_files: PASS - kafka-log-dirs 105195911169 bytes, segment files 105195911169 bytes
+0 17532542860
+1 17532968118
+2 17532080738
+3 17533340640
+4 17532389571
+5 17532583189
+GATE baseline.broker_size_equals_segment_files: PASS - kafka-log-dirs 105195905116 bytes, segment files 105195905116 bytes
     354 segments, schema ids [3, 4], 366 day buckets on partition 0
 
-PHASE 20-baseline: PASS (67s)
+PHASE 20-baseline: PASS (69s)

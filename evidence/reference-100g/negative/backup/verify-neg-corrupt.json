@@ -61,7 +61,7 @@
       "records": 5000
     }
   },
-  "manifest_sha256": "2e0aacb4c575068e0a493e956a348b64544d8344a728e52d81359650d1485e5b",
+  "manifest_sha256": "05ada50a838f8fe39df6d40f80fb98d799c6b1e6be4c1801e0993e8fc7826db2",
   "partitions": {
     "0": {
       "bounds_not_min_max": 0,
@@ -69,7 +69,7 @@
       "max_record_bytes": 0,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 4008631,
+      "object_bytes": 4008957,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 0,
@@ -87,7 +87,7 @@
       "max_record_bytes": 0,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 4010036,
+      "object_bytes": 4009553,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 1,
@@ -103,7 +103,7 @@
       "max_record_bytes": 0,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 4008967,
+      "object_bytes": 4009115,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 2,
@@ -119,7 +119,7 @@
       "max_record_bytes": 0,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 4009462,
+      "object_bytes": 4009221,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 3,
@@ -135,7 +135,7 @@
       "max_record_bytes": 0,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 4008687,
+      "object_bytes": 4008954,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 4,
@@ -151,7 +151,7 @@
       "max_record_bytes": 0,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 4008136,
+      "object_bytes": 4009112,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 5,
@@ -166,11 +166,11 @@
   "summary": {
     "backup_id": "neg-corrupt",
     "bucket": "kafka-backups",
-    "compressed_bytes": 24053919,
+    "compressed_bytes": 24054912,
     "compression_ratio": 2.591,
     "records": 30000,
     "segments": 18,
-    "uncompressed_bytes": 62314850,
+    "uncompressed_bytes": 62315761,
     "verify_seconds": 0.2
   }
 }

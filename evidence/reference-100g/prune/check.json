@@ -1,45 +1,45 @@
 {
-  "bytes_after": 9233703236,
-  "bytes_before": 105195911169,
-  "bytes_reclaimed": 95962207933,
-  "first_seen_at": 1789494133537,
+  "bytes_after": 9828418722,
+  "bytes_before": 105195905116,
+  "bytes_reclaimed": 95367486394,
+  "first_seen_at": 1789536260971,
   "note": "retention deletes whole segments: records older than the cut remain until their segment's newest record ages out",
-  "observed_at": 1789494203549,
+  "observed_at": 1789536330978,
   "oldest_retained_ts": {
-    "0": 1786656750406,
-    "1": 1786651129932,
-    "2": 1786132543854,
-    "3": 1786649262934,
-    "4": 1786126478245,
-    "5": 1786658980601
+    "0": 1786167812392,
+    "1": 1786697947554,
+    "2": 1786179347378,
+    "3": 1786696080556,
+    "4": 1786173288818,
+    "5": 1786172620496
   },
   "passed": true,
-  "reclaimed_pct": 91.22,
-  "records_deleted": 48990007,
+  "reclaimed_pct": 90.66,
+  "records_deleted": 48687479,
   "watermarks": {
     "0": {
       "high": 8947849,
-      "low": 8214611
+      "low": 8063348
     },
     "1": {
       "high": 8947849,
-      "low": 8213552
+      "low": 8213570
     },
     "2": {
       "high": 8947849,
-      "low": 8068095
+      "low": 8068086
     },
     "3": {
       "high": 8947848,
-      "low": 8213514
+      "low": 8213513
     },
     "4": {
       "high": 8947848,
-      "low": 8065654
+      "low": 8065658
     },
     "5": {
       "high": 8947848,
-      "low": 8214581
+      "low": 8063304
     }
   }
 }

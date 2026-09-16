@@ -1,17 +1,17 @@
- Container offload-kafka-backup-run-1f76c1f41593 Creating 
- Container offload-kafka-backup-run-1f76c1f41593 Created 
-[2m2026-09-15T17:55:45.497005Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Loading configuration from: /evidence/100g-20260915T164407Z/azurite/configs/azurite-backup.yaml
-[2m2026-09-15T17:55:45.499326Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Starting backup: azurite-smoke
-[2m2026-09-15T17:55:45.499434Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
-[2m2026-09-15T17:55:45.500976Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 77 partition leaders
-[2m2026-09-15T17:55:45.523079Z[0m [32m INFO[0m [2mkafka_backup_core::storage::azure[0m[2m:[0m Created Azure backend for account: devstoreaccount1, container: kafka-backups, prefix: Some("azurite"), endpoint: Some("http://azurite:10000/devstoreaccount1")
-[2m2026-09-15T17:55:45.523132Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
-[2m2026-09-15T17:55:45.523141Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
-[2m2026-09-15T17:55:45.527405Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Connected to Kafka cluster via partition leader router
-[2m2026-09-15T17:55:45.527943Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Failed to load offset store from remote: Storage error: Backend error: Azure HEAD failed: Generic MicrosoftAzure error: Error performing HEAD http://azurite:10000/devstoreaccount1/kafka-backups/azurite/azurite-smoke/offsets.db in 88.833µs - HTTP error: builder error
-[2m2026-09-15T17:55:45.529788Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
-Error: Storage error: Backend error: Azure PUT failed: Generic MicrosoftAzure error: Error performing PUT http://azurite:10000/devstoreaccount1/kafka-backups/azurite/azurite-smoke/offsets.db in 5.083µs - HTTP error: builder error
+ Container offload-kafka-backup-run-161d10acf646 Creating 
+ Container offload-kafka-backup-run-161d10acf646 Created 
+[2m2026-09-16T05:37:02.287145Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Loading configuration from: /evidence/100g-20260916T051309Z/azurite/configs/azurite-backup.yaml
+[2m2026-09-16T05:37:02.288390Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Starting backup: azurite-smoke
+[2m2026-09-16T05:37:02.288534Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
+[2m2026-09-16T05:37:02.291183Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 77 partition leaders
+[2m2026-09-16T05:37:02.296131Z[0m [32m INFO[0m [2mkafka_backup_core::storage::azure[0m[2m:[0m Created Azure backend for account: devstoreaccount1, container: kafka-backups, prefix: Some("azurite"), endpoint: Some("http://azurite:10000/devstoreaccount1")
+[2m2026-09-16T05:37:02.296165Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
+[2m2026-09-16T05:37:02.296171Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
+[2m2026-09-16T05:37:02.300291Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Connected to Kafka cluster via partition leader router
+[2m2026-09-16T05:37:02.300956Z[0m [33m WARN[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Failed to load offset store from remote: Storage error: Backend error: Azure HEAD failed: Generic MicrosoftAzure error: Error performing HEAD http://azurite:10000/devstoreaccount1/kafka-backups/azurite/azurite-smoke/offsets.db in 109.083µs - HTTP error: builder error
+[2m2026-09-16T05:37:02.303143Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
+Error: Storage error: Backend error: Azure PUT failed: Generic MicrosoftAzure error: Error performing PUT http://azurite:10000/devstoreaccount1/kafka-backups/azurite/azurite-smoke/offsets.db in 5.333µs - HTTP error: builder error
 
 Caused by:
-    Backend error: Azure PUT failed: Generic MicrosoftAzure error: Error performing PUT http://azurite:10000/devstoreaccount1/kafka-backups/azurite/azurite-smoke/offsets.db in 5.083µs - HTTP error: builder error
+    Backend error: Azure PUT failed: Generic MicrosoftAzure error: Error performing PUT http://azurite:10000/devstoreaccount1/kafka-backups/azurite/azurite-smoke/offsets.db in 5.333µs - HTTP error: builder error
 

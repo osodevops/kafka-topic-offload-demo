@@ -1,0 +1,79 @@
+{
+  "backup_id": "device-telemetry-comparison",
+  "bucket": "kafka-backups",
+  "compressed_bytes": 43265098531,
+  "created_at": 1789535888368,
+  "earliest_timestamp": 1757995200000,
+  "latest_timestamp": 1789531196475,
+  "partitions": {
+    "0": {
+      "compressed_bytes": 7210754589,
+      "earliest_timestamp": 1757995200000,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947848,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [],
+      "records": 8947849,
+      "segments": 35
+    },
+    "1": {
+      "compressed_bytes": 7211026426,
+      "earliest_timestamp": 1757995200000,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947848,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [],
+      "records": 8947849,
+      "segments": 35
+    },
+    "2": {
+      "compressed_bytes": 7210871215,
+      "earliest_timestamp": 1757995200000,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947848,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [],
+      "records": 8947849,
+      "segments": 35
+    },
+    "3": {
+      "compressed_bytes": 7211239024,
+      "earliest_timestamp": 1757995200000,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947847,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [],
+      "records": 8947848,
+      "segments": 35
+    },
+    "4": {
+      "compressed_bytes": 7210564110,
+      "earliest_timestamp": 1757995200000,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947847,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [],
+      "records": 8947848,
+      "segments": 35
+    },
+    "5": {
+      "compressed_bytes": 7210643167,
+      "earliest_timestamp": 1757995200000,
+      "first_offset": 0,
+      "gaps": [],
+      "last_offset": 8947847,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [],
+      "records": 8947848,
+      "segments": 35
+    }
+  },
+  "pruned_ranges": 0,
+  "records": 53687091,
+  "segments": 210
+}

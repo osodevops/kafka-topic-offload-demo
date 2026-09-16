@@ -1,0 +1,30 @@
+ Container offload-kafka-backup-run-e2e2da207627 Creating 
+ Container offload-kafka-backup-run-e2e2da207627 Created 
+[2m2026-09-16T05:23:15.402298Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups, prefix: Some("backups")
+[2m2026-09-16T05:23:15.402334Z[0m [32m INFO[0m [2mkafka_backup::commands::validate[0m[2m:[0m Validating backup: device-telemetry-comparison (deep=true)
+Validating backup: device-telemetry-comparison
+Created: 2026-09-16 05:18:08.368 UTC
+
+Checking topic: device-telemetry
+  6 partitions, 106 segments checked
+
+=== Validation Report ===
+
+Segments Checked:   106
+Segments Valid:     106
+Segments Missing:   0
+Segments Corrupted: 0
+Records Validated:  26795165
+Data Gaps:          0
+Pruned Ranges:      6
+Missing Topics:     0
+
+Pruned Ranges (deliberately deleted by retention — not data loss):
+  - device-telemetry:3 offsets 0..4395637 (17 segments, 3539598556 bytes, manual, pruned 2026-09-16T05:23:14.137+00:00)
+  - device-telemetry:2 offsets 0..4395946 (17 segments, 3539636191 bytes, manual, pruned 2026-09-16T05:23:14.137+00:00)
+  - device-telemetry:1 offsets 0..4395723 (17 segments, 3539565421 bytes, manual, pruned 2026-09-16T05:23:14.137+00:00)
+  - device-telemetry:5 offsets 0..4654367 (18 segments, 3747679685 bytes, manual, pruned 2026-09-16T05:23:14.137+00:00)
+  - device-telemetry:4 offsets 0..4654414 (18 segments, 3747671600 bytes, manual, pruned 2026-09-16T05:23:14.137+00:00)
+  - device-telemetry:0 offsets 0..4395833 (17 segments, 3539511464 bytes, manual, pruned 2026-09-16T05:23:14.137+00:00)
+
+Result: VALID

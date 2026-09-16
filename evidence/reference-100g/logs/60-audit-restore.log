@@ -1,53 +1,53 @@
 
-==> 60-audit-restore  (run 100g-20260915T164407Z, scale 100g)
+==> 60-audit-restore  (run 100g-20260916T051309Z, scale 100g)
 
 ==> Import the exported schemas into the restore registry, preserving IDs
  Image offload-verifier:local Building 
  Image offload-verifier:local Built 
- Container offload-verifier-run-4386711648c7 Creating 
- Container offload-verifier-run-4386711648c7 Created 
-[17:43:29] imported {'imported': [{'subject': 'device-telemetry-value', 'version': 1, 'id': 3}, {'subject': 'device-telemetry-value', 'version': 2, 'id': 4}], 'skipped': []}
+ Container offload-verifier-run-aacb37840082 Creating 
+ Container offload-verifier-run-aacb37840082 Created 
+[05:25:36] imported {'imported': [], 'skipped': [3, 4]}
 GATE schemas.imported_by_id: PASS - {"3": {"source": 200, "target": 200, "identical": true}, "4": {"source": 200, "target": 200, "identical": true}}
 
 ==> Audit window: 30 UTC days starting about 9 months before the newest record
-audit 2025-12-19..2026-01-17 UTC, restore window 1765843200000..1768953599999 (padded 72h each side)
+audit 2025-12-20..2026-01-18 UTC, restore window 1765929600000..1769039999999 (padded 72h each side)
 
 ==> Target preflight
 GATE restore.audit.target_topic_is_new: PASS - device-telemetry-audit does not exist on the target
 GATE restore.audit.batch_fits_message_max_bytes: PASS - 250 records x (largest record 2050 + 80 bytes overhead) = 532561 <= message.max.bytes 1048588
 
 ==> Restore the audit window from the sealed backup
- Container offload-kafka-backup-run-f1b74600b240 Creating 
- Container offload-kafka-backup-run-f1b74600b240 Created 
-[2m2026-09-15T17:43:33.362333Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Loading configuration from: /evidence/100g-20260915T164407Z/configs/restore-audit.yaml
-[2m2026-09-15T17:43:33.365793Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Starting restore from backup: device-telemetry
-[2m2026-09-15T17:43:33.365949Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
-[2m2026-09-15T17:43:33.395687Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups-sealed, prefix: Some("backups")
-[2m2026-09-15T17:43:33.395770Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
-[2m2026-09-15T17:43:33.395801Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
-[2m2026-09-15T17:43:33.396091Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loading backup manifest for: device-telemetry
-[2m2026-09-15T17:43:33.401168Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loaded manifest: 1 topics, 53687091 total records
-[2m2026-09-15T17:43:33.401226Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connecting to target Kafka cluster via partition leader router...
-[2m2026-09-15T17:43:33.403639Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 51 partition leaders
-[2m2026-09-15T17:43:33.403658Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connected to target Kafka cluster via partition leader router
-[2m2026-09-15T17:43:33.404414Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Creating 1 missing topics: ["device-telemetry-audit"]
-[2m2026-09-15T17:43:33.441122Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::admin[0m[2m:[0m Created topic: device-telemetry-audit
-[2m2026-09-15T17:43:33.441218Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Created topic 'device-telemetry-audit' successfully
-[2m2026-09-15T17:43:33.443309Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 57 partition leaders
-[2m2026-09-15T17:43:33.443323Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Refreshed metadata after topic creation
-[2m2026-09-15T17:43:33.490051Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring 1 topics
-[2m2026-09-15T17:43:33.490070Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring topic device-telemetry -> device-telemetry-audit (6 partitions)
-[2m2026-09-15T17:44:11.850921Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:3 -> device-telemetry-audit:3 (882504 records, 15 segments)
-[2m2026-09-15T17:44:13.463262Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:2 -> device-telemetry-audit:2 (882495 records, 15 segments)
-[2m2026-09-15T17:44:13.467946Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:5 -> device-telemetry-audit:5 (882477 records, 15 segments)
-[2m2026-09-15T17:44:13.622707Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:4 -> device-telemetry-audit:4 (882473 records, 15 segments)
-[2m2026-09-15T17:44:13.715403Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:0 -> device-telemetry-audit:0 (882501 records, 15 segments)
-[2m2026-09-15T17:44:13.933812Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:1 -> device-telemetry-audit:1 (882516 records, 15 segments)
-[2m2026-09-15T17:44:13.942631Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restore completed successfully
-[2m2026-09-15T17:44:13.942693Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m === Performance Metrics ===
-Duration: 40.55s
-Records processed: 5294966
-Records/sec: 130590
+ Container offload-kafka-backup-run-954e8f7bee3f Creating 
+ Container offload-kafka-backup-run-954e8f7bee3f Created 
+[2m2026-09-16T05:25:39.507664Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Loading configuration from: /evidence/100g-20260916T051309Z/configs/restore-audit.yaml
+[2m2026-09-16T05:25:39.509198Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Starting restore from backup: device-telemetry
+[2m2026-09-16T05:25:39.509401Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
+[2m2026-09-16T05:25:39.537361Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups-sealed, prefix: Some("backups")
+[2m2026-09-16T05:25:39.537391Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
+[2m2026-09-16T05:25:39.537397Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
+[2m2026-09-16T05:25:39.537463Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loading backup manifest for: device-telemetry
+[2m2026-09-16T05:25:39.541302Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loaded manifest: 1 topics, 53687091 total records
+[2m2026-09-16T05:25:39.541365Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connecting to target Kafka cluster via partition leader router...
+[2m2026-09-16T05:25:39.543576Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 57 partition leaders
+[2m2026-09-16T05:25:39.543592Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connected to target Kafka cluster via partition leader router
+[2m2026-09-16T05:25:39.544107Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Creating 1 missing topics: ["device-telemetry-audit"]
+[2m2026-09-16T05:25:39.573744Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::admin[0m[2m:[0m Created topic: device-telemetry-audit
+[2m2026-09-16T05:25:39.573795Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Created topic 'device-telemetry-audit' successfully
+[2m2026-09-16T05:25:39.575332Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 63 partition leaders
+[2m2026-09-16T05:25:39.575352Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Refreshed metadata after topic creation
+[2m2026-09-16T05:25:39.605909Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring 1 topics
+[2m2026-09-16T05:25:39.605964Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring topic device-telemetry -> device-telemetry-audit (6 partitions)
+[2m2026-09-16T05:26:10.118733Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:0 -> device-telemetry-audit:0 (882484 records, 15 segments)
+[2m2026-09-16T05:26:10.585603Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:2 -> device-telemetry-audit:2 (882494 records, 15 segments)
+[2m2026-09-16T05:26:10.959344Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:5 -> device-telemetry-audit:5 (882459 records, 15 segments)
+[2m2026-09-16T05:26:11.040924Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:1 -> device-telemetry-audit:1 (882475 records, 15 segments)
+[2m2026-09-16T05:26:11.206393Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:3 -> device-telemetry-audit:3 (882477 records, 15 segments)
+[2m2026-09-16T05:26:11.318473Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:4 -> device-telemetry-audit:4 (882444 records, 15 segments)
+[2m2026-09-16T05:26:11.325778Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restore completed successfully
+[2m2026-09-16T05:26:11.325852Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m === Performance Metrics ===
+Duration: 31.79s
+Records processed: 5294833
+Records/sec: 166567
 Bytes written: 0 MB
 Throughput: 0.00 MB/s
 Compression ratio: 1.00x
@@ -59,8 +59,8 @@ Checkpoint latency (ms):
 Segment write latency (ms):
   avg=0.00 p50=0.00 p95=0.00 p99=0.00 max=0.00
 
-[2m2026-09-15T17:44:13.942783Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
-[2m2026-09-15T17:44:13.942899Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Restore completed successfully
+[2m2026-09-16T05:26:11.325929Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
+[2m2026-09-16T05:26:11.326192Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Restore completed successfully
 Dynamic configs for topic device-telemetry-audit are:
   cleanup.policy=delete sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:cleanup.policy=delete, DEFAULT_CONFIG:log.cleanup.policy=delete}
   message.timestamp.type=CreateTime sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:message.timestamp.type=CreateTime, DEFAULT_CONFIG:log.message.timestamp.type=CreateTime}
@@ -70,4 +70,4 @@ Dynamic configs for topic device-telemetry-audit are:
   segment.ms=315360000000 sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:segment.ms=315360000000}
 GATE restore.audit.target_retention_infinite: PASS - retention.ms=-1 on device-telemetry-audit
 
-PHASE 60-audit-restore: PASS (48s)
+PHASE 60-audit-restore: PASS (39s)

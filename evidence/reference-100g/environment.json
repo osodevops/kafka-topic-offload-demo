@@ -62,7 +62,7 @@
       ]
     },
     "verifier": {
-      "id": "sha256:b75151a9d2178a84a7140690adae67641fa01cab27d5cd7b71f3195c1dd70b66",
+      "id": "sha256:90fb987fcc1a6c80738997157a34688009207a7f4673743d53e0a4452dd46ed7",
       "ref": "offload-verifier:local"
     }
   },
@@ -72,12 +72,12 @@
     "version": "kafka-backup 0.22.0"
   },
   "partitions": 6,
-  "repo_dirty": false,
-  "repo_git_sha": "5dd61ddc7a0f4aabab5b46155ec2d4ce67dbefe4",
+  "repo_dirty": true,
+  "repo_git_sha": "95a13bc1efd5168388ba2f6400ea1f6eeb61a546",
   "retention_after_prune_ms": 2592000000,
-  "run_id": "100g-20260915T164407Z",
+  "run_id": "100g-20260916T051309Z",
   "scale": "100g",
   "seed": "20260915",
-  "started_at": 1789490668321,
+  "started_at": 1789535611093,
   "topic": "device-telemetry"
 }

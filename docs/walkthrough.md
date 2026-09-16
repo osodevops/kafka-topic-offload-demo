@@ -383,7 +383,7 @@ FINDING 0 records in 2025-12-19..2026-01-17 would be missed by an unpadded windo
 GATE schemas.ids_resolve_identically.audit: PASS - {"3": {"source": 200, "target": 200, "identical": true}}
 ```
 
-At 100 GB, the same finding reports 88 records that only the pad recovered.
+At 100 GB, the same finding reports 182 records that only the pad recovered.
 
 **Restore a different window**
 

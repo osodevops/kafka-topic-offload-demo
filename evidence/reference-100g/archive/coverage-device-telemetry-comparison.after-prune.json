@@ -1,0 +1,139 @@
+{
+  "backup_id": "device-telemetry-comparison",
+  "bucket": "kafka-backups",
+  "compressed_bytes": 21611435614,
+  "created_at": 1789535888368,
+  "earliest_timestamp": 1773487287032,
+  "latest_timestamp": 1789531196475,
+  "partitions": {
+    "0": {
+      "compressed_bytes": 3671243125,
+      "earliest_timestamp": 1773487976087,
+      "first_offset": 4395834,
+      "gaps": [],
+      "last_offset": 8947848,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [
+        {
+          "bytes": 3539511464,
+          "cutoff_timestamp": 0,
+          "end_offset": 4395833,
+          "pruned_at": 1789536194137,
+          "reason": "manual",
+          "segments": 17,
+          "start_offset": 0
+        }
+      ],
+      "records": 4552015,
+      "segments": 18
+    },
+    "1": {
+      "compressed_bytes": 3671461005,
+      "earliest_timestamp": 1773487588401,
+      "first_offset": 4395724,
+      "gaps": [],
+      "last_offset": 8947848,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [
+        {
+          "bytes": 3539565421,
+          "cutoff_timestamp": 0,
+          "end_offset": 4395723,
+          "pruned_at": 1789536194137,
+          "reason": "manual",
+          "segments": 17,
+          "start_offset": 0
+        }
+      ],
+      "records": 4552125,
+      "segments": 18
+    },
+    "2": {
+      "compressed_bytes": 3671235024,
+      "earliest_timestamp": 1773488374347,
+      "first_offset": 4395947,
+      "gaps": [],
+      "last_offset": 8947848,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [
+        {
+          "bytes": 3539636191,
+          "cutoff_timestamp": 0,
+          "end_offset": 4395946,
+          "pruned_at": 1789536194137,
+          "reason": "manual",
+          "segments": 17,
+          "start_offset": 0
+        }
+      ],
+      "records": 4551902,
+      "segments": 18
+    },
+    "3": {
+      "compressed_bytes": 3671640468,
+      "earliest_timestamp": 1773487287032,
+      "first_offset": 4395638,
+      "gaps": [],
+      "last_offset": 8947847,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [
+        {
+          "bytes": 3539598556,
+          "cutoff_timestamp": 0,
+          "end_offset": 4395637,
+          "pruned_at": 1789536194137,
+          "reason": "manual",
+          "segments": 17,
+          "start_offset": 0
+        }
+      ],
+      "records": 4552210,
+      "segments": 18
+    },
+    "4": {
+      "compressed_bytes": 3462892510,
+      "earliest_timestamp": 1774399326605,
+      "first_offset": 4654415,
+      "gaps": [],
+      "last_offset": 8947847,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [
+        {
+          "bytes": 3747671600,
+          "cutoff_timestamp": 0,
+          "end_offset": 4654414,
+          "pruned_at": 1789536194137,
+          "reason": "manual",
+          "segments": 18,
+          "start_offset": 0
+        }
+      ],
+      "records": 4293433,
+      "segments": 17
+    },
+    "5": {
+      "compressed_bytes": 3462963482,
+      "earliest_timestamp": 1774399160957,
+      "first_offset": 4654368,
+      "gaps": [],
+      "last_offset": 8947847,
+      "latest_timestamp": 1789531196475,
+      "pruned_ranges": [
+        {
+          "bytes": 3747679685,
+          "cutoff_timestamp": 0,
+          "end_offset": 4654367,
+          "pruned_at": 1789536194137,
+          "reason": "manual",
+          "segments": 18,
+          "start_offset": 0
+        }
+      ],
+      "records": 4293480,
+      "segments": 17
+    }
+  },
+  "pruned_ranges": 6,
+  "records": 26795165,
+  "segments": 106
+}

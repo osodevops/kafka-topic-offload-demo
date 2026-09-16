@@ -1,29 +1,29 @@
 
-==> 65-verify-restore  (run 100g-20260915T164407Z, scale 100g)
+==> 65-verify-restore  (run 100g-20260916T051309Z, scale 100g)
 
 ==> Restored device-telemetry-audit against the baseline
  Image offload-verifier:local Building 
  Image offload-verifier:local Built 
- Container offload-verifier-run-1212110d9430 Creating 
- Container offload-verifier-run-1212110d9430 Created 
-[17:44:29] verify-restore device-telemetry-audit p5: 882,477 records, 500 decoded samples
-[17:44:29] verify-restore device-telemetry-audit p1: 882,516 records, 500 decoded samples
-[17:44:29] verify-restore device-telemetry-audit p4: 882,473 records, 500 decoded samples
-[17:44:29] verify-restore device-telemetry-audit p0: 882,501 records, 500 decoded samples
-[17:44:29] verify-restore device-telemetry-audit p2: 882,495 records, 500 decoded samples
-[17:44:29] verify-restore device-telemetry-audit p3: 882,504 records, 500 decoded samples
+ Container offload-verifier-run-1c3266f7ee1a Creating 
+ Container offload-verifier-run-1c3266f7ee1a Created 
+[05:26:24] verify-restore device-telemetry-audit p2: 882,494 records, 500 decoded samples
+[05:26:24] verify-restore device-telemetry-audit p1: 882,475 records, 500 decoded samples
+[05:26:24] verify-restore device-telemetry-audit p0: 882,484 records, 500 decoded samples
+[05:26:24] verify-restore device-telemetry-audit p5: 882,459 records, 500 decoded samples
+[05:26:24] verify-restore device-telemetry-audit p4: 882,444 records, 500 decoded samples
+[05:26:24] verify-restore device-telemetry-audit p3: 882,477 records, 500 decoded samples
 GATE restore.audit.original_offsets_strictly_increasing: PASS - every record carries x-original-offset; per partition strictly increasing, no duplicates
 GATE restore.audit.create_time_preserved: PASS
-GATE restore.audit.no_records_outside_window: PASS - window 1765843200000..1768953599999
-GATE restore.audit.buckets_match_baseline: PASS - 5,294,966 records; 30 days x 6 partitions compared exactly
-GATE restore.audit.every_difference_explained_by_segment_bounds: PASS - 182 records missing across 9 buckets, 182 predicted by manifest bounds
+GATE restore.audit.no_records_outside_window: PASS - window 1765929600000..1769039999999
+GATE restore.audit.buckets_match_baseline: PASS - 5,294,833 records; 30 days x 6 partitions compared exactly
+GATE restore.audit.every_difference_explained_by_segment_bounds: PASS - 353 records missing across 12 buckets, 353 predicted by manifest bounds
 GATE restore.audit.avro_decodes_with_registry: PASS - 3000 sampled records decoded via http://target-schema-registry:8081; eventTime equals CreateTime
-FINDING 88 records in 2025-12-19..2026-01-17 would be missed by an unpadded window because their backup segment's first/last timestamps fall outside it
+FINDING 182 records in 2025-12-20..2026-01-18 would be missed by an unpadded window because their backup segment's first/last timestamps fall outside it
 SCHEMA_IDS 3
 
 ==> Every schema ID in the restored data resolves to the same schema on the restore registry
- Container offload-verifier-run-4f2d2a81f767 Creating 
- Container offload-verifier-run-4f2d2a81f767 Created 
+ Container offload-verifier-run-b0677f2e28c5 Creating 
+ Container offload-verifier-run-b0677f2e28c5 Created 
 GATE schemas.ids_resolve_identically.audit: PASS - {"3": {"source": 200, "target": 200, "identical": true}}
 
-PHASE 65-verify-restore: PASS (15s)
+PHASE 65-verify-restore: PASS (12s)

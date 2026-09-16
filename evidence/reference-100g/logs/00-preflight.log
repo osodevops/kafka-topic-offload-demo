@@ -1,5 +1,5 @@
 
-==> 00-preflight  (run 100g-20260915T164407Z, scale 100g)
+==> 00-preflight  (run 100g-20260916T051309Z, scale 100g)
 
 ==> Host tools
 GATE preflight.tools: PASS - docker 29.7.2, compose 5.5.1
@@ -17,12 +17,12 @@ GATE preflight.kafka_backup_native: PASS - image arm64 on a arm64 Docker VM, no 
 ==> Stack
  Network offload_default Creating 
  Network offload_default Creating 
- Volume offload_target-kafka-data Creating 
- Volume offload_target-kafka-data Creating 
- Volume offload_source-kafka-data Creating 
- Volume offload_source-kafka-data Creating 
  Volume offload_minio-data Creating 
  Volume offload_minio-data Creating 
+ Volume offload_source-kafka-data Creating 
+ Volume offload_source-kafka-data Creating 
+ Volume offload_target-kafka-data Creating 
+ Volume offload_target-kafka-data Creating 
  Volume offload_target-kafka-data Created 
  Volume offload_target-kafka-data Created 
  Volume offload_source-kafka-data Created 
@@ -31,9 +31,9 @@ GATE preflight.kafka_backup_native: PASS - image arm64 on a arm64 Docker VM, no 
  Volume offload_minio-data Created 
  Network offload_default Created 
  Network offload_default Created 
- Container offload-minio-1 Creating 
  Container offload-source-kafka-1 Creating 
  Container offload-target-kafka-1 Creating 
+ Container offload-minio-1 Creating 
  Container offload-minio-1 Created 
  Container offload-source-kafka-1 Created 
  Container offload-source-schema-registry-1 Creating 
@@ -42,27 +42,27 @@ GATE preflight.kafka_backup_native: PASS - image arm64 on a arm64 Docker VM, no 
  Container offload-source-schema-registry-1 Created 
  Container offload-target-schema-registry-1 Created 
  Container offload-minio-1 Starting 
- Container offload-target-kafka-1 Starting 
  Container offload-source-kafka-1 Starting 
+ Container offload-target-kafka-1 Starting 
+ Container offload-source-kafka-1 Started 
+ Container offload-source-kafka-1 Waiting 
  Container offload-minio-1 Started 
  Container offload-target-kafka-1 Started 
  Container offload-target-kafka-1 Waiting 
- Container offload-source-kafka-1 Started 
- Container offload-source-kafka-1 Waiting 
  Container offload-target-kafka-1 Healthy 
  Container offload-target-schema-registry-1 Starting 
  Container offload-target-schema-registry-1 Started 
  Container offload-source-kafka-1 Healthy 
  Container offload-source-schema-registry-1 Starting 
  Container offload-source-schema-registry-1 Started 
+ Container offload-target-kafka-1 Waiting 
  Container offload-minio-1 Waiting 
+ Container offload-source-schema-registry-1 Waiting 
  Container offload-target-schema-registry-1 Waiting 
  Container offload-source-kafka-1 Waiting 
- Container offload-target-kafka-1 Waiting 
- Container offload-source-schema-registry-1 Waiting 
- Container offload-source-kafka-1 Healthy 
- Container offload-minio-1 Healthy 
  Container offload-target-kafka-1 Healthy 
+ Container offload-minio-1 Healthy 
+ Container offload-source-kafka-1 Healthy 
  Container offload-target-schema-registry-1 Healthy 
  Container offload-source-schema-registry-1 Healthy 
  Container offload-minio-1 Running 
@@ -81,6 +81,6 @@ minio-setup-1  | buckets ready
 GATE preflight.stack_healthy: PASS - brokers, registries and MinIO up; buckets kafka-backups and kafka-backups-sealed (object lock)
 
 ==> Environment record
-    ✔ run 100g-20260915T164407Z recorded in evidence/100g-20260915T164407Z/environment.json
+    ✔ run 100g-20260916T051309Z recorded in evidence/100g-20260916T051309Z/environment.json
 
 PHASE 00-preflight: PASS (22s)

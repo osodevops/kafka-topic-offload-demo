@@ -24,8 +24,8 @@ restore:
   # Padded by the maximum lateness on both sides. 0.22.0 selects segments by their first
   # and last record timestamps, not min and max, so late records near the window
   # edges are skipped without the pad.
-  time_window_start: 1765843200000
-  time_window_end: 1768953599999
+  time_window_start: 1765929600000
+  time_window_end: 1769039999999
   topic_mapping:
     "device-telemetry": "device-telemetry-audit"
   create_topics: true

@@ -35,68 +35,68 @@
     "0": {
       "boundary": 60,
       "count": 5000,
-      "late": 24,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "late": 25,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 0,
-      "seconds": 0.6,
+      "seconds": 0.8,
       "v2_from_index": 3500,
-      "value_bytes": 9680654
+      "value_bytes": 9680519
     },
     "1": {
       "boundary": 60,
       "count": 5000,
-      "late": 29,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "late": 23,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 1,
-      "seconds": 0.6,
+      "seconds": 0.8,
       "v2_from_index": 3500,
-      "value_bytes": 9680771
+      "value_bytes": 9681270
     },
     "2": {
       "boundary": 60,
       "count": 5000,
-      "late": 14,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "late": 30,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 2,
-      "seconds": 0.6,
+      "seconds": 0.8,
       "v2_from_index": 3500,
-      "value_bytes": 9680506
+      "value_bytes": 9679681
     },
     "3": {
       "boundary": 60,
       "count": 5000,
-      "late": 10,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "late": 14,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 3,
-      "seconds": 0.6,
+      "seconds": 1.1,
       "v2_from_index": 3500,
-      "value_bytes": 9681765
+      "value_bytes": 9681277
     },
     "4": {
       "boundary": 60,
       "count": 5000,
-      "late": 24,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "late": 20,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 4,
-      "seconds": 0.6,
+      "seconds": 0.8,
       "v2_from_index": 3500,
-      "value_bytes": 9681157
+      "value_bytes": 9680782
     },
     "5": {
       "boundary": 60,
       "count": 5000,
-      "late": 29,
-      "max_ts": 1789487481600,
-      "min_ts": 1786896000000,
+      "late": 16,
+      "max_ts": 1789530681600,
+      "min_ts": 1786939200000,
       "partition": 5,
-      "seconds": 0.6,
+      "seconds": 0.8,
       "v2_from_index": 3500,
-      "value_bytes": 9680952
+      "value_bytes": 9681246
     }
   },
   "records": 30000,
@@ -105,14 +105,14 @@
     "v1": 3,
     "v2": 4
   },
-  "seconds": 0.7,
+  "seconds": 1.2,
   "seed": "20260915",
-  "seed_end_ts": 1789488000000,
+  "seed_end_ts": 1789531200000,
   "segment_bytes": 1048576,
   "span_days": 30,
-  "start_ts": 1786896000000,
+  "start_ts": 1786939200000,
   "subject": "azurite-smoke-value",
-  "throughput_mb_s": 84.9,
+  "throughput_mb_s": 48.7,
   "topic": "azurite-smoke",
   "topic_configs": {
     "cleanup.policy": "delete",
@@ -123,7 +123,7 @@
     "segment.bytes": "1048576",
     "segment.ms": "315360000000"
   },
-  "value_bytes": 58085805,
+  "value_bytes": 58084775,
   "watermarks": {
     "0": {
       "high": 5000,

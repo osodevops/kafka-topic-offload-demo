@@ -1,40 +1,40 @@
- Container offload-kafka-backup-run-f20ed7c10742 Creating 
- Container offload-kafka-backup-run-f20ed7c10742 Created 
-[2m2026-09-15T17:44:32.317716Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Loading configuration from: /evidence/100g-20260915T164407Z/configs/restore-full.yaml
-[2m2026-09-15T17:44:32.320621Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Starting restore from backup: device-telemetry
-[2m2026-09-15T17:44:32.320768Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
-[2m2026-09-15T17:44:32.346633Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups-sealed, prefix: Some("backups")
-[2m2026-09-15T17:44:32.346670Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
-[2m2026-09-15T17:44:32.346691Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
-[2m2026-09-15T17:44:32.346864Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loading backup manifest for: device-telemetry
-[2m2026-09-15T17:44:32.351233Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loaded manifest: 1 topics, 53687091 total records
-[2m2026-09-15T17:44:32.351312Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Running Phase 1 header preflight (mode: auto, offset recovery requested: true)
-[2m2026-09-15T17:47:17.110864Z[0m [32m INFO[0m [2mkafka_backup_core::restore::preflight[0m[2m:[0m Header preflight passed: backup 'device-telemetry': 6 partition(s) [6 full], 53687091 record(s) scanned, verdict: PASS
-[2m2026-09-15T17:47:17.110878Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connecting to target Kafka cluster via partition leader router...
-[2m2026-09-15T17:47:17.112152Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 57 partition leaders
-[2m2026-09-15T17:47:17.112163Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connected to target Kafka cluster via partition leader router
-[2m2026-09-15T17:47:17.112399Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Creating 1 missing topics: ["device-telemetry-full"]
-[2m2026-09-15T17:47:17.139858Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::admin[0m[2m:[0m Created topic: device-telemetry-full
-[2m2026-09-15T17:47:17.139869Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Created topic 'device-telemetry-full' successfully
-[2m2026-09-15T17:47:17.140636Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 63 partition leaders
-[2m2026-09-15T17:47:17.140646Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Refreshed metadata after topic creation
-[2m2026-09-15T17:47:17.169688Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m auto_consumer_groups: loaded 1 groups and 6 offsets from snapshot
-[2m2026-09-15T17:47:17.169697Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring 1 topics
-[2m2026-09-15T17:47:17.169698Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Adding x-original-offset, x-original-timestamp and x-source-partition headers to every produced record (include_original_offset_header / header-based strategy)
-[2m2026-09-15T17:47:17.169703Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring topic device-telemetry -> device-telemetry-full (6 partitions)
-[2m2026-09-15T17:53:14.784993Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:0 -> device-telemetry-full:0 (8947849 records, 139 segments)
-[2m2026-09-15T17:53:15.454452Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:3 -> device-telemetry-full:3 (8947848 records, 139 segments)
-[2m2026-09-15T17:53:15.802609Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:1 -> device-telemetry-full:1 (8947849 records, 139 segments)
-[2m2026-09-15T17:53:15.956277Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:5 -> device-telemetry-full:5 (8947848 records, 139 segments)
-[2m2026-09-15T17:53:16.127435Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:2 -> device-telemetry-full:2 (8947849 records, 139 segments)
-[2m2026-09-15T17:53:16.476843Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:4 -> device-telemetry-full:4 (8947848 records, 139 segments)
-[2m2026-09-15T17:53:16.477007Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m auto_consumer_groups: imported 6 consumer group offsets from snapshot
-[2m2026-09-15T17:53:16.663822Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Offset mapping ready for 1 consumer group(s); offsets are applied in Phase 3 (not by the restore engine)
-[2m2026-09-15T17:53:16.663843Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restore completed successfully
-[2m2026-09-15T17:53:16.663896Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m === Performance Metrics ===
-Duration: 502.09s
+ Container offload-kafka-backup-run-0f7283306533 Creating 
+ Container offload-kafka-backup-run-0f7283306533 Created 
+[2m2026-09-16T05:26:26.958267Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Loading configuration from: /evidence/100g-20260916T051309Z/configs/restore-full.yaml
+[2m2026-09-16T05:26:26.959684Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Starting restore from backup: device-telemetry
+[2m2026-09-16T05:26:26.959811Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
+[2m2026-09-16T05:26:26.964617Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups-sealed, prefix: Some("backups")
+[2m2026-09-16T05:26:26.964662Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
+[2m2026-09-16T05:26:26.964669Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
+[2m2026-09-16T05:26:26.964718Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loading backup manifest for: device-telemetry
+[2m2026-09-16T05:26:26.968647Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Loaded manifest: 1 topics, 53687091 total records
+[2m2026-09-16T05:26:26.968714Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Running Phase 1 header preflight (mode: auto, offset recovery requested: true)
+[2m2026-09-16T05:28:26.542473Z[0m [32m INFO[0m [2mkafka_backup_core::restore::preflight[0m[2m:[0m Header preflight passed: backup 'device-telemetry': 6 partition(s) [6 full], 53687091 record(s) scanned, verdict: PASS
+[2m2026-09-16T05:28:26.542488Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connecting to target Kafka cluster via partition leader router...
+[2m2026-09-16T05:28:26.543978Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 63 partition leaders
+[2m2026-09-16T05:28:26.543992Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Connected to target Kafka cluster via partition leader router
+[2m2026-09-16T05:28:26.544484Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Creating 1 missing topics: ["device-telemetry-full"]
+[2m2026-09-16T05:28:26.573064Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::admin[0m[2m:[0m Created topic: device-telemetry-full
+[2m2026-09-16T05:28:26.573085Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Created topic 'device-telemetry-full' successfully
+[2m2026-09-16T05:28:26.574872Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 69 partition leaders
+[2m2026-09-16T05:28:26.574885Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Refreshed metadata after topic creation
+[2m2026-09-16T05:28:26.603645Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m auto_consumer_groups: loaded 1 groups and 6 offsets from snapshot
+[2m2026-09-16T05:28:26.603663Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring 1 topics
+[2m2026-09-16T05:28:26.603664Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Adding x-original-offset, x-original-timestamp and x-source-partition headers to every produced record (include_original_offset_header / header-based strategy)
+[2m2026-09-16T05:28:26.603671Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restoring topic device-telemetry -> device-telemetry-full (6 partitions)
+[2m2026-09-16T05:34:30.062985Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:1 -> device-telemetry-full:1 (8947849 records, 139 segments)
+[2m2026-09-16T05:34:30.354318Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:2 -> device-telemetry-full:2 (8947849 records, 139 segments)
+[2m2026-09-16T05:34:30.632426Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:3 -> device-telemetry-full:3 (8947848 records, 139 segments)
+[2m2026-09-16T05:34:30.740600Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:5 -> device-telemetry-full:5 (8947848 records, 139 segments)
+[2m2026-09-16T05:34:30.960585Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:4 -> device-telemetry-full:4 (8947848 records, 139 segments)
+[2m2026-09-16T05:34:31.109800Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restored device-telemetry:0 -> device-telemetry-full:0 (8947849 records, 139 segments)
+[2m2026-09-16T05:34:31.109956Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m auto_consumer_groups: imported 6 consumer group offsets from snapshot
+[2m2026-09-16T05:34:31.245964Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Offset mapping ready for 1 consumer group(s); offsets are applied in Phase 3 (not by the restore engine)
+[2m2026-09-16T05:34:31.245983Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m Restore completed successfully
+[2m2026-09-16T05:34:31.246031Z[0m [32m INFO[0m [2mkafka_backup_core::restore::engine[0m[2m:[0m === Performance Metrics ===
+Duration: 484.28s
 Records processed: 53687091
-Records/sec: 106928
+Records/sec: 110860
 Bytes written: 0 MB
 Throughput: 0.00 MB/s
 Compression ratio: 1.00x
@@ -46,16 +46,16 @@ Checkpoint latency (ms):
 Segment write latency (ms):
   avg=0.00 p50=0.00 p95=0.00 p99=0.00 max=0.00
 
-[2m2026-09-15T17:53:16.663986Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
-[2m2026-09-15T17:53:16.664073Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Applying consumer group offset reset (Phase 3) for 1 group(s)
-[2m2026-09-15T17:53:16.664081Z[0m [32m INFO[0m [2mkafka_backup_core::restore::three_phase[0m[2m:[0m Phase 3: Generating and applying offset reset plan...
-[2m2026-09-15T17:53:16.664640Z[0m [32m INFO[0m [2mkafka_backup_core::restore::offset_reset[0m[2m:[0m Generated offset reset plan for 1 groups with 6 total partitions
-[2m2026-09-15T17:53:16.665672Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 63 partition leaders
-[2m2026-09-15T17:53:16.677644Z[0m [32m INFO[0m [2mkafka_backup_core::restore::offset_reset[0m[2m:[0m Offset reset completed successfully: 6 partitions reset in 11ms
+[2m2026-09-16T05:34:31.246095Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
+[2m2026-09-16T05:34:31.246452Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Applying consumer group offset reset (Phase 3) for 1 group(s)
+[2m2026-09-16T05:34:31.246461Z[0m [32m INFO[0m [2mkafka_backup_core::restore::three_phase[0m[2m:[0m Phase 3: Generating and applying offset reset plan...
+[2m2026-09-16T05:34:31.247112Z[0m [32m INFO[0m [2mkafka_backup_core::restore::offset_reset[0m[2m:[0m Generated offset reset plan for 1 groups with 6 total partitions
+[2m2026-09-16T05:34:31.248113Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 69 partition leaders
+[2m2026-09-16T05:34:31.258729Z[0m [32m INFO[0m [2mkafka_backup_core::restore::offset_reset[0m[2m:[0m Offset reset completed successfully: 6 partitions reset in 10ms
 
 === Consumer Group Offset Reset (Phase 3) ===
 Groups: 1   Partitions reset: 6   Errors: 0
   - telemetry-analytics (6 partition(s))
 Result: APPLIED
 
-[2m2026-09-15T17:53:16.677782Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Restore completed successfully
+[2m2026-09-16T05:34:31.258850Z[0m [32m INFO[0m [2mkafka_backup::commands::restore[0m[2m:[0m Restore completed successfully

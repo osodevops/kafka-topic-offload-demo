@@ -1,5 +1,5 @@
 
-==> 35-verify-backup  (run 100g-20260915T164407Z, scale 100g)
+==> 35-verify-backup  (run 100g-20260916T051309Z, scale 100g)
 
 ==> kafka-backup validate --deep
 Segments Checked:   834
@@ -22,22 +22,22 @@ GATE backup.validate_no_issues: PASS - no 'Issues Found' section
 ==> Independent verification: manifest, object SHA-256, decoded content against the baseline
  Image offload-verifier:local Building 
  Image offload-verifier:local Built 
- Container offload-verifier-run-f80850d42d9e Creating 
- Container offload-verifier-run-f80850d42d9e Created 
+ Container offload-verifier-run-094e924d3477 Creating 
+ Container offload-verifier-run-094e924d3477 Created 
 GATE backup.manifest_covers_log_start_to_high_watermark: PASS - 53,687,091 records in 834 segments
 GATE backup.manifest_no_gaps_or_pruned: PASS
 GATE backup.topic_config_captured: PASS - retention.ms=-1 partitions=6
-[16:52:22] verify-backup p3: 139 objects, 8,947,848 records
-[16:52:23] verify-backup p1: 139 objects, 8,947,849 records
-[16:52:23] verify-backup p4: 139 objects, 8,947,848 records
-[16:52:23] verify-backup p2: 139 objects, 8,947,849 records
-[16:52:23] verify-backup p0: 139 objects, 8,947,849 records
-[16:52:23] verify-backup p5: 139 objects, 8,947,848 records
+[05:21:25] verify-backup p0: 139 objects, 8,947,849 records
+[05:21:25] verify-backup p4: 139 objects, 8,947,848 records
+[05:21:25] verify-backup p1: 139 objects, 8,947,849 records
+[05:21:25] verify-backup p3: 139 objects, 8,947,848 records
+[05:21:25] verify-backup p5: 139 objects, 8,947,848 records
+[05:21:26] verify-backup p2: 139 objects, 8,947,849 records
 GATE backup.object_sha256_matches_manifest: PASS - 834 objects, 43.27 GB hashed
 GATE backup.segments_decode_independently: PASS - CRC, header, record count and offsets agree for every segment
 GATE backup.offset_headers_little_endian: PASS - x-original-offset and x-original-timestamp decode as i64 LE and equal the record
-GATE backup.content_matches_source_baseline: PASS - 2196 partition-day buckets: count, min/max ts and SHA-256 identical
-FINDING manifest segment timestamps are first/last record, not min/max: 828 of 834 segments; 241,056 records lie outside their segment's bounds
+GATE backup.content_matches_source_baseline: PASS - 2196 fully covered partition-day buckets: count, min/max ts and SHA-256 identical
+FINDING manifest segment timestamps are first/last record, not min/max: 828 of 834 segments; 236,807 records lie outside their segment's bounds
 GATE backup.consumer_group_snapshot_matches_committed: PASS - groups ['telemetry-analytics']
 
-PHASE 35-verify-backup: PASS (111s)
+PHASE 35-verify-backup: PASS (110s)

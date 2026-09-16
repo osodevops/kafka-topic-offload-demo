@@ -58,11 +58,12 @@ Full report: [`evidence/reference-100g/report.md`](evidence/reference-100g/repor
 
 | Step | Result |
 |---|---|
-| Topic | 53,687,091 Avro records, 105 GB on the broker, one year of timestamps including 266,156 late arriving records |
-| Backup | 834 objects, 43.3 GB stored (2.58x zstd), 73 seconds; every object checksum and every record verified against the baseline |
-| Retention lowered to 30 days | 95.96 GB reclaimed, exactly as predicted to the byte; 48,990,007 records removed from the live topic, every one in the sealed backup |
-| Audit restore | A month from nine months ago, 5,294,966 records in 41 seconds, identical to the source for every day; 88 of them recovered only because the window was padded |
-| Full restore | 53,687,091 records in under 9 minutes, identical to the source, consumer group offsets mapped exactly |
+| Topic | 53,687,091 Avro records, 105 GB on the broker, one year of timestamps including 266,068 late arriving records |
+| Backup | 834 objects, 43.3 GB stored (2.58x zstd), 72 seconds; every object checksum and every record verified against the baseline |
+| Retention lowered to 30 days | 95.37 GB reclaimed, exactly as predicted to the byte; 48,687,479 records removed from the live topic, every one in the sealed backup |
+| Audit restore | A month from nine months ago, 5,294,833 records in 33 seconds, identical to the source for every day; 182 of them recovered only because the window was padded |
+| Full restore | 53,687,091 records in about 8 minutes, identical to the source, consumer group offsets mapped exactly |
+| Archive options | A 90 day archive of 13,237,908 records verified against the source; a 30 day range restored as at an instant, 4,412,442 records identical on every interior day; the archive aged from 43.3 GB to 21.6 GB with 6 pruned ranges recorded and still valid |
 | Negative tests | 5 of 5 failed their named gate as designed |
 
 These are local, single node rates on a 32 core Mac. The [extrapolation](evidence/reference-100g/restore/extrapolation.json) caps them at Confluent Cloud's per CKU throughput guidance.
@@ -162,7 +163,7 @@ Kafka turns an instant into the first offset at or after it on each partition, a
 ```
 GATE archive.since.offsets_for_time_resolved: PASS - 6 of 6 partitions have an offset at or after the instant
 GATE backup.content_matches_source_baseline.since: PASS - 540 fully covered partition-day buckets: count, min/max ts and SHA-256 identical
-device-telemetry-since: 132,378 records in 18 objects, 0.11 GB, covering 2026-06-18 03:00 to 2026-09-16 02:54 UTC
+device-telemetry-since: 13,237,908 records in 210 objects, 10.69 GB, covering 2026-06-18 04:00 to 2026-09-16 03:59 UTC
 ```
 
 There is no matching end bound in kafka-backup 0.22.0: a backup runs from its start offsets to the high watermark taken at start-up, which is what makes it a point-in-time snapshot.
@@ -172,8 +173,8 @@ There is no matching end bound in kafka-backup 0.22.0: a backup runs from its st
 `time_window_start` and `time_window_end` bring back any range, and nothing newer than the end. That covers an audit request, a replay of one bad day, or the topic as it stood before an incident.
 
 ```
-GATE restore.asat.no_records_outside_window: PASS - window 1779159600000..1781751599999
-GATE restore.asat.buckets_match_baseline: PASS - 44,128 records; 25 days x 6 partitions compared exactly
+GATE restore.asat.no_records_outside_window: PASS - window 1779163200000..1781755199999
+GATE restore.asat.buckets_match_baseline: PASS - 4,412,442 records; 25 days x 6 partitions compared exactly
 ```
 
 Restores always go into a new topic, with `retention.ms=-1`, and fail rather than touch an existing one.
@@ -183,7 +184,7 @@ Restores always go into a new topic, with `retention.ms=-1`, and fail rather tha
 The archive has its own retention, separate from the topic's. `backup.retention` (`max_age`, `max_total_bytes`, `keep_segments`) applies it during a run, and `kafka-backup prune` applies it on demand, plan first and `--execute` to act. Pruned ranges are recorded in the manifest, so the archive stays valid and says what it no longer holds.
 
 ```
-GATE archive.retention.size_cap_applied: PASS - archive went from 433661481 to 198764586 bytes, cap 216830740, 6 pruned range(s) recorded in the manifest
+GATE archive.retention.size_cap_applied: PASS - archive went from 43265098531 to 21611435614 bytes, cap 21632549265, 6 pruned range(s) recorded in the manifest
 GATE archive.retention.pruned_archive_still_valid: PASS - deliberate retention is not corruption
 ```
 

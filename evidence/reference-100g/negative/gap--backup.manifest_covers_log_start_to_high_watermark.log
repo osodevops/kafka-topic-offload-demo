@@ -1,18 +1,18 @@
- Container offload-verifier-run-8dc3be63c035 Creating 
- Container offload-verifier-run-8dc3be63c035 Created 
-GATE backup.manifest_covers_log_start_to_high_watermark: FAIL - 21,372 records in 12 segments
+ Container offload-verifier-run-8f724bce6213 Creating 
+ Container offload-verifier-run-8f724bce6213 Created 
+GATE backup.manifest_covers_log_start_to_high_watermark: FAIL - 21,373 records in 12 segments
 GATE backup.manifest_no_gaps_or_pruned: FAIL
 GATE backup.topic_config_captured: FAIL - retention.ms=2592000000 partitions=6
-[17:55:05] verify-backup p2: 2 objects, 3,560 records
-[17:55:05] verify-backup p0: 2 objects, 3,562 records
-[17:55:05] verify-backup p4: 2 objects, 3,562 records
-[17:55:05] verify-backup p5: 2 objects, 3,564 records
-[17:55:05] verify-backup p1: 2 objects, 3,562 records
-[17:55:05] verify-backup p3: 2 objects, 3,562 records
+[05:36:21] verify-backup p0: 2 objects, 3,563 records
+[05:36:21] verify-backup p3: 2 objects, 3,564 records
+[05:36:21] verify-backup p2: 2 objects, 3,562 records
+[05:36:21] verify-backup p1: 2 objects, 3,561 records
+[05:36:21] verify-backup p4: 2 objects, 3,562 records
+[05:36:21] verify-backup p5: 2 objects, 3,561 records
 GATE backup.object_sha256_matches_manifest: PASS - 12 objects, 0.02 GB hashed
 GATE backup.segments_decode_independently: PASS - CRC, header, record count and offsets agree for every segment
 GATE backup.offset_headers_little_endian: PASS - x-original-offset and x-original-timestamp decode as i64 LE and equal the record
-GATE backup.content_matches_source_baseline: FAIL - 198 partition-day buckets: count, min/max ts and SHA-256 identical; mismatches [{'partition': 1, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}, {'partition': 0, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}, {'partition': 3, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}, {'partition': 4, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}, {'partition': 2, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}, {'partition': 5, 'days': ['2026-06-17', '2026-06-18', '2026-06-19', '2026-06-20', '2026-06-21', '2026-06-22', '2026-06-23', '2026-06-24', '2026-06-25', '2026-06-26']}]
+GATE backup.content_matches_source_baseline: FAIL - 546 fully covered partition-day buckets: count, min/max ts and SHA-256 identical; mismatches [{'partition': 0, 'day': '2026-06-18', 'reason': 'differs from the source'}, {'partition': 0, 'day': '2026-06-19', 'reason': 'differs from the source'}, {'partition': 0, 'day': '2026-06-20', 'reason': 'differs from the source'}]
 FINDING manifest segment timestamps are first/last record, not min/max: 0 of 12 segments; 0 records lie outside their segment's bounds
 GATE backup.consumer_group_snapshot_matches_committed: PASS - groups []
 

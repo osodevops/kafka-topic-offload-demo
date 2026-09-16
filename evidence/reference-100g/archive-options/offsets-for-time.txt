@@ -1,0 +1,6 @@
+device-telemetry:0:6741531
+device-telemetry:1:6741531
+device-telemetry:2:6741531
+device-telemetry:3:6741530
+device-telemetry:4:6741530
+device-telemetry:5:6741530

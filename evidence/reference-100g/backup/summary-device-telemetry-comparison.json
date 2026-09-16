@@ -1,11 +1,11 @@
 {
   "backup_id": "device-telemetry-comparison",
   "bucket": "kafka-backups",
-  "compressed_bytes": 43265092237,
+  "compressed_bytes": 43265098531,
   "compression_ratio": 2.58,
-  "mb_per_s_uncompressed": 1561.6,
+  "mb_per_s_uncompressed": 1494.2,
   "records": 53687091,
-  "seconds": 71.478,
+  "seconds": 74.704,
   "segments": 210,
-  "uncompressed_bytes": 111619776038
+  "uncompressed_bytes": 111619769291
 }

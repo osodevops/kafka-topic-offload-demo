@@ -1,28 +1,27 @@
 
-==> 40-prune-gate  (run 100g-20260915T164407Z, scale 100g)
+==> 40-prune-gate  (run 100g-20260916T051309Z, scale 100g)
 
 ==> Backup, seal and topic state; exact segment prediction for retention.ms=2592000000
  Image offload-verifier:local Building 
  Image offload-verifier:local Built 
- Container offload-verifier-run-8e8880e05999 Creating 
- Container offload-verifier-run-8e8880e05999 Created 
+ Container offload-verifier-run-aac89d359cdd Creating 
+ Container offload-verifier-run-aac89d359cdd Created 
 GATE prune_gate.backup_verified: PASS - verify-device-telemetry.json
 GATE prune_gate.manifest_anchor_intact.kafka-backups: PASS
 GATE prune_gate.manifest_anchor_intact.kafka-backups-sealed: PASS
 GATE prune_gate.sealed_copy_verified: PASS
 GATE prune_gate.backup_covers_live_topic: PASS - sealed manifest spans the current log start to high watermark on every partition, no gaps
 GATE prune_gate.topic_unchanged_since_baseline: PASS - same segments, sizes and watermarks
-[16:52:55] 1 segment(s) within 15 min of the cut; waiting 1779s for a clean prediction
 GATE prune_gate.prediction_unambiguous: PASS - no segment's largest timestamp within 15 min of the cut
 GATE prune_gate.newest_data_survives: PASS - SEED_END_TS is inside the new retention, so the topic is not emptied
 GATE prune_gate.no_partition_emptied: PASS
-[17:42:01] predicted: delete 48,990,007 records, 95.96 GB; keep 9.23 GB
-    delete 48,990,007 records and 95.962 GB; keep 9.234 GB
+[05:24:03] predicted: delete 48,687,479 records, 95.37 GB; keep 9.83 GB
+    delete 48,687,479 records and 95.367 GB; keep 9.828 GB
 
 ==> Consumer groups that would fall below the new log start
- Container offload-verifier-run-08ec08c31e96 Creating 
- Container offload-verifier-run-08ec08c31e96 Created 
-[17:42:02] groups with offsets on device-telemetry: ['telemetry-analytics']; behind the cut: ['telemetry-analytics']
+ Container offload-verifier-run-fd278b2cb8fa Creating 
+ Container offload-verifier-run-fd278b2cb8fa Created 
 GATE prune_gate.consumer_impact_acknowledged: PASS - behind cut ['telemetry-analytics'], acknowledged ['telemetry-analytics']
+[05:24:04] groups with offsets on device-telemetry: ['telemetry-analytics']; behind the cut: ['telemetry-analytics']
 
-PHASE 40-prune-gate: PASS (2950s)
+PHASE 40-prune-gate: PASS (5s)

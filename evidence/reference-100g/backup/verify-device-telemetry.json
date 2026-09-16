@@ -83,7 +83,7 @@
       }
     }
   },
-  "manifest_sha256": "77e2b8d9f7eb25e7e4578f7dfd4f34109ef04e3db96bd6acc769a029e0ecaa1c",
+  "manifest_sha256": "9ddf630a719fb8661e46c5148c80901f0ed6c7627eccf0b96680b4a9eb1bd3f3",
   "max_record_bytes": 2050,
   "partitions": {
     "0": {
@@ -92,7 +92,7 @@
       "max_record_bytes": 2050,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 7210844190,
+      "object_bytes": 7210850854,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 0,
@@ -108,7 +108,7 @@
       "max_record_bytes": 2050,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 7211145942,
+      "object_bytes": 7211124163,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 1,
@@ -124,7 +124,7 @@
       "max_record_bytes": 2050,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 7210972205,
+      "object_bytes": 7210960656,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 2,
@@ -140,7 +140,7 @@
       "max_record_bytes": 2050,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 7211353568,
+      "object_bytes": 7211342457,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 3,
@@ -156,7 +156,7 @@
       "max_record_bytes": 2050,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 7210672973,
+      "object_bytes": 7210674585,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 4,
@@ -172,7 +172,7 @@
       "max_record_bytes": 2050,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 7210722512,
+      "object_bytes": 7210734884,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 5,
@@ -188,14 +188,14 @@
   "summary": {
     "backup_id": "device-telemetry",
     "bucket": "kafka-backups",
-    "compressed_bytes": 43265711390,
+    "compressed_bytes": 43265687599,
     "compression_ratio": 2.58,
-    "mb_per_s_uncompressed": 1535.5,
+    "mb_per_s_uncompressed": 1545.5,
     "records": 53687091,
-    "seconds": 72.695,
+    "seconds": 72.222,
     "segments": 834,
-    "uncompressed_bytes": 111619776038,
-    "verify_seconds": 48.3
+    "uncompressed_bytes": 111619769291,
+    "verify_seconds": 48.0
   },
-  "time_window_hazards": 241056
+  "time_window_hazards": 236807
 }

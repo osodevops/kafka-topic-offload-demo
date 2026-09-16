@@ -35,68 +35,68 @@
     "0": {
       "boundary": 730,
       "count": 8947849,
-      "late": 44607,
-      "max_ts": 1789484396475,
-      "min_ts": 1757948400000,
+      "late": 44559,
+      "max_ts": 1789531196475,
+      "min_ts": 1757995200000,
       "partition": 0,
-      "seconds": 89.3,
+      "seconds": 86.0,
       "v2_from_index": 6263494,
-      "value_bytes": 17341536857
+      "value_bytes": 17341539149
     },
     "1": {
       "boundary": 730,
       "count": 8947849,
-      "late": 44283,
-      "max_ts": 1789484396475,
-      "min_ts": 1757948400000,
+      "late": 44276,
+      "max_ts": 1789531196475,
+      "min_ts": 1757995200000,
       "partition": 1,
-      "seconds": 89.9,
+      "seconds": 85.3,
       "v2_from_index": 6263494,
-      "value_bytes": 17341974504
+      "value_bytes": 17341965336
     },
     "2": {
       "boundary": 730,
       "count": 8947849,
-      "late": 44293,
-      "max_ts": 1789484396475,
-      "min_ts": 1757948400000,
+      "late": 44355,
+      "max_ts": 1789531196475,
+      "min_ts": 1757995200000,
       "partition": 2,
-      "seconds": 89.3,
+      "seconds": 85.7,
       "v2_from_index": 6263494,
-      "value_bytes": 17341066713
+      "value_bytes": 17341068350
     },
     "3": {
       "boundary": 730,
       "count": 8947848,
-      "late": 44336,
-      "max_ts": 1789484396475,
-      "min_ts": 1757948400000,
+      "late": 44342,
+      "max_ts": 1789531196475,
+      "min_ts": 1757995200000,
       "partition": 3,
-      "seconds": 90.2,
+      "seconds": 85.4,
       "v2_from_index": 6263493,
-      "value_bytes": 17342338407
+      "value_bytes": 17342339174
     },
     "4": {
       "boundary": 730,
       "count": 8947848,
-      "late": 44304,
-      "max_ts": 1789484396475,
-      "min_ts": 1757948400000,
+      "late": 44210,
+      "max_ts": 1789531196475,
+      "min_ts": 1757995200000,
       "partition": 4,
-      "seconds": 89.3,
+      "seconds": 85.7,
       "v2_from_index": 6263493,
-      "value_bytes": 17341397902
+      "value_bytes": 17341396276
     },
     "5": {
       "boundary": 730,
       "count": 8947848,
-      "late": 44333,
-      "max_ts": 1789484396475,
-      "min_ts": 1757948400000,
+      "late": 44326,
+      "max_ts": 1789531196475,
+      "min_ts": 1757995200000,
       "partition": 5,
-      "seconds": 90.3,
+      "seconds": 85.9,
       "v2_from_index": 6263493,
-      "value_bytes": 17341581824
+      "value_bytes": 17341581175
     }
   },
   "records": 53687091,
@@ -105,14 +105,14 @@
     "v1": 3,
     "v2": 4
   },
-  "seconds": 90.4,
+  "seconds": 86.1,
   "seed": "20260915",
-  "seed_end_ts": 1789484400000,
+  "seed_end_ts": 1789531200000,
   "segment_bytes": 298261616,
   "span_days": 365,
-  "start_ts": 1757948400000,
+  "start_ts": 1757995200000,
   "subject": "device-telemetry-value",
-  "throughput_mb_s": 1150.6,
+  "throughput_mb_s": 1208.2,
   "topic": "device-telemetry",
   "topic_configs": {
     "cleanup.policy": "delete",
@@ -123,7 +123,7 @@
     "segment.bytes": "298261616",
     "segment.ms": "315360000000"
   },
-  "value_bytes": 104049896207,
+  "value_bytes": 104049889460,
   "watermarks": {
     "0": {
       "high": 8947849,

@@ -1,0 +1,14 @@
+ Container offload-kafka-backup-run-c065b8f6cc75 Creating 
+ Container offload-kafka-backup-run-c065b8f6cc75 Created 
+[2m2026-09-16T05:23:14.123263Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups, prefix: Some("backups")
+[2m2026-09-16T05:23:14.136688Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Loaded offset database from storage: device-telemetry-comparison/offsets.db
+Prune plan for 'device-telemetry-comparison':
+  device-telemetry:3 — 17 segment(s), 3539598556 bytes, offsets 0..4395637
+  device-telemetry:2 — 17 segment(s), 3539636191 bytes, offsets 0..4395946
+  device-telemetry:1 — 17 segment(s), 3539565421 bytes, offsets 0..4395723
+  device-telemetry:5 — 18 segment(s), 3747679685 bytes, offsets 0..4654367
+  device-telemetry:4 — 18 segment(s), 3747671600 bytes, offsets 0..4654414
+  device-telemetry:0 — 17 segment(s), 3539511464 bytes, offsets 0..4395833
+Total: 104 segment(s), 21653662917 bytes
+
+Pruned 104 segment(s), 21653662917 bytes. Manifest rewritten first; pruned ranges recorded.

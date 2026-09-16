@@ -1,17 +1,17 @@
- Container offload-verifier-run-42009c173561 Creating 
- Container offload-verifier-run-42009c173561 Created 
-[17:55:39] verify-restore device-telemetry-neg-window p2: 24,411 records, 500 decoded samples
-[17:55:39] verify-restore device-telemetry-neg-window p3: 24,403 records, 500 decoded samples
-[17:55:39] verify-restore device-telemetry-neg-window p0: 24,420 records, 500 decoded samples
-[17:55:39] verify-restore device-telemetry-neg-window p5: 24,404 records, 500 decoded samples
-[17:55:39] verify-restore device-telemetry-neg-window p1: 24,404 records, 500 decoded samples
-[17:55:39] verify-restore device-telemetry-neg-window p4: 24,441 records, 500 decoded samples
+ Container offload-verifier-run-26186e763d45 Creating 
+ Container offload-verifier-run-26186e763d45 Created 
+[05:36:56] verify-restore device-telemetry-neg-window p2: 24,432 records, 500 decoded samples
+[05:36:56] verify-restore device-telemetry-neg-window p3: 24,405 records, 500 decoded samples
+[05:36:56] verify-restore device-telemetry-neg-window p1: 24,415 records, 500 decoded samples
+[05:36:56] verify-restore device-telemetry-neg-window p4: 24,409 records, 500 decoded samples
+[05:36:56] verify-restore device-telemetry-neg-window p0: 24,400 records, 500 decoded samples
+[05:36:56] verify-restore device-telemetry-neg-window p5: 24,421 records, 500 decoded samples
 GATE restore.negative-window.original_offsets_strictly_increasing: PASS - every record carries x-original-offset; per partition strictly increasing, no duplicates
 GATE restore.negative-window.create_time_preserved: PASS
-GATE restore.negative-window.no_records_outside_window: PASS - window 1780185600000..1780271999999
-GATE restore.negative-window.buckets_match_baseline: FAIL - 146,483 records; 1 days x 6 partitions compared exactly; 6 buckets differ, first [{'partition': 0, 'day': '2026-05-31', 'baseline_count': 24516, 'restored_count': 24420, 'predicted_missing': 96}, {'partition': 1, 'day': '2026-05-31', 'baseline_count': 24515, 'restored_count': 24404, 'predicted_missing': 111}, {'partition': 2, 'day': '2026-05-31', 'baseline_count': 24534, 'restored_count': 24411, 'predicted_missing': 123}]
-GATE restore.negative-window.every_difference_explained_by_segment_bounds: PASS - 671 records missing across 6 buckets, 671 predicted by manifest bounds
+GATE restore.negative-window.no_records_outside_window: PASS - window 1776816000000..1776902399999
+GATE restore.negative-window.buckets_match_baseline: FAIL - 146,482 records; 1 days x 6 partitions compared exactly; 6 buckets differ, first [{'partition': 0, 'day': '2026-04-22', 'baseline_count': 24525, 'restored_count': 24400, 'predicted_missing': 125}, {'partition': 1, 'day': '2026-04-22', 'baseline_count': 24532, 'restored_count': 24415, 'predicted_missing': 117}, {'partition': 2, 'day': '2026-04-22', 'baseline_count': 24536, 'restored_count': 24432, 'predicted_missing': 104}]
+GATE restore.negative-window.every_difference_explained_by_segment_bounds: PASS - 654 records missing across 6 buckets, 654 predicted by manifest bounds
 GATE restore.negative-window.avro_decodes_with_registry: PASS - 3000 sampled records decoded via http://target-schema-registry:8081; eventTime equals CreateTime
-FINDING 671 records in 2026-05-31..2026-05-31 would be missed by an unpadded window because their backup segment's first/last timestamps fall outside it
-SCHEMA_IDS 4
+FINDING 654 records in 2026-04-22..2026-04-22 would be missed by an unpadded window because their backup segment's first/last timestamps fall outside it
+SCHEMA_IDS 3
 

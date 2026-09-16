@@ -36,67 +36,67 @@
       "boundary": 180,
       "count": 10000,
       "late": 0,
-      "max_ts": 1789487222400,
-      "min_ts": 1781712000000,
+      "max_ts": 1789530422400,
+      "min_ts": 1781755200000,
       "partition": 0,
-      "seconds": 1.0,
+      "seconds": 0.8,
       "v2_from_index": 7000,
-      "value_bytes": 19363466
+      "value_bytes": 19363461
     },
     "1": {
       "boundary": 180,
       "count": 10000,
       "late": 0,
-      "max_ts": 1789487222400,
-      "min_ts": 1781712000000,
+      "max_ts": 1789530422400,
+      "min_ts": 1781755200000,
       "partition": 1,
-      "seconds": 1.0,
+      "seconds": 0.8,
       "v2_from_index": 7000,
-      "value_bytes": 19363649
+      "value_bytes": 19363314
     },
     "2": {
       "boundary": 180,
       "count": 10000,
       "late": 0,
-      "max_ts": 1789487222400,
-      "min_ts": 1781712000000,
+      "max_ts": 1789530422400,
+      "min_ts": 1781755200000,
       "partition": 2,
-      "seconds": 1.0,
+      "seconds": 0.8,
       "v2_from_index": 7000,
-      "value_bytes": 19363036
+      "value_bytes": 19362640
     },
     "3": {
       "boundary": 180,
       "count": 10000,
       "late": 0,
-      "max_ts": 1789487222400,
-      "min_ts": 1781712000000,
+      "max_ts": 1789530422400,
+      "min_ts": 1781755200000,
       "partition": 3,
-      "seconds": 1.0,
+      "seconds": 0.8,
       "v2_from_index": 7000,
-      "value_bytes": 19364004
+      "value_bytes": 19363658
     },
     "4": {
       "boundary": 180,
       "count": 10000,
       "late": 0,
-      "max_ts": 1789487222400,
-      "min_ts": 1781712000000,
+      "max_ts": 1789530422400,
+      "min_ts": 1781755200000,
       "partition": 4,
-      "seconds": 1.0,
+      "seconds": 0.8,
       "v2_from_index": 7000,
-      "value_bytes": 19363981
+      "value_bytes": 19363643
     },
     "5": {
       "boundary": 180,
       "count": 10000,
       "late": 0,
-      "max_ts": 1789487222400,
-      "min_ts": 1781712000000,
+      "max_ts": 1789530422400,
+      "min_ts": 1781755200000,
       "partition": 5,
-      "seconds": 1.0,
+      "seconds": 0.8,
       "v2_from_index": 7000,
-      "value_bytes": 19363967
+      "value_bytes": 19363517
     }
   },
   "records": 60000,
@@ -105,14 +105,14 @@
     "v1": 3,
     "v2": 4
   },
-  "seconds": 1.1,
+  "seconds": 0.9,
   "seed": "20260915",
-  "seed_end_ts": 1789488000000,
+  "seed_end_ts": 1789531200000,
   "segment_bytes": 1048576,
   "span_days": 90,
-  "start_ts": 1781712000000,
+  "start_ts": 1781755200000,
   "subject": "neg-gap-value",
-  "throughput_mb_s": 103.1,
+  "throughput_mb_s": 122.5,
   "topic": "neg-gap",
   "topic_configs": {
     "cleanup.policy": "delete",
@@ -123,7 +123,7 @@
     "segment.bytes": "1048576",
     "segment.ms": "315360000000"
   },
-  "value_bytes": 116182103,
+  "value_bytes": 116180233,
   "watermarks": {
     "0": {
       "high": 10000,

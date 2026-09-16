@@ -1,7 +1,7 @@
 {
   "measured": {
-    "backup_measured_mb_s": 1535.5,
-    "restore_measured_mb_s": 212.3
+    "backup_measured_mb_s": 1545.5,
+    "restore_measured_mb_s": 230.1
   },
   "caps": {
     "cku": 2,
@@ -12,7 +12,7 @@
     {
       "size": "1 TB",
       "scenario": "backup at local measured rate",
-      "mb_s": 1535.5,
+      "mb_s": 1545.5,
       "hours": 0.2,
       "within_tier1_1h": true,
       "within_tier2_24h": true
@@ -28,8 +28,8 @@
     {
       "size": "1 TB",
       "scenario": "restore at local measured rate",
-      "mb_s": 212.3,
-      "hours": 1.3,
+      "mb_s": 230.1,
+      "hours": 1.2,
       "within_tier1_1h": false,
       "within_tier2_24h": true
     },
@@ -44,7 +44,7 @@
     {
       "size": "10 TB",
       "scenario": "backup at local measured rate",
-      "mb_s": 1535.5,
+      "mb_s": 1545.5,
       "hours": 1.8,
       "within_tier1_1h": false,
       "within_tier2_24h": true
@@ -60,8 +60,8 @@
     {
       "size": "10 TB",
       "scenario": "restore at local measured rate",
-      "mb_s": 212.3,
-      "hours": 13.1,
+      "mb_s": 230.1,
+      "hours": 12.1,
       "within_tier1_1h": false,
       "within_tier2_24h": true
     },
@@ -76,7 +76,7 @@
     {
       "size": "50 TB",
       "scenario": "backup at local measured rate",
-      "mb_s": 1535.5,
+      "mb_s": 1545.5,
       "hours": 9.0,
       "within_tier1_1h": false,
       "within_tier2_24h": true
@@ -92,8 +92,8 @@
     {
       "size": "50 TB",
       "scenario": "restore at local measured rate",
-      "mb_s": 212.3,
-      "hours": 65.4,
+      "mb_s": 230.1,
+      "hours": 60.4,
       "within_tier1_1h": false,
       "within_tier2_24h": false
     },

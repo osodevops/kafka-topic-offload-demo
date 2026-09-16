@@ -1,0 +1,7 @@
+ Container offload-kafka-backup-run-cb6d63278954 Creating 
+ Container offload-kafka-backup-run-cb6d63278954 Created 
+[2m2026-09-16T05:23:13.635369Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups, prefix: Some("backups")
+[2m2026-09-16T05:23:13.671208Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Loaded offset database from storage: device-telemetry-comparison/offsets.db
+Prune plan for 'device-telemetry-comparison':
+  nothing to prune
+Total: 0 segment(s), 0 bytes

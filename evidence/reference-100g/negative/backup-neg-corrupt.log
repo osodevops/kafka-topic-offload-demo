@@ -1,62 +1,62 @@
- Container offload-kafka-backup-run-585d130885c6 Creating 
- Container offload-kafka-backup-run-585d130885c6 Created 
-[2m2026-09-15T17:55:12.261175Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Loading configuration from: /evidence/100g-20260915T164407Z/negative/configs/backup-neg-corrupt.yaml
-[2m2026-09-15T17:55:12.262452Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Starting backup: neg-corrupt
-[2m2026-09-15T17:55:12.262602Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
-[2m2026-09-15T17:55:12.264719Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 71 partition leaders
-[2m2026-09-15T17:55:12.269755Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups, prefix: Some("negative")
-[2m2026-09-15T17:55:12.269786Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
-[2m2026-09-15T17:55:12.269793Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
-[2m2026-09-15T17:55:12.274368Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Connected to Kafka cluster via partition leader router
-[2m2026-09-15T17:55:12.281005Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Synced offset database to storage: neg-corrupt/offsets.db
-[2m2026-09-15T17:55:12.281021Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Backup engine starting with max_concurrent_partitions=8, poll_interval_ms=100
-[2m2026-09-15T17:55:12.281025Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m include_offset_headers=true (default): every archived record gets x-original-offset and x-original-timestamp and x-source-cluster=local-cp-server headers for header-based consumer offset recovery; set backup.include_offset_headers: false for a header-for-header identical archive, or restore.strip_offset_headers: true to drop them at restore time
-[2m2026-09-15T17:55:12.281700Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Backing up 1 topics
-[2m2026-09-15T17:55:12.283428Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Snapshot mode: capturing offsets for 1 topics
-[2m2026-09-15T17:55:12.286297Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m snapshot_capture_complete: 6 partitions in 2ms (30000 records to back up this run, 30000 in the captured offset range, 0 partitions resuming from a checkpoint)
-[2m2026-09-15T17:55:12.289405Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Spawned 6 backup tasks (max 8 concurrent)
-[2m2026-09-15T17:55:12.324117Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=4/segment-00000000000000000000.bin.zst with 2022 records (4194485 -> 1619838 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.328356Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=1/segment-00000000000000000000.bin.zst with 2022 records (4194648 -> 1620280 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.329612Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000000000.bin.zst with 2023 records (4196278 -> 1620377 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.331185Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=3/segment-00000000000000000000.bin.zst with 2022 records (4194811 -> 1620086 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.332153Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=2/segment-00000000000000000000.bin.zst with 2022 records (4194597 -> 1620060 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.332156Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=5/segment-00000000000000000000.bin.zst with 2022 records (4194418 -> 1619489 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.355713Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000002023.bin.zst with 2020 records (4195232 -> 1619438 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.355943Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=3/segment-00000000000000002022.bin.zst with 2020 records (4195496 -> 1619897 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.355976Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=2/segment-00000000000000002022.bin.zst with 2020 records (4195020 -> 1619312 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.355988Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=5/segment-00000000000000002022.bin.zst with 2020 records (4195365 -> 1619475 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.356029Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=4/segment-00000000000000002022.bin.zst with 2020 records (4195287 -> 1619301 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.356267Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=1/segment-00000000000000002022.bin.zst with 2020 records (4195547 -> 1619814 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.371562Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=3/segment-00000000000000004042.bin.zst with 958 records (1996003 -> 769479 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.371589Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:3 - 3 segments (reached target offset 5000)
-[2m2026-09-15T17:55:12.372180Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=5/segment-00000000000000004042.bin.zst with 958 records (1995990 -> 769172 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.372194Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:5 - 3 segments (reached target offset 5000)
-[2m2026-09-15T17:55:12.372222Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000004043.bin.zst with 957 records (1994073 -> 768816 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.372225Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:0 - 3 segments (reached target offset 5000)
-[2m2026-09-15T17:55:12.372990Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=4/segment-00000000000000004042.bin.zst with 958 records (1995726 -> 769548 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.373003Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:4 - 3 segments (reached target offset 5000)
-[2m2026-09-15T17:55:12.373032Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=1/segment-00000000000000004042.bin.zst with 958 records (1995979 -> 769942 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.373048Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:1 - 3 segments (reached target offset 5000)
-[2m2026-09-15T17:55:12.373053Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=2/segment-00000000000000004042.bin.zst with 958 records (1995895 -> 769595 bytes, 2.6x compression)
-[2m2026-09-15T17:55:12.373070Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:2 - 3 segments (reached target offset 5000)
-[2m2026-09-15T17:55:12.381179Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Synced offset database to storage: neg-corrupt/offsets.db
-[2m2026-09-15T17:55:12.387155Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Consumer groups snapshot saved (0 groups) to neg-corrupt/consumer-groups-snapshot.json
-[2m2026-09-15T17:55:12.393836Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Synced offset database to storage: neg-corrupt/offsets.db
-[2m2026-09-15T17:55:12.396743Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m === Performance Metrics ===
-Duration: 0.13s
+ Container offload-kafka-backup-run-2e5a0cc139b7 Creating 
+ Container offload-kafka-backup-run-2e5a0cc139b7 Created 
+[2m2026-09-16T05:36:28.634044Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Loading configuration from: /evidence/100g-20260916T051309Z/negative/configs/backup-neg-corrupt.yaml
+[2m2026-09-16T05:36:28.635808Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Starting backup: neg-corrupt
+[2m2026-09-16T05:36:28.636115Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server listening on http://0.0.0.0:8080
+[2m2026-09-16T05:36:28.638590Z[0m [32m INFO[0m [2mkafka_backup_core::kafka::partition_router[0m[2m:[0m Refreshed metadata: 1 brokers, 71 partition leaders
+[2m2026-09-16T05:36:28.644102Z[0m [32m INFO[0m [2mkafka_backup_core::storage::s3[0m[2m:[0m Created S3 backend for bucket: kafka-backups, prefix: Some("negative")
+[2m2026-09-16T05:36:28.644133Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: kafka
+[2m2026-09-16T05:36:28.644140Z[0m [32m INFO[0m [2mkafka_backup_core::circuit_breaker[0m[2m:[0m Created circuit breaker: storage
+[2m2026-09-16T05:36:28.650323Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Connected to Kafka cluster via partition leader router
+[2m2026-09-16T05:36:28.666237Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Synced offset database to storage: neg-corrupt/offsets.db
+[2m2026-09-16T05:36:28.666257Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Backup engine starting with max_concurrent_partitions=8, poll_interval_ms=100
+[2m2026-09-16T05:36:28.666261Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m include_offset_headers=true (default): every archived record gets x-original-offset and x-original-timestamp and x-source-cluster=local-cp-server headers for header-based consumer offset recovery; set backup.include_offset_headers: false for a header-for-header identical archive, or restore.strip_offset_headers: true to drop them at restore time
+[2m2026-09-16T05:36:28.667295Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Backing up 1 topics
+[2m2026-09-16T05:36:28.670052Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Snapshot mode: capturing offsets for 1 topics
+[2m2026-09-16T05:36:28.676167Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m snapshot_capture_complete: 6 partitions in 6ms (30000 records to back up this run, 30000 in the captured offset range, 0 partitions resuming from a checkpoint)
+[2m2026-09-16T05:36:28.680165Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Spawned 6 backup tasks (max 8 concurrent)
+[2m2026-09-16T05:36:28.721837Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=1/segment-00000000000000000000.bin.zst with 2022 records (4194588 -> 1619936 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.722220Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=2/segment-00000000000000000000.bin.zst with 2022 records (4194593 -> 1619982 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.722353Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=3/segment-00000000000000000000.bin.zst with 2022 records (4194759 -> 1619571 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.724315Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000000000.bin.zst with 2023 records (4196266 -> 1620687 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.725720Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=5/segment-00000000000000000000.bin.zst with 2022 records (4194500 -> 1619579 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.728608Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=4/segment-00000000000000000000.bin.zst with 2022 records (4194406 -> 1619573 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.756713Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=2/segment-00000000000000002022.bin.zst with 2020 records (4195070 -> 1619696 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.756906Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000002023.bin.zst with 2020 records (4195437 -> 1619484 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.756927Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=3/segment-00000000000000002022.bin.zst with 2020 records (4195467 -> 1620079 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.757071Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=1/segment-00000000000000002022.bin.zst with 2020 records (4195516 -> 1619648 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.757095Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=4/segment-00000000000000002022.bin.zst with 2020 records (4195118 -> 1619793 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.757130Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=5/segment-00000000000000002022.bin.zst with 2020 records (4195260 -> 1619726 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.770100Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=2/segment-00000000000000004042.bin.zst with 958 records (1995864 -> 769437 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.770125Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:2 - 3 segments (reached target offset 5000)
+[2m2026-09-16T05:36:28.770181Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=3/segment-00000000000000004042.bin.zst with 958 records (1996412 -> 769571 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.770185Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:3 - 3 segments (reached target offset 5000)
+[2m2026-09-16T05:36:28.770803Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=0/segment-00000000000000004043.bin.zst with 957 records (1994081 -> 768786 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.770816Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:0 - 3 segments (reached target offset 5000)
+[2m2026-09-16T05:36:28.771421Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=5/segment-00000000000000004042.bin.zst with 958 records (1996180 -> 769807 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.771434Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:5 - 3 segments (reached target offset 5000)
+[2m2026-09-16T05:36:28.771448Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=1/segment-00000000000000004042.bin.zst with 958 records (1996342 -> 769969 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.771459Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:1 - 3 segments (reached target offset 5000)
+[2m2026-09-16T05:36:28.771707Z[0m [32m INFO[0m [2mkafka_backup_core::segment::writer[0m[2m:[0m Wrote segment neg-corrupt/topics/neg-corrupt/partition=4/segment-00000000000000004042.bin.zst with 958 records (1995902 -> 769588 bytes, 2.6x compression)
+[2m2026-09-16T05:36:28.771718Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Completed snapshot backup of neg-corrupt:4 - 3 segments (reached target offset 5000)
+[2m2026-09-16T05:36:28.779363Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Synced offset database to storage: neg-corrupt/offsets.db
+[2m2026-09-16T05:36:28.786434Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Consumer groups snapshot saved (0 groups) to neg-corrupt/consumer-groups-snapshot.json
+[2m2026-09-16T05:36:28.790921Z[0m [32m INFO[0m [2mkafka_backup_core::offset_store::sqlite[0m[2m:[0m Synced offset database to storage: neg-corrupt/offsets.db
+[2m2026-09-16T05:36:28.793956Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m === Performance Metrics ===
+Duration: 0.15s
 Records processed: 30000
-Records/sec: 236294
+Records/sec: 200230
 Bytes written: 22 MB
-Throughput: 180.68 MB/s
+Throughput: 153.11 MB/s
 Compression ratio: 2.59x
 Segments written: 18
 Errors: 0
 
 Checkpoint latency (ms):
-  avg=7.53 p50=7.53 p95=7.53 p99=7.53 max=7.53
+  avg=6.95 p50=6.95 p95=6.95 p99=6.95 max=6.95
 Segment write latency (ms):
-  avg=22.44 p50=24.11 p95=29.25 p99=29.25 max=29.25
+  avg=23.81 p50=28.35 p95=30.90 p99=30.90 max=30.90
 
-[2m2026-09-15T17:55:12.396760Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Snapshot backup completed successfully - all partitions reached their target offsets
-[2m2026-09-15T17:55:12.396786Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
-[2m2026-09-15T17:55:12.396841Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Backup completed successfully
+[2m2026-09-16T05:36:28.793970Z[0m [32m INFO[0m [2mkafka_backup_core::backup::engine[0m[2m:[0m Snapshot backup completed successfully - all partitions reached their target offsets
+[2m2026-09-16T05:36:28.793999Z[0m [32m INFO[0m [2mkafka_backup_core::metrics::server[0m[2m:[0m Metrics server shutting down
+[2m2026-09-16T05:36:28.794044Z[0m [32m INFO[0m [2mkafka_backup::commands::backup[0m[2m:[0m Backup completed successfully

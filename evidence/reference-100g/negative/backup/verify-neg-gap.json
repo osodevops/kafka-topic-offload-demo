@@ -4,61 +4,44 @@
       "contiguous": true,
       "expected_first": 0,
       "expected_last": 9999,
-      "first_offset": 6438,
+      "first_offset": 6437,
       "gaps": [
         {
-          "detected_at": 1789494904614,
-          "end_offset": 6438,
+          "detected_at": 1789536979601,
+          "end_offset": 6437,
           "reason": "offset_out_of_range",
           "start_offset": 0
         }
       ],
       "last_offset": 9999,
       "pruned": [],
-      "records": 3562
+      "records": 3563
     },
     "1": {
       "contiguous": true,
       "expected_first": 0,
       "expected_last": 9999,
-      "first_offset": 6438,
+      "first_offset": 6439,
       "gaps": [
         {
-          "detected_at": 1789494904614,
-          "end_offset": 6438,
+          "detected_at": 1789536979602,
+          "end_offset": 6439,
           "reason": "offset_out_of_range",
           "start_offset": 0
         }
       ],
       "last_offset": 9999,
       "pruned": [],
-      "records": 3562
+      "records": 3561
     },
     "2": {
       "contiguous": true,
       "expected_first": 0,
       "expected_last": 9999,
-      "first_offset": 6440,
-      "gaps": [
-        {
-          "detected_at": 1789494904615,
-          "end_offset": 6440,
-          "reason": "offset_out_of_range",
-          "start_offset": 0
-        }
-      ],
-      "last_offset": 9999,
-      "pruned": [],
-      "records": 3560
-    },
-    "3": {
-      "contiguous": true,
-      "expected_first": 0,
-      "expected_last": 9999,
       "first_offset": 6438,
       "gaps": [
         {
-          "detected_at": 1789494904614,
+          "detected_at": 1789536979601,
           "end_offset": 6438,
           "reason": "offset_out_of_range",
           "start_offset": 0
@@ -67,6 +50,23 @@
       "last_offset": 9999,
       "pruned": [],
       "records": 3562
+    },
+    "3": {
+      "contiguous": true,
+      "expected_first": 0,
+      "expected_last": 9999,
+      "first_offset": 6436,
+      "gaps": [
+        {
+          "detected_at": 1789536979602,
+          "end_offset": 6436,
+          "reason": "offset_out_of_range",
+          "start_offset": 0
+        }
+      ],
+      "last_offset": 9999,
+      "pruned": [],
+      "records": 3564
     },
     "4": {
       "contiguous": true,
@@ -75,7 +75,7 @@
       "first_offset": 6438,
       "gaps": [
         {
-          "detected_at": 1789494904615,
+          "detected_at": 1789536979603,
           "end_offset": 6438,
           "reason": "offset_out_of_range",
           "start_offset": 0
@@ -89,25 +89,25 @@
       "contiguous": true,
       "expected_first": 0,
       "expected_last": 9999,
-      "first_offset": 6436,
+      "first_offset": 6439,
       "gaps": [
         {
-          "detected_at": 1789494904616,
-          "end_offset": 6436,
+          "detected_at": 1789536979602,
+          "end_offset": 6439,
           "reason": "offset_out_of_range",
           "start_offset": 0
         }
       ],
       "last_offset": 9999,
       "pruned": [],
-      "records": 3564
+      "records": 3561
     }
   },
   "group_snapshot": {
     "live": {},
     "snapshot": {}
   },
-  "manifest_sha256": "11556afc906200fd22106c8fd4acb80baaca62cf352567f357db86443ecd4f5a",
+  "manifest_sha256": "5c0773b462ef8801cee3566ae27afee924ce1b9ade28a43a3d676a9f7b4554a9",
   "max_record_bytes": 2049,
   "partitions": {
     "0": {
@@ -116,11 +116,11 @@
       "max_record_bytes": 2049,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 2864649,
+      "object_bytes": 2865529,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 0,
-      "records": 3562,
+      "records": 3563,
       "segments": 2,
       "sha_mismatch": [],
       "size_mismatch": [],
@@ -132,11 +132,11 @@
       "max_record_bytes": 2049,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 2865147,
+      "object_bytes": 2863394,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 1,
-      "records": 3562,
+      "records": 3561,
       "segments": 2,
       "sha_mismatch": [],
       "size_mismatch": [],
@@ -148,11 +148,11 @@
       "max_record_bytes": 2049,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 2863066,
+      "object_bytes": 2864969,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 2,
-      "records": 3560,
+      "records": 3562,
       "segments": 2,
       "sha_mismatch": [],
       "size_mismatch": [],
@@ -164,11 +164,11 @@
       "max_record_bytes": 2049,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 2864393,
+      "object_bytes": 2865759,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 3,
-      "records": 3562,
+      "records": 3564,
       "segments": 2,
       "sha_mismatch": [],
       "size_mismatch": [],
@@ -180,7 +180,7 @@
       "max_record_bytes": 2049,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 2864743,
+      "object_bytes": 2863128,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 4,
@@ -196,11 +196,11 @@
       "max_record_bytes": 2049,
       "missing_sha": 0,
       "non_contiguous": 0,
-      "object_bytes": 2866094,
+      "object_bytes": 2864135,
       "offset_header_mismatch": 0,
       "parse_errors": [],
       "partition": 5,
-      "records": 3564,
+      "records": 3561,
       "segments": 2,
       "sha_mismatch": [],
       "size_mismatch": [],
@@ -212,11 +212,11 @@
   "summary": {
     "backup_id": "neg-gap",
     "bucket": "kafka-backups",
-    "compressed_bytes": 17188092,
+    "compressed_bytes": 17186914,
     "compression_ratio": 2.59,
-    "records": 21372,
+    "records": 21373,
     "segments": 12,
-    "uncompressed_bytes": 44509296,
+    "uncompressed_bytes": 44509838,
     "verify_seconds": 0.2
   },
   "time_window_hazards": 0

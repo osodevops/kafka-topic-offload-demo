@@ -1,201 +1,201 @@
 {
   "differences": [
     {
-      "baseline_count": 24516,
-      "day": "2026-05-31",
+      "baseline_count": 24525,
+      "day": "2026-04-22",
       "partition": 0,
-      "predicted_missing": 96,
-      "restored_count": 24420
+      "predicted_missing": 125,
+      "restored_count": 24400
     },
     {
-      "baseline_count": 24515,
-      "day": "2026-05-31",
+      "baseline_count": 24532,
+      "day": "2026-04-22",
       "partition": 1,
-      "predicted_missing": 111,
-      "restored_count": 24404
+      "predicted_missing": 117,
+      "restored_count": 24415
     },
     {
-      "baseline_count": 24534,
-      "day": "2026-05-31",
+      "baseline_count": 24536,
+      "day": "2026-04-22",
       "partition": 2,
-      "predicted_missing": 123,
-      "restored_count": 24411
+      "predicted_missing": 104,
+      "restored_count": 24432
     },
     {
-      "baseline_count": 24526,
-      "day": "2026-05-31",
+      "baseline_count": 24525,
+      "day": "2026-04-22",
       "partition": 3,
-      "predicted_missing": 123,
-      "restored_count": 24403
+      "predicted_missing": 120,
+      "restored_count": 24405
     },
     {
-      "baseline_count": 24571,
-      "day": "2026-05-31",
+      "baseline_count": 24516,
+      "day": "2026-04-22",
       "partition": 4,
-      "predicted_missing": 130,
-      "restored_count": 24441
+      "predicted_missing": 107,
+      "restored_count": 24409
     },
     {
-      "baseline_count": 24492,
-      "day": "2026-05-31",
+      "baseline_count": 24502,
+      "day": "2026-04-22",
       "partition": 5,
-      "predicted_missing": 88,
-      "restored_count": 24404
+      "predicted_missing": 81,
+      "restored_count": 24421
     }
   ],
   "exact_days": [
     [
-      "2026-05-31"
+      "2026-04-22"
     ],
     [
-      "2026-05-31"
+      "2026-04-22"
     ]
   ],
-  "expected_by_watermarks": 146483,
+  "expected_by_watermarks": 146482,
   "group": null,
   "partitions": {
     "0": {
-      "count": 24420,
+      "count": 24400,
       "decode_errors": [],
       "duplicate_offset_headers": 0,
       "event_time_mismatch": 0,
-      "high": 24420,
+      "high": 24400,
       "low": 0,
       "missing_header": 0,
-      "n": 24420,
+      "n": 24400,
       "non_create": 0,
       "not_increasing": 0,
       "outside_window": 0,
       "partition": 0,
-      "prev": 6334441,
+      "prev": 5365265,
       "probe": {},
       "samples": 500,
       "schema_ids": {
-        "4": 24420
+        "3": 24400
       },
       "source_partition_mismatch": 0,
       "ts_header_mismatch": 0
     },
     "1": {
-      "count": 24404,
+      "count": 24415,
       "decode_errors": [],
       "duplicate_offset_headers": 0,
       "event_time_mismatch": 0,
-      "high": 24404,
+      "high": 24415,
       "low": 0,
       "missing_header": 0,
-      "n": 24404,
+      "n": 24415,
       "non_create": 0,
       "not_increasing": 0,
       "outside_window": 0,
       "partition": 1,
-      "prev": 6333974,
+      "prev": 5364624,
       "probe": {},
       "samples": 500,
       "schema_ids": {
-        "4": 24404
+        "3": 24415
       },
       "source_partition_mismatch": 0,
       "ts_header_mismatch": 0
     },
     "2": {
-      "count": 24411,
+      "count": 24432,
       "decode_errors": [],
       "duplicate_offset_headers": 0,
       "event_time_mismatch": 0,
-      "high": 24411,
+      "high": 24432,
       "low": 0,
       "missing_header": 0,
-      "n": 24411,
+      "n": 24432,
       "non_create": 0,
       "not_increasing": 0,
       "outside_window": 0,
       "partition": 2,
-      "prev": 6333974,
+      "prev": 5365435,
       "probe": {},
       "samples": 500,
       "schema_ids": {
-        "4": 24411
+        "3": 24432
       },
       "source_partition_mismatch": 0,
       "ts_header_mismatch": 0
     },
     "3": {
-      "count": 24403,
+      "count": 24405,
       "decode_errors": [],
       "duplicate_offset_headers": 0,
       "event_time_mismatch": 0,
-      "high": 24403,
+      "high": 24405,
       "low": 0,
       "missing_header": 0,
-      "n": 24403,
+      "n": 24405,
       "non_create": 0,
       "not_increasing": 0,
       "outside_window": 0,
       "partition": 3,
-      "prev": 6333974,
+      "prev": 5364624,
       "probe": {},
       "samples": 500,
       "schema_ids": {
-        "4": 24403
+        "3": 24405
       },
       "source_partition_mismatch": 0,
       "ts_header_mismatch": 0
     },
     "4": {
-      "count": 24441,
+      "count": 24409,
       "decode_errors": [],
       "duplicate_offset_headers": 0,
       "event_time_mismatch": 0,
-      "high": 24441,
+      "high": 24409,
       "low": 0,
       "missing_header": 0,
-      "n": 24441,
+      "n": 24409,
       "non_create": 0,
       "not_increasing": 0,
       "outside_window": 0,
       "partition": 4,
-      "prev": 6334619,
+      "prev": 5365452,
       "probe": {},
       "samples": 500,
       "schema_ids": {
-        "4": 24441
+        "3": 24409
       },
       "source_partition_mismatch": 0,
       "ts_header_mismatch": 0
     },
     "5": {
-      "count": 24404,
+      "count": 24421,
       "decode_errors": [],
       "duplicate_offset_headers": 0,
       "event_time_mismatch": 0,
-      "high": 24404,
+      "high": 24421,
       "low": 0,
       "missing_header": 0,
-      "n": 24404,
+      "n": 24421,
       "non_create": 0,
       "not_increasing": 0,
       "outside_window": 0,
       "partition": 5,
-      "prev": 6334551,
+      "prev": 5365234,
       "probe": {},
       "samples": 500,
       "schema_ids": {
-        "4": 24404
+        "3": 24421
       },
       "source_partition_mismatch": 0,
       "ts_header_mismatch": 0
     }
   },
   "passed": false,
-  "predicted_missing_total": 671,
-  "records": 146483,
+  "predicted_missing_total": 654,
+  "records": 146482,
   "schema_ids": [
-    4
+    3
   ],
   "seconds": 2.3,
   "target_topic": "device-telemetry-neg-window",
   "unexplained": [],
-  "window_end": 1780271999999,
-  "window_start": 1780185600000
+  "window_end": 1776902399999,
+  "window_start": 1776816000000
 }

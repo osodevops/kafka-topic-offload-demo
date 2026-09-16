@@ -1,13 +1,13 @@
- Container offload-verifier-run-ff837fe724d6 Creating 
- Container offload-verifier-run-ff837fe724d6 Created 
+ Container offload-verifier-run-9787fcdb3ab4 Creating 
+ Container offload-verifier-run-9787fcdb3ab4 Created 
 GATE backup.manifest_covers_log_start_to_high_watermark: PASS - 30,000 records in 18 segments
 GATE backup.manifest_no_gaps_or_pruned: PASS
 GATE backup.topic_config_captured: PASS - retention.ms=-1 partitions=6
-[17:55:15] verify-backup p0: 3 objects, 0 records
-[17:55:15] verify-backup p4: 3 objects, 0 records
-[17:55:15] verify-backup p5: 3 objects, 0 records
-[17:55:15] verify-backup p1: 3 objects, 0 records
-[17:55:15] verify-backup p3: 3 objects, 0 records
-[17:55:15] verify-backup p2: 3 objects, 0 records
+[05:36:31] verify-backup p2: 3 objects, 0 records
+[05:36:31] verify-backup p0: 3 objects, 0 records
+[05:36:31] verify-backup p1: 3 objects, 0 records
+[05:36:31] verify-backup p4: 3 objects, 0 records
+[05:36:31] verify-backup p5: 3 objects, 0 records
+[05:36:31] verify-backup p3: 3 objects, 0 records
 GATE backup.object_sha256_matches_manifest: FAIL - 18 objects, 0.02 GB hashed
 

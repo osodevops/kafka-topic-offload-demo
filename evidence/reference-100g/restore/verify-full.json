@@ -2,10 +2,10 @@
   "differences": [],
   "exact_days": [
     [
-      "2025-09-15"
+      "2025-09-16"
     ],
     [
-      "2026-09-15"
+      "2026-09-16"
     ]
   ],
   "expected_by_watermarks": 53687091,
@@ -212,7 +212,7 @@
     3,
     4
   ],
-  "seconds": 76.9,
+  "seconds": 77.0,
   "target_topic": "device-telemetry-full",
   "unexplained": [],
   "window_end": null,
